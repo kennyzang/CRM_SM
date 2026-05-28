@@ -1,0 +1,6 @@
+# Local editor config
+.obsidian/
+
+# Temp files
+*.tmp
+*.swp
