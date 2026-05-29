@@ -1,11 +1,11 @@
 ---
 title: PL Entity (Profit & Loss / Price List)
 created: 2026-04-22
-updated: 2026-05-27
+updated: 2026-05-29
 type: entity
 tags: [pl, opportunity, quote, test/create, test/process]
 sources: [raw/articles/business-blueprint-v1.md, oss/P&L Creation.mp4, oss/New P&L management.mp4]
-related: [[opportunity]], [[quote]], [[so]], [[widget-special-controls]]
+related: [[opportunity]], [[quote]], [[so]], [[widget-special-controls]], [[pitfall-log]]
 ---
 
 # PL Entity (Profit & Loss / Price List)
@@ -117,7 +117,72 @@ Category tabs: **Software** | **Hardware** | **Prof Service** | **Reimbursement*
 - Grid columns: Checkbox, ID, Product Name, Product Code, Description/Spec, Category, Currency, Cost/Base Price, Selling Price
 - Bulk actions: Batch Delete, Off Sale, On Sale
 
-## Video-Confirmed Updates [V] — from "New P&L management.mp4" (2026-05-27)
+## Audio-Confirmed Updates [A] — from "P&L Creation.mp4" + "New P&L management.mp4" (2026-05-29, with STT)
+
+### Multi-User Collaboration [A]
+- In Securemetric's case, multiple people create/edit P&L simultaneously
+- Typical flow: Sales rep creates P&L → passes to Solution Architect → Solution Architect improves → passes back to Sales rep
+- **Planned feature**: ability to select any org member to assign P&L form for collaborative editing
+
+### Category Tabs Evolution
+**Old version (P&L Creation.mp4):** Software SM Products | 3rd Party Software | Hardware | 3rd Party Hardware | Prof Service | Reimbursement | Others
+**New version (New P&L management.mp4):** Overview | Software(n) | Hardware(n) | Hardware Renew(n) | Services(n) | Reimbursement(n) | Others
+
+### Bugs Confirmed via Audio [A]
+
+| # | Bug | Video | Status |
+|---|-----|-------|--------|
+| 1 | **Software products not selectable in P&L** — only Principal = Securemetric products can be selected in Software section; third-party software products are filtered out | P&L Creation | ⚠️ Known |
+| 2 | **Opportunity products don't auto-fill in P&L** — when selecting an opportunity, the product line should auto-populate with products from the opportunity, but stays empty | P&L Creation | ⚠️ Known |
+| 3 | **Product carryover misses software items** — when creating new P&L from opportunity with 3 products, only 2 carry over (software product is missing) | New P&L management | ⚠️ Known |
+| 4 | **Reimbursement has incorrect selling price field** — reimbursement should only have cost (pass-through), but the form shows selling price too | P&L Creation | ⚠️ Known |
+| 5 | **Third-party product filter not scoped to entity/opportunity** — when selecting third-party software, shows ALL products in system instead of filtering by entity (SCMY) and opportunity | P&L Creation | ⚠️ Known |
+| 6 | **Services lacks markup field** — unit price equals cost, no markup can be applied, meaning 0% margin always | New P&L management | ⚠️ Known |
+| 7 | **Reimbursement total cost = 0 when quantity not specified** — calculation error: total cost should be unit cost × quantity, but shows 0 until quantity is entered | New P&L management | ⚠️ Known |
+
+### Financial Calculation Clarifications [A]
+- **Margin formula**: `Expected Profit / Total Selling Price × 100` (this is Gross Margin, NOT Markup)
+- **Markup formula**: `(Markup Price - List Price) / List Price × 100`
+- **Profit formula**: `Total Selling Price - Total Cost`
+- All figures auto-calculate; **testing must verify every single figure** (explicitly stated in video)
+
+### Global Discount Behavior [A]
+- **Toggle ON**: Global discount applies to ALL line items automatically
+- **Toggle OFF**: Individual line item discount fields appear, allowing different discount per product
+- This provides flexibility: uniform discount vs. per-product discount
+
+### Reimbursement Logic [A]
+- Reimbursement is for pass-through costs (flights, accommodation, taxi)
+- Should only have cost (no markup typically), but form allows selling price for markup to client
+- Example: actual flight cost 300, sell at 400 → profit 100, margin 33.3%
+
+### Approval Workflow Conditions [A]
+1. If **any line item margin < target margin** → route to Sales Team Supervisor
+2. If **all line items margin ≥ target margin** → auto-approve
+3. **Key Products condition**: If key products included → route to Sales Team Supervisor (not yet configured)
+
+### Version Control [A]
+- When P&L is submitted and approved, it becomes a fixed version
+- **Only the latest P&L version is active** — historical versions are deactivated
+- "Copy New" button: most convenient way to create new version (copies all data from current)
+- "New Quotation" button: creates quotation directly from approved P&L
+
+### Sidebar Edit Mode (New UI) [A]
+- Click "Edit" on a line item → sidebar opens with all fields
+- More convenient than inline table editing
+- Fields: Product, Markup %, Quantity, Note, and auto-calculated fields
+- Changes apply immediately upon save
+
+### Currency Switching [A]
+- Currency dropdown at header level (e.g., USD ↔ MYR)
+- Switching currency recalculates ALL figures (costs, prices, margins)
+- Currency auto-carries from opportunity but can be overridden
+
+### Product Master Data Flow [A]
+- List price auto-carries from Product Catalog to P&L
+- Cost per unit auto-carries from Product Catalog
+- Target margin auto-carries from Product Catalog (visible in product detail page)
+- Currency defaults to opportunity currency
 
 ### Tab Navigation (7 tabs with item count badges)
 **Overview** | **Software** (badge) | **Hardware** (badge) | **Hardware Renew** (badge) | **Services** (badge) | **Reimbursement** (badge) | **Others**
@@ -244,5 +309,13 @@ From Business Blueprint V2, page 28:
 
 1. **No dedicated page object yet**: PL module is not yet implemented in the test suite.
 2. **Test coverage**: 0%.
-3. **UI Typo**: "Delet" instead of "Delete" in P&L product row actions.
+3. **UI Typo**: "Delet" instead of "Delete" in P&L product row actions (old version).
 4. **Session expiry**: "app usage time has expired" error page observed during recording.
+5. **Software products not selectable** — only Principal = Securemetric products show in Software section; third-party software filtered out (audio-confirmed).
+6. **Opportunity products don't auto-fill** — product line stays empty when opportunity selected (audio-confirmed).
+7. **Product carryover misses software** — creating P&L from opportunity misses software products (audio-confirmed).
+8. **Reimbursement has selling price field** — should only have cost for pass-through (audio-confirmed).
+9. **Third-party product filter not scoped** — shows all system products instead of filtering by entity/opportunity (audio-confirmed).
+10. **Services lacks markup** — unit price equals cost, 0% margin always (audio-confirmed).
+11. **Reimbursement total cost = 0** — calculation error when quantity not specified (audio-confirmed).
+12. **Approval workflow not configured** — blueprint specifies margin-based routing but workflow is not yet set up (audio-confirmed).

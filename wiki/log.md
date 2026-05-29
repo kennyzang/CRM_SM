@@ -405,3 +405,73 @@
   - Updated total pages: 24 → 25
   - Updated total sources: 12 → 14 videos
 
+---
+
+## [2026-05-29] decision | Video processing limitation & Requirement meeting.mp4 skip
+
+- **Known limitation**: Current video-to-wiki pipeline only extracts visual frames via ffmpeg + vision_analyze. **No audio/voice recognition capability** — cannot transcribe speech from meeting recordings, requirement discussions, or voiceover tutorials.
+- **Decision**: Skip `Requirement meeting.mp4` (358.7 MB) on OSS. This file is a requirement meeting recording where core content is in speech, not visual UI. Current pipeline cannot extract useful knowledge from it.
+- **Future action**: User will provide an audio recognition solution (STT/whisper integration) before processing meeting-type videos.
+- **Rule**: Meeting recordings / voiceover tutorials → skip until STT pipeline is added. UI operation screencasts → process as normal.
+
+---
+
+## [2026-05-29] update | DashScope Paraformer STT integration — fully tested
+
+- **Provider**: DashScope Paraformer v2 (`paraformer-v2`)
+- **API Key**: `sk-6cec03959a3b4e89818af7852d42c1bd` (from `~/.hermes/.env`)
+- **Cost**: Free tier, no separate service activation needed
+- **Test result**: ✅ Successfully transcribed Chinese audio: `"Hello word, 这里是阿里巴巴语音实验室。"`
+- **Complete workflow verified**:
+  1. `ffmpeg` extract audio from video → 16kHz mono WAV
+  2. `Files.upload()` upload audio to DashScope → get managed file URL
+  3. `Transcription.call(model='paraformer-v2', file_urls=[url])` → async task
+  4. Poll task_id until `SUCCEEDED`
+  5. Fetch `transcription_url` from results → download JSON
+  6. Extract `transcripts[0].text` → final transcript
+- **Alibaba NLS fallback**: Token API returns `40020503 No permission!` — AccessKey lacks NLS service. Paraformer is the working solution.
+- **Updated skill**: `video-to-wiki-ingestion` updated with STT workflow and pitfalls
+- **Next step**: Process `Requirement meeting.mp4` with full video+audio pipeline when ready
+
+---
+
+## [2026-05-29] ingest | P&L module re-analysis with STT — 2 videos re-processed with audio
+
+- **Videos processed**: P&L Creation.mp4 (26.9 min, 12106 chars transcript) + New P&L management.mp4 (22.2 min, 10383 chars transcript)
+- **New knowledge from audio (7 bugs confirmed)**:
+  - Software products not selectable in P&L (Principal filter issue)
+  - Opportunity products don't auto-fill in P&L product line
+  - Product carryover misses software items (only 2 of 3 carried)
+  - Reimbursement incorrectly shows selling price field (should be cost-only)
+  - Third-party product filter not scoped to entity/opportunity
+  - Services section lacks markup field (0% margin always)
+  - Reimbursement total cost = 0 when quantity not specified
+- **New knowledge from audio (8 clarifications)**:
+  - Multi-user collaboration workflow (Sales rep ↔ Solution Architect)
+  - Margin formula clarified: Expected Profit / Total Selling Price × 100
+  - Global discount toggle behavior (ON = all items, OFF = per-item)
+  - Reimbursement logic (pass-through costs with optional markup)
+  - Approval workflow conditions (margin < target → supervisor)
+  - Version control rules (only latest version active)
+  - Sidebar edit mode (new UI vs inline table editing)
+  - Currency switching recalculates all figures
+  - Product Master data flow (list price, cost, target margin auto-carry)
+- **Wiki updated**: `entities/pl.md` — added "Audio-Confirmed Updates [A]" section with 7 bugs + 8 clarifications, expanded Known Issues from 4 to 12 items
+- **Provenance**: [A] = audio-confirmed (with transcript), [V] = video-confirmed (visual only)
+
+---
+
+## [2026-05-29] update | Test plans + Archive for P&L
+
+- **phase-1.md**: Added PL module row (0% coverage)
+- **phase-2.md**: Added 15 new test cases:
+  - 7 bug regression tests (TC-P015 ~ TC-P021)
+  - 8 business logic tests (TC-P022 ~ TC-P029)
+  - Updated technical challenges section with audio-confirmed findings
+  - Updated date to 2026-05-29
+- **Archive created**: `wiki/raw/pl-video-archive.md` + transcripts + key frames
+  - Transcripts: 2 files (22 KB total) → `wiki/raw/transcripts/`
+  - Key frames: 24 images (4.4 MB total) → `wiki/raw/raw-frames/`
+  - Videos + audio remain in `/tmp/` (temporary)
+- **index.md**: Added link to pl-video-archive
+

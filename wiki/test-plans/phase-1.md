@@ -25,8 +25,10 @@ related: [[test-plan-phase-2]], [[lead]], [[contact]], [[customer]], [[product]]
 | Customer | 100% | 0% | 0% | ~33% |
 | Product | 100% | 0% | 0% | ~33% |
 | Opportunity | 100% | 0% | 0% | ~33% |
+| PL | 0% | 0% | 0% | 0% |
 
 > Note: "Create" means TC-001/002/003 passed, but boundary cases are not yet covered.
+> PL module has 0% coverage — no Page Object or test cases exist yet (as of 2026-05-29).
 
 ---
 

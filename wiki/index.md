@@ -61,6 +61,7 @@ tags: [tool/wiki]
 
 - [[raw/articles/crm-user-manual-v1]] — CRM User Manual V1: Lead/Customer/Contact/Opportunity/Quote operations, control type summary
 - [[raw/articles/business-blueprint-v1]] — Business Blueprint V1: 5 design principles, P&L flow, org structure, Blueprint vs Manual differences
+- [[raw/pl-video-archive]] — P&L video processing archive: 2 videos, 2 transcripts, 24 key frames (2026-05-29)
 
 ## Processed Video Sources
 
