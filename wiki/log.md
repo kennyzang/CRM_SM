@@ -475,3 +475,36 @@
   - Videos + audio remain in `/tmp/` (temporary)
 - **index.md**: Added link to pl-video-archive
 
+## [2026-06-04] ingest | OSS Video STT Batch Processing — 14 videos
+
+- **Source**: 14 videos from OSS `easycraft-securemetric` bucket (ap-southeast-3)
+- **Pipeline**: Download → ffmpeg extract audio → upload to OSS → signed URL → DashScope Paraformer-v2 STT
+- **Total**: 14 transcripts, ~93,000 characters, saved to `wiki/raw/transcripts-oss/`
+- **Videos processed**: contact_lead_creation, contract_payment_schedule, lead_conversion_queue_task, lead_import, lead_management, new_pl_management, opportunity_management, pi, pl_creation, po_so_creation, quotation, quotation_template_discussion, quotation_v2, sales_order_v2
+- **Audio files**: Uploaded to OSS `stt-audio/` prefix
+- **Key knowledge confirmed**: Multi-user P&L collaboration (Sales rep ↔ Solution Architect), global discount ON/OFF behavior, approval routing conditions (margin < target → supervisor), margin vs markup distinction, 7 P&L category tabs with badges, SO 9-tab navigation, embedded Payment Schedule with revenue split, Circulate workflow, Invoice Application Project/Milestone billing
+
+## [2026-06-04] update | Screenshots added to user manuals
+
+- **14 videos processed**: Extracted ~900+ frames, verified 11 key screenshots via vision_analyze
+- **New screenshots added to wiki/assets/**: contact-001/002, lead-001~008, opportunity-001 (11 new)
+- **Total assets**: 40 screenshots (lead: 8, contact: 2, opportunity: 1, pl: 9, quote: 5, so-v2: 7, ir: 7)
+- **HTML manuals updated**: lead-manual-zh.html (8 screenshots), contact-manual-zh.html (2), opportunity-manual-zh.html (1)
+- **Image pipeline**: ffmpeg fps=1/15 → raw-frames → vision_analyze → assets/ → markdown references → generate.py
+- **English manuals**: Screenshots not yet added (pending)
+
+## [2026-06-04] update | More screenshots added + HTML regenerated
+
+- **New screenshots**: quotation-001 (Quotation Create form), quotation-002 (Quotation foot section with T&C and signature)
+- **Updated manuals**: quotation-manual-zh.html (2 screenshots), lead-manual-en.html (3 screenshots)
+- **Total assets**: 42 screenshots in wiki/docs/output/assets/
+- **Total screenshots per manual**:
+  - lead-manual-zh: 8, lead-manual-en: 3
+  - contact-manual-zh: 2, contact-manual-en: 0
+  - opportunity-manual-zh: 1, opportunity-manual-en: 0
+  - pl-quotation (zh/en): 13 each
+  - quotation-manual-zh: 2, quotation-manual-en: 0
+  - sales-order-v2 (zh/en): 7 each
+  - invoice-application (zh/en): 7 each
+- **HTTP server**: Running on http://localhost:8080
+

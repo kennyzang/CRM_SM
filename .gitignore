@@ -1,0 +1,8 @@
+# Large raw files - keep local only
+wiki/raw/
+wiki/raw-frames/
+wiki/docs/
+
+# OS files
+.DS_Store
+Thumbs.db
