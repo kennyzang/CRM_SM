@@ -1,14 +1,21 @@
 ---
-title: PL Entity (Profit & Loss / Price List)
+title: P&L Entity (Profit & Loss)
 created: 2026-04-22
-updated: 2026-05-29
+updated: 2026-06-04
 type: entity
 tags: [pl, opportunity, quote, test/create, test/process]
 sources: [raw/articles/business-blueprint-v1.md, oss/P&L Creation.mp4, oss/New P&L management.mp4]
 related: [[opportunity]], [[quote]], [[so]], [[widget-special-controls]], [[pitfall-log]]
 ---
 
-# PL Entity (Profit & Loss / Price List)
+# P&L Entity (Profit & Loss)
+
+## Naming Rule
+
+> **对外（客户/文档）统一叫 P&L**，不叫 PL。PL 只是目录/文件/代码中的缩写。
+> - 客户视角：P&L（Profit & Loss，损益表）
+> - 代码/文件：`pl.md`、`pl.spec.ts`、`mk_km_ltc_pl.json`（技术缩写保持不变）
+> - Wiki 正文：首次出现写全称 "P&L (Profit & Loss)"，后续统一用 P&L
 
 ## Overview
 

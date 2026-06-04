@@ -23,13 +23,13 @@ Hello. Before addressing any of my questions, please complete the following acti
 Read these three files in order to build full context of the project:
 
 1. Wiki Schema (domain rules)
-   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/CRM-Securemetric/wiki/SCHEMA.md`
+   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/crm-test-securemetric/wiki/SCHEMA.md`
 
 2. Wiki Index (knowledge directory)
-   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/CRM-Securemetric/wiki/index.md`
+   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/crm-test-securemetric/wiki/index.md`
 
 3. Wiki Recent Log (recent activity, last 20-30 lines)
-   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/CRM-Securemetric/wiki/log.md`
+   Path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/crm-test-securemetric/wiki/log.md`
 
 ### 2. Report Learning Results
 
@@ -69,7 +69,7 @@ Based on [[entity-page]] and [[widget-page]]:
 
 ### 5. LLM Wiki Boundaries
 
-- Wiki path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/CRM-Securemetric/wiki`
+- Wiki path: `/Users/xiex/Documents/GIT/OVERSEABU/Test/crm-test-securemetric/wiki`
 - If information is not in the Wiki, say: "This knowledge is not yet in the Wiki. Should I add it?"
 - If Wiki content conflicts with external info, trust the Wiki (it is digested knowledge)
 

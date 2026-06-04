@@ -58,7 +58,7 @@ related: [[page-name]]
 - `product` — Product module
 - `opportunity` — Opportunity module
 - `quote` — Quote / Quotation module
-- `pl` — PL (Product License / Price List) module
+- `pl` — P&L (Profit & Loss) module. Shown as "P&L" to customers; `pl` is internal abbreviation only.
 - `so` — SO (Sales Order) module
 - `process` — Process / workflow transition
 - `permission` — Permission / access control

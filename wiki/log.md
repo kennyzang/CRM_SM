@@ -40,7 +40,7 @@
 - **Action**: Translated ALL wiki pages from Chinese to English, restructured, and enriched with code analysis
 - **New entity pages created**:
   - `entities/quote.md` — Quote/Quotation module (P&L-generated, read-only, version-locked)
-  - `entities/pl.md` — PL (Price List) module (pricing engine, approval workflow)
+  - `entities/pl.md` — P&L (Profit & Loss) module (pricing engine, approval workflow)
   - `entities/so.md` — SO (Sales Order) module (milestone-driven invoicing)
 - **Pages rewritten in English**:
   - `SCHEMA.md` — Added language policy, updated tag taxonomy with new modules (quote, pl, so, pool)
@@ -463,7 +463,7 @@
 
 ## [2026-05-29] update | Test plans + Archive for P&L
 
-- **phase-1.md**: Added PL module row (0% coverage)
+- **phase-1.md**: Added P&L module row (0% coverage)
 - **phase-2.md**: Added 15 new test cases:
   - 7 bug regression tests (TC-P015 ~ TC-P021)
   - 8 business logic tests (TC-P022 ~ TC-P029)
@@ -508,3 +508,67 @@
   - invoice-application (zh/en): 7 each
 - **HTTP server**: Running on http://localhost:8080
 
+## [2026-06-04] archive | Deprecated 3 outdated Playwright test knowledge pages
+
+- **Archived (renamed to -DEPRECATED.md)**:
+  - `hermes-test-system-prompt.md` — Was based on pytest + Python framework. Current project uses Playwright + TS Schema-Driven architecture.
+  - `prompt-templates.md` — Referenced non-existent files (FormEngine.ts, lead.fields.ts). Described Registry 4-layer model, not Schema → FillerFactory → FormTestBuilder.
+  - `best-practices-create-form.md` — Described Layer 1-4 Registry model (812 lines), completely mismatched with current architecture.
+- **Path update**: `hermes-wiki-prompt.md` — Updated all Wiki paths from `CRM-Securemetric/wiki` → `crm-test-securemetric/wiki`
+- **index.md**: Removed references to archived pages, updated total count
+- **Wiki migration note**: Wiki primary path moved from `CRM-Securemetric/wiki` to `crm-test-securemetric/wiki`, fallback to original preserved
+
+## [2026-06-04] rule | P&L naming convention — customer-facing must use "P&L", not "PL"
+
+- **Rule**: 对外（客户/文档/测试描述/页面标题）统一叫 **P&L**（Profit & Loss），不叫 PL
+- **代码/文件保持不变**: `pl.md`、`pl.spec.ts`、`mk_km_ltc_pl.json` 等技术缩写不变
+- **Updated files**:
+  - `entities/pl.md` — Title changed to "P&L Entity (Profit & Loss)", added Naming Rule section
+  - `SCHEMA.md` — Module description corrected from "PL (Product License / Price List)" to "P&L (Profit & Loss)"
+  - `index.md` — Entity entry changed from "PL module" to "P&L module"
+  - `test-plans/phase-1.md` — Table and note updated from PL → P&L
+  - `pitfalls/pitfall-log.md` — Added Rules & Conventions section with P&L naming rule
+  - `log.md` — Historical references corrected from PL → P&L
+
+## [2026-06-04] schema | Generated opportunity + product schemas + created collection + delivery entity pages
+
+- **Schema generated (via generate-schemas.spec.ts)**:
+  - `mk_km_ltc_business.json` → Opportunity (商机): 34 fields + 2 detail tables (products table + contacts table). formId confirmed as `mk_km_ltc_business` (CRM model name).
+  - `mk_km_ltc_new_product.json` → Product (产品): 27 fields, 0 detail tables. formId: `mk_km_ltc_new_product`.
+- **Wiki entity pages updated**:
+  - `entities/product.md` — Rewritten with 27-field schema-driven Field Registry. Old Page Object references removed.
+- **Wiki entity pages created**:
+  - `entities/collection.md` — NEW: 16 fields, finance confirmation workflow, bank receipt attachment.
+  - `entities/delivery.md` — NEW: 19 fields, SO-linked shipment tracking, courier info.
+- **index.md** — Updated entity entries for product/opportunity with schema info, added collection and delivery, page count ~42 → ~46.
+- **generate-schemas.spec.ts** — Added Opportunity and Product modules to MODULES array.
+- **Schema ↔ Wiki mapping**:
+  | Schema | Wiki Entity | Fields |
+  |--------|------------|--------|
+  | mk_ltc_lead.json | lead | 65 |
+  | mk_km_ltc_contacts.json | contact | ✅ exists |
+  | mk_km_ltc_customer.json | customer | 41 |
+  | mk_km_ltc_business.json | opportunity | 34 + 2 detail tables |
+  | mk_km_ltc_new_product.json | product | 27 |
+  | mk_km_ltc_pl.json | P&L | 19 |
+  | mk_km_ltc_quotation.json | quote | 47 |
+  | mk_km_ltc_sales_orders.json | so | 49 |
+  | mk_model_po.json | po | 13 |
+  | mk_ltc_contract.json | contract | 12 |
+  | mk_ltc_delievery.json | delivery | 19 |
+  | mk_km_ltc_invoicing.json | invoice-application | 52 |
+  | mk_km_ltc_collection.json | collection | 16 |
+  | mk_ltc_delievery.json | delivery | 19 |
+
+## [2026-06-04] create | User manuals generated for 6 new modules
+
+- **New user manual files (12 total, EN + ZH)**:
+  - `customer-manual-en.md` / `customer-manual-zh.md` — Customer account management, public pool, joint followers, address detail table
+  - `po-manual-en.md` / `po-manual-zh.md` — PO entry, Quotation auto-population, approval workflow, PO→SO prerequisite
+  - `contract-manual-en.md` / `contract-manual-zh.md` — Contract fields, reminder sub-table, file sync to Customer 360
+  - `payment-schedule-manual-en.md` / `payment-schedule-manual-zh.md` — Receivable tracking, PP-ID format, 50/50 split, completion % → Invoice trigger
+  - `collection-manual-en.md` / `collection-manual-zh.md` — Customer payment collection, finance confirmation, bank receipt upload
+  - `delivery-manual-en.md` / `delivery-manual-zh.md` — Shipment tracking, courier details, MYR freight management
+- **generate.py**: Added 6 new module entries to MODULES dict
+- **HTML regenerated**: 26 manuals + index.html + search-index.json (26 entries)
+- **Total user manuals**: 13 modules (was 7)

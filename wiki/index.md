@@ -10,7 +10,7 @@ tags: [tool/wiki]
 
 > Table of contents. Each Wiki page listed by type with a one-line summary.
 > Language: **English** (CRM system official language). Any Chinese UI text is a defect.
-> Last updated: 2026-05-28 | Total pages: 25 | Sources: 2 manuals + 14 videos
+> Last updated: 2026-06-04 | Total pages: ~46 | Sources: 2 manuals + 14 videos + schema-driven
 
 ---
 
@@ -19,15 +19,17 @@ tags: [tool/wiki]
 - [[lead]] — Lead module: data-tid field map, Deal Category modal, Customer Type radio, Principal Allocation table, 8-currency amount ranges, **Lead Import**, **Lead Conversion (3-step wizard)**, **Lead Queue config**, **Task Management** (NEW from videos)
 - [[contact]] — Contact module: field registry, gender no-tid handling, window.close pitfall, relation to Customer
 - [[customer]] — Customer module: Public Pool rules (60-day), Address detail table, joint follower, multi-country sharding
-- [[product]] — Product module: Principal relation modal, Target Margin formatting, error page reload handling
-- [[opportunity]] — Opportunity module: P&L-driven quoting, stage pipeline, approval workflow, version locking, **video-confirmed 5-stage pipeline**, **ownership transfer**, **service team** (NEW from video)
+- [[product]] — Product module: **27 fields from schema**, Principal relation, Cost/List Price/Target Margin, Stock management, Product Status, 5 product types (NEW: schema-driven field registry)
+- [[opportunity]] — Opportunity module: **34 fields + 2 detail tables from schema** (mk_km_ltc_business), P&L-driven quoting, stage pipeline, approval workflow, version locking, **video-confirmed 5-stage pipeline**, **ownership transfer**, **service team** (NEW from video)
 - [[quote]] — Quote module: P&L-generated document, version-locked, **video-confirmed full field registry**, Excel template export, tax calculation, approval workflow, Excel Editor modal, **slide-over panel creation**, **rich text editors (T&C + Acceptance)**, **PDF Preview modal**, **digital signature preview**, **download behavior** (NEW from video)
 - [[po]] — PO module (NEW): customer purchase order capture, auto-population from Quotation, mandatory PO file upload, Product Details table, approval sidebar (NEW from video)
 - [[so]] — SO module: order entry, **video-confirmed full field registry**, milestone-driven Payment Schedule table, VDP section, footer/approval fields, data inheritance pipeline (NEW from video)
-- [[pl]] — PL module: pricing engine, cost/margin calculation, approval workflow, **P&L creation process**, **5 product categories**, **PS hierarchy**, **approval sidebar**, **7 category tabs with badges**, **financial KPI cards**, **Select Product modal**, **SM/3rd Party Team tables**, **multi-year view (Year 1-3 RENEW)**, **margin validation warnings**, **cloning capability** (NEW from video)
+- [[pl]] — P&L module: pricing engine, cost/margin calculation, approval workflow, **P&L creation process**, **5 product categories**, **PS hierarchy**, **approval sidebar**, **7 category tabs with badges**, **financial KPI cards**, **Select Product modal**, **SM/3rd Party Team tables**, **multi-year view (Year 1-3 RENEW)**, **margin validation warnings**, **cloning capability** (NEW from video)
 - [[contract]] — Contract module (NEW): linked to SO, expiry reminders with user notification, file sync to Customer 360, auto-generated Contract ID (NEW from video)
 - [[payment-schedule]] — Payment Schedule module (NEW): A/R tracking, payment milestones (Down/Progress/Final), Billing Detail sub-tab, drawer modal details, financial summary cards, **embedded in SO Create with Product Info revenue split logic**, **Select Record modal for Invoice Application**, **Completion % management**, **Change Completion % action**, **System Information audit trail** (NEW from video)
 - [[invoice-application]] — Invoice Application module (NEW): Post-sales revenue collection, Project/Milestone billing types, auto-generated IR IDs, SO dependency, line item auto-population, milestone-based Payment Schedule lookup, PDF Preview/Export, Process Approvals sidebar with digital signature (NEW from video)
+- [[collection]] — Collection module (NEW): Customer payment tracking, finance confirmation workflow, bank receipt attachment, **16 fields from schema** (NEW from schema generation)
+- [[delivery]] — Delivery module (NEW): Shipment tracking linked to SO, courier info, weight/cost tracking, **19 fields from schema** (NEW from schema generation)
 
 ---
 

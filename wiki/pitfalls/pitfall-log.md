@@ -213,6 +213,22 @@ related: [[widget-special-controls]], [[lead]], [[contact]], [[customer]], [[quo
 
 ---
 
+## Rules & Conventions
+
+### Naming: P&L vs PL
+
+> **对外（客户/文档/测试用例/页面标题）统一叫 P&L**，不叫 PL。
+> - 客户视角：P&L（Profit & Loss，损益表）
+> - 代码/文件：`pl.md`、`pl.spec.ts`、`mk_km_ltc_pl.json`（技术缩写保持不变）
+> - Wiki 正文：首次出现写 "P&L (Profit & Loss)"，后续统一用 P&L
+> - 测试用例命名：`test_pl.spec.ts`、`crm-pl.spec.ts` 保持缩写，但注释和描述用 P&L
+>
+> **原因**：PL 容易与 Product License、Price List 混淆。CRM 系统本身在 UI 上也使用 "P&L" 标签。
+>
+> **Date**: 2026-06-04
+
+---
+
 ## Unresolved
 
 (To be filled as testing discovers new issues)
