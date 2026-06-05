@@ -1,10 +1,10 @@
 ---
 title: SO Entity (Sales Order)
 created: 2026-04-22
-updated: 2026-04-28
+updated: 2026-06-05
 type: entity
 tags: [so, quote, process, test/create]
-sources: [raw/articles/business-blueprint-v1.md, oss/PO & SO Creation.mp4, oss/Sales Order_v2.mp4]
+sources: [raw/articles/business-blueprint-v1.md, oss/PO & SO Creation.mp4, oss/Sales Order_v2.mp4, oss/Contract & Payment Schedule.mp4]
 related: [[quote]], [[pl]], [[customer]], [[po]]
 ---
 
@@ -255,9 +255,24 @@ Chinese labels in the SO UI are **defects**.
 
 | Field | Type | Notes |
 |-------|------|-------|
-| Invoiced Amount | Read-Only | e.g., 0.00 |
-| Amount Uncollected | Read-Only | e.g., 5,055.48 |
-| Amount Received | Read-Only | e.g., 0.00 |
+| Status | Badge | "Uncompleted" (blue) [V] |
+| Contract | Link | Customer PO number (e.g., 8596848) [V] |
+| A/R Amount | Currency | e.g., 18,854.87 [V] |
+| Received Amount | Currency | Blank when not received [V] |
+| Customer Name | Link | e.g., "ABC" [V] |
+| Payment Schedule ID | Text | e.g., PP202604270002 [V] |
+| Sales Order ID | Link | e.g., SC/SO26/000005 [V] |
+| Customer PO | Link | e.g., 8596848 [V] |
+| Milestone No. | Text | "-" when empty [V] |
+| Milestone Name | Text | "-" when empty [V] |
+| Receivable amount | Currency | e.g., 18,854.87 [V] |
+| Receivable % | Percentage | e.g., 50.00% [V] |
+| Payment Type | Text | "Progress Payment" [V] |
+| Contract Terms | Text | "-" when empty [V] |
+| Currency | Text | MYR [V] |
+| Invoiced Amount | Currency | e.g., 0.00 [V] |
+| Uninvoiced Amount | Currency | Calculated: Receivable - Invoiced [V] |
+| Amount Uncollected | Currency | Calculated [V] |
 | Completion % | Number | Placeholder "-" |
 | Start Date | Date | Placeholder "-" |
 | Planned Collection Date | Date | Placeholder "-" |
@@ -270,10 +285,18 @@ Chinese labels in the SO UI are **defects**.
 | Remarks | Text | Placeholder "-" |
 | Attachment | File | Placeholder "-" |
 
+**Tabs**: Detail Information | Payment Detail(0) | Billing Detail(0) | System Record [V]
+
 **System Information** (collapsible):
 - Creator, Create Time, Modifier, Last modified time, Status (Unlock)
 
-**Action Buttons**: Edit (pencil), Change Completion %, Expand, Close
+**Action Buttons**: Edit (pencil icon), Change Completion %, Expand, Close [V]
+
+**Financial Calculation Logic** [V]:
+- `Receivable amount` = Order Total × Receivable % (e.g., 37,709.74 × 50% = 18,854.87)
+- `Uninvoiced Amount` = Receivable amount - Invoiced Amount
+- `Amount Uncollected` = Uninvoiced Amount (when no payment received)
+- Status = "Uncompleted" when Received Amount is empty/zero
 
 ### Quotation Circulate Workflow [V]
 

@@ -27,7 +27,7 @@ tags: [opportunity, user-manual, en]
 
 ## 1. Module Overview
 
-Opportunities (商机) are qualified deals driven by P&L (Profit & Loss) analysis. The P&L is the pricing engine; quotes are read-only views generated from approved P&Ls.
+Opportunities are qualified deals driven by P&L (Profit & Loss) analysis. The P&L is the pricing engine; quotes are read-only views generated from approved P&Ls.
 
 ### 1.1 Entry Points
 

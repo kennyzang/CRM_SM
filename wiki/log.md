@@ -572,3 +572,100 @@
 - **generate.py**: Added 6 new module entries to MODULES dict
 - **HTML regenerated**: 26 manuals + index.html + search-index.json (26 entries)
 - **Total user manuals**: 13 modules (was 7)
+
+## [2026-06-04] ingest | DOCX: Securemetric CRM_new features.docx
+
+- **Source**: `doc/用户手册-提示词/Securemetric CRM_new features.docx`
+- **Content**: 5 sections — Pipeline Kanban View, Duplicate Check, P&L Collaboration, Quotation
+- **Images extracted**: 9 PNG screenshots → `wiki/raw-frames/new-features-docx/`
+- **Images verified**: All 9 verified with vision_analyze → copied to `wiki/assets/`
+  - `pipeline-kanban-001.png` — Pipeline Kanban dashboard with 6-stage summary bar
+  - `duplicate-check-001.png` — Duplicate Check search results with yellow highlighting
+  - `pl-collaborate-001.png` — P&L Create sidebar with Collaborate option selected
+  - `pl-collaborate-002.png` — EasyCraft user picker modal (selecting Danny)
+  - `pl-collaborate-003.png` — Message Center To-do Items (collaborative task notification)
+  - `pl-details-001.png` — P&L Details page with edit button highlighted
+  - `pl-details-002.png` — P&L Details with submit operation highlighted
+  - `pl-collaborate-004.png` — P&L Create sidebar (alternate state)
+  - `opportunity-details-001.png` — Opportunity Details with Quotation tab and Create button
+
+## [2026-06-04] create | entities/pipeline-kanban.md
+
+- **New entity page** for CRM Pipeline Kanban Dashboard
+- 6-stage pipeline: LEAD → OPPORTUNITY → QUOTATION → PO → SALES ORDER → PAYMENT
+- Stage summary bar with count + value per stage
+- Filter bar (TIME / ENTITY / REP)
+- Pipeline Deals table with dot-track progress indicators
+- Navigation: click row → detail page
+
+## [2026-06-04] create | entities/duplicate-check.md
+
+- **New entity page** for Duplicate Check module
+- Fuzzy search across contacts & customers
+- Split tab results with count badges
+- Yellow highlight matching text
+
+## [2026-06-04] update | entities/pl.md
+
+- Added **Multi-User Collaboration Workflow** section with 5 new screenshots
+- Complete collaboration flow: Initiator → Collaborate → Recipient → Edit → Submit back
+- Updated approval workflow conditions (HOD + Finance routing)
+- Process Approvals sidebar operation modes table (submit / Collaborate / Reply)
+- Source added: `doc/Securemetric CRM_new features.docx`
+
+## [2026-06-04] update | entities/opportunity.md
+
+- Added **CRM Pipeline Stages (Dashboard View)** section — distinguishes internal 4-stage pipeline from dashboard 6-stage pipeline
+- Added **Opportunity Details Page** section with screenshot reference
+- Source and related links updated
+
+## [2026-06-04] update | entities/customer.md, entities/contact.md
+
+- Added **Duplicate Check** section referencing the new entity page
+- Source and related links updated
+
+## [2026-06-04] update | widgets/special-controls.md
+
+|- Added **#22 Pipeline Dot-Track** control section
+|- Visual states: filled dot / ring / empty dot + stage tag
+|- Playwright operation template (selectors TBD)
+|- Quick reference table updated
+
+## [2026-06-05] ingest | 3 OSS Videos — Contract, Service Team, Task Management
+
+- **Source 1**: `Contract & Payment Schedule.mp4` (92.4 MB, 92 frames extracted, 8 key frames analyzed)
+- **Source 2**: `Service Team& Activity.mp4` (22.0 MB, 34 frames extracted, 6 key frames analyzed)
+- **Source 3**: `Task Management.mp4` (16.4 MB, 27 frames extracted, 5 key frames analyzed)
+
+### New entity page created:
+- **`entities/contract.md`** — Contract module field registry (Contract Create form with 8 fields, Reminder section with user notification, auto-generated Contract ID, SO-driven creation)
+
+### Pages updated:
+- **`entities/so.md`** — Payment Schedule Details page expanded with 20+ fields (Status, Contract link, A/R Amount, Receivable %, Payment Type, financial calculation logic), Tabs (Detail Information | Payment Detail | Billing Detail | System Record)
+- **`entities/opportunity.md`** — Add Team Members modal documented (Permission: Read-Only/Read-Write radio, Team Role: Ordinary Members checkbox, Project Role: Customer Manager checkbox)
+- **`entities/lead.md`** — Lead Conversion Step 2 enriched: Currency (MYR/IDR), Exchange Rate, Entity (SCMY/PTSM), Contacts tag input, Sales Record auto-fill; **NEW: Carry Over Information section** (Copy Team to Customer/Contact/Opportunity, Copy Activities to Customer/Contact/Opportunity)
+- **`entities/task.md`** — NEW full entity page: Job Task Create/Details/Feedback workflow, 10 create fields, Task Feedback with Completion Progress slider + Rich Text Editor, Task workflow states (In progress → To be confirm → Completed), Sub-tasks, dual-channel reminders (To-Do + Email)
+- **`index.md`** — Added 3 videos (#15-17) to Processed Video Sources table, added [[task]] entity entry, updated source count 14 → 17
+
+### New knowledge added:
+- **Payment Schedule Details financial logic**: Receivable = Order Total × Receivable%; Uninvoiced = Receivable - Invoiced; Uncollected = Uninvoiced (when no payment)
+- **Contract reminder system**: Notify Who (user lookup) + X days before Expiry Date, multi-reminder support
+- **Service Team Permission model**: Read-Only vs Read-Write controls edit access; Team Role (Ordinary Members) vs Project Role (Customer Manager) defines functional role
+- **Lead Conversion data inheritance**: Service Team and Activity history can be copied to Customer/Contact/Opportunity during conversion (checkboxes with tooltip)
+- **Task workflow states**: In progress → To be confirm → Completed; "Task completed" button disabled after completion
+- **Task Feedback**: Completion Progress slider (0-100%), Rich Text Editor (WYSIWYG with toolbar), Notify Owner/CC checkboxes
+- **Currency conversion in Lead Conversion**: IDR × Exchange Rate (0.000223) = MYR Value; MYR Value × Win Rate (25%) = Weighted amount
+- **Bug findings from spreadsheet**: (1) Payment Schedule 'Contract' field should show 'Sales Order' instead, (2) Permission bug — non-owner can edit payment schedule
+
+## [2026-06-05] create | Deep Documentation — 3 modules with audio+visual analysis
+
+- **New documentation pages created in `wiki/docs/`**:
+  - **`module-contract-payment-deep.md`** (12 KB) — Contract & Payment Schedule: 2 complete field reference tables, financial calculation logic, 6 known bugs, 9 test scenarios, permission model explained
+  - **`module-service-team-activity-deep.md`** (10 KB) — Service Team & Activity: permission model, activity logging across 4 entities, lead conversion carry-over, 3 known bugs, 8 test scenarios
+  - **`module-task-management-deep.md`** (11 KB) — Task Management: complete task lifecycle, create/feedback workflow, reminder system, sub-tasks, 10 test scenarios
+
+- **Audio analysis completed**: 3 videos with STT transcription (8,843 + 4,423 + 2,869 = 16,135 chars total)
+  - Combined with visual analysis (20 key frames) for comprehensive documentation
+  - Documents designed for new team members to quickly understand the system
+
+- **index.md updated**: Added "Deep Documentation" section with links to all 3 docs

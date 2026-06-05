@@ -27,7 +27,7 @@ tags: [quote, quotation, user-manual, en]
 
 ## 1. Module Overview
 
-Quotations (报价单) are formal sales documents generated from approved P&L analyses. They follow the "Locked Pair" pricing architecture and enter an approval workflow.
+Quotations are formal sales documents generated from approved P&L analyses. They follow the "Locked Pair" pricing architecture and enter an approval workflow.
 
 ### 1.1 Key Characteristics
 

@@ -4,8 +4,8 @@ created: 2026-04-22
 updated: 2026-04-24
 type: entity
 tags: [contact, test/create]
-sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Contact & Lead Creation.mp4]
-related: [[customer]], [[lead]], [[widget-special-controls]]
+sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Contact & Lead Creation.mp4, doc/Securemetric CRM_new features.docx]
+related: [[customer]], [[lead]], [[widget-special-controls]], [[duplicate-check]]
 ---
 
 # Contact Entity
@@ -64,6 +64,10 @@ Video-confirmed fields marked with [V] (from "Contact & Lead Creation" video, 20
 |------|-------|
 | `pages/ContactCreatePage.ts` | `ContactCreatePage` |
 | `pages/registry/contact.fields.ts` | `CONTACT_SCHEMA` |
+
+## Duplicate Check [D]
+
+Contacts are included in the **Duplicate Check** module (sidebar → DUPLICATE CHECK). Search by name, mobile, email to find existing contacts before creating new records. Results split into Contacts tab and Customers tab. See [[duplicate-check]] for details.
 
 ## Known Issues
 

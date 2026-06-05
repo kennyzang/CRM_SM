@@ -25,7 +25,7 @@ tags: [contact, user-manual, en]
 
 ## 1. Module Overview
 
-Contacts (联系人) are individuals associated with a Customer. A contact must be linked to an existing customer record.
+Contacts are individuals associated with a Customer. A contact must be linked to an existing customer record.
 
 ### 1.1 Entry Points
 

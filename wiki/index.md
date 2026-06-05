@@ -10,7 +10,7 @@ tags: [tool/wiki]
 
 > Table of contents. Each Wiki page listed by type with a one-line summary.
 > Language: **English** (CRM system official language). Any Chinese UI text is a defect.
-> Last updated: 2026-06-04 | Total pages: ~46 | Sources: 2 manuals + 14 videos + schema-driven
+> Last updated: 2026-06-05 | Total pages: ~52 | Sources: 2 manuals + 17 videos + 1 DOCX + schema-driven
 
 ---
 
@@ -24,12 +24,15 @@ tags: [tool/wiki]
 - [[quote]] — Quote module: P&L-generated document, version-locked, **video-confirmed full field registry**, Excel template export, tax calculation, approval workflow, Excel Editor modal, **slide-over panel creation**, **rich text editors (T&C + Acceptance)**, **PDF Preview modal**, **digital signature preview**, **download behavior** (NEW from video)
 - [[po]] — PO module (NEW): customer purchase order capture, auto-population from Quotation, mandatory PO file upload, Product Details table, approval sidebar (NEW from video)
 - [[so]] — SO module: order entry, **video-confirmed full field registry**, milestone-driven Payment Schedule table, VDP section, footer/approval fields, data inheritance pipeline (NEW from video)
-- [[pl]] — P&L module: pricing engine, cost/margin calculation, approval workflow, **P&L creation process**, **5 product categories**, **PS hierarchy**, **approval sidebar**, **7 category tabs with badges**, **financial KPI cards**, **Select Product modal**, **SM/3rd Party Team tables**, **multi-year view (Year 1-3 RENEW)**, **margin validation warnings**, **cloning capability** (NEW from video)
+- [[pipeline-kanban]] — Pipeline Kanban Dashboard: 6-stage summary bar, filter bar, deals table with dot-track progress indicators, search & navigation (NEW from DOCX)
+- [[duplicate-check]] — Duplicate Check: fuzzy search across contacts & customers, split tab results, yellow highlight matching (NEW from DOCX)
+- [[pl]] — P&L module: pricing engine, cost/margin calculation, approval workflow, **P&L creation process**, **5 product categories**, **PS hierarchy**, **approval sidebar**, **7 category tabs with badges**, **financial KPI cards**, **Select Product modal**, **SM/3rd Party Team tables**, **multi-year view (Year 1-3 RENEW)**, **margin validation warnings**, **cloning capability**, **multi-user collaboration workflow (Collaborate → Recipient edit → Submit back)**, **EasyCraft user picker modal**, **Message Center To-do** (NEW from DOCX)
 - [[contract]] — Contract module (NEW): linked to SO, expiry reminders with user notification, file sync to Customer 360, auto-generated Contract ID (NEW from video)
 - [[payment-schedule]] — Payment Schedule module (NEW): A/R tracking, payment milestones (Down/Progress/Final), Billing Detail sub-tab, drawer modal details, financial summary cards, **embedded in SO Create with Product Info revenue split logic**, **Select Record modal for Invoice Application**, **Completion % management**, **Change Completion % action**, **System Information audit trail** (NEW from video)
 - [[invoice-application]] — Invoice Application module (NEW): Post-sales revenue collection, Project/Milestone billing types, auto-generated IR IDs, SO dependency, line item auto-population, milestone-based Payment Schedule lookup, PDF Preview/Export, Process Approvals sidebar with digital signature (NEW from video)
 - [[collection]] — Collection module (NEW): Customer payment tracking, finance confirmation workflow, bank receipt attachment, **16 fields from schema** (NEW from schema generation)
-- [[delivery]] — Delivery module (NEW): Shipment tracking linked to SO, courier info, weight/cost tracking, **19 fields from schema** (NEW from schema generation)
+|- [[delivery]] — Delivery module (NEW): Shipment tracking linked to SO, courier info, weight/cost tracking, **19 fields from schema** (NEW from schema generation)
+|- [[task]] — Task/Job Task module (NEW): Task creation from entity context, deadline/owner/executor/priority, Associated Type/Data linking, **Completion Progress slider**, **Rich Text Editor for feedback**, Task workflow (In progress → To be confirm → Completed), Sub-tasks, dual-channel reminders (To-Do + Email) (NEW from videos)
 
 ---
 
@@ -80,9 +83,20 @@ tags: [tool/wiki]
 | 9 | **Contract & Payment Schedule.mp4** | **2026-04-30** | **Contract fields, Payment Schedule list/details, 5 new widgets, 3 defects** |
 | 10 | **Quotation Template Discussion.mp4** | **2026-05-07** | **Excel template structure, online config table, 7 business entities, field visibility matrix, Quotation Create page confirmation** |
 | 11 | **New P&L management.mp4** | **2026-05-27** | **P&L Create full field registry, 7 category tabs, financial KPI cards, Select Product modal, SM/3rd Party Team tables, P&L Details multi-year view, margin validation, cloning** |
-|| 12 | **Quotation_v2.mp4** | **2026-05-27** | **Quotation Create slide-over panel, full header/customer/foot field registry, rich text editors, PDF Preview modal, digital signature, approval sidebar, download behavior** |
-|| 13 | **PI.mp4** | **2026-05-28** | **Invoice Application full field registry, Project/Milestone billing, line items, milestone selection, PDF Preview/Export, Process Approvals, 6 new widgets** |
-|| 14 | **Sales Order_v2.mp4** | **2026-05-28** | **SO List View, SO Details 9-tab navigation, Payment Schedule embedded in SO, revenue split logic, statistic bar, Circulate workflow, Payment Schedule Details** |
+| 12 | **Quotation_v2.mp4** | **2026-05-27** | **Quotation Create slide-over panel, full header/customer/foot field registry, rich text editors, PDF Preview modal, digital signature, approval sidebar, download behavior** |
+| 13 | **PI.mp4** | **2026-05-28** | **Invoice Application full field registry, Project/Milestone billing, line items, milestone selection, PDF Preview/Export, Process Approvals, 6 new widgets** |
+| 14 | **Sales Order_v2.mp4** | **2026-05-28** | **SO List View, SO Details 9-tab navigation, Payment Schedule embedded in SO, revenue split logic, statistic bar, Circulate workflow, Payment Schedule Details** |
+| 15 | **Contract & Payment Schedule.mp4** | **2026-06-05** | **Contract Create full field registry, Payment Schedule Details financial tracking, Receivable calculation logic, Contract ID auto-generate, expiry reminder system** |
+| 16 | **Service Team& Activity.mp4** | **2026-06-05** | **Add Team Members modal (Permission/Team Role/Project Role), Lead Conversion Carry Over Information (Copy Team/Activities to Customer/Contact/Opportunity), Interaction Log form, currency conversion (IDR→MYR)** |
+| 17 | **Task Management.mp4** | **2026-06-05** | **Job Task Create/Details/Feedback full workflow, Completion Progress slider, Rich Text Editor for feedback, Task workflow states (In progress → To be confirm → Completed), Sub-tasks** |
+
+---
+
+## Deep Documentation (for new team members)
+
+- [[module-contract-payment-deep]] — Contract & Payment Schedule: complete field reference, financial calculation logic, permission bugs, testing requirements (12 KB)
+- [[module-service-team-activity-deep]] — Service Team & Activity: permission model, activity logging, lead conversion carry-over, known bugs (10 KB)
+- [[module-task-management-deep]] — Task Management: task lifecycle, create/feedback workflow, reminder system, testing scenarios (11 KB)
 
 ---
 

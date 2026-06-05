@@ -1,11 +1,11 @@
 ---
 title: Opportunity Entity
 created: 2026-04-22
-updated: 2026-04-27
+updated: 2026-06-05
 type: entity
 tags: [opportunity, test/create, test/list, test/process]
-sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Opportunity Management.mp4]
-related: [[customer]], [[quote]], [[pl]], [[widget-special-controls]], [[lead]]
+sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Opportunity Management.mp4, doc/Securemetric CRM_new features.docx, oss/Service Team& Activity.mp4]
+related: [[customer]], [[quote]], [[pl]], [[widget-special-controls]], [[lead]], [[pipeline-kanban]]
 ---
 
 # Opportunity Entity
@@ -77,7 +77,8 @@ AM submits P&L → MD/CM reviews → Approved → Quote generated
 - Summary header: Opportunity Name, Deal value (red), Opportunity Code (auto-generated: **BSOP+YYYYMMDD+sequence**), Owner, Customer, Close Date, Service Team
 - Basic Information fields: Opportunity Name, Customer, Opportunity ID, Estimated Close Date, Status, Source Lead, Sales Pipeline, Owner, Department
 
-### Stage Pipeline [V]
+### Stage Pipeline [V] — Internal Opportunity Stages
+
 | Order | Stage | Win Rate | Type | Auto-Advance |
 |-------|-------|----------|------|--------------|
 | 1 | Qualifying | 25% | Start | Manual |
@@ -89,6 +90,29 @@ AM submits P&L → MD/CM reviews → Approved → Quote generated
 - Horizontal stepper visualization with numbered circles
 - "Advance to the next stage" button (blue CTA)
 - All stages Manual advancement
+
+### CRM Pipeline Stages (Dashboard View) [D]
+
+> The CRM Pipeline dashboard uses a **separate 6-stage model** that spans the entire sales cycle across multiple entities, not just the Opportunity's internal stages. See [[pipeline-kanban]] for details.
+
+| Stage | Entity | Description |
+|-------|--------|-------------|
+| **LEAD** | Lead | Initial lead captured |
+| **OPPORTUNITY** | Opportunity | Lead qualified, opportunity created |
+| **QUOTATION** | Quote | Quotation generated from approved P&L |
+| **PO** | Purchase Order | Customer PO received |
+| **SALES ORDER** | Sales Order | Internal SO created |
+| **PAYMENT** | Payment | Payment received / deal closed |
+
+### Opportunity Details Page [V]
+
+![Opportunity Details - Quotation Tab](../assets/opportunity-details-001.png)
+
+- **Header**: Opportunity name, deal value, Opportunity Code (BSOP+YYYYMMDD+seq), Owner, Customer Name, Close Date
+- **Stage tracker**: Horizontal stepper with "Advance to the next stage" button
+- **Sub-tabs**: Details | Product(n) | P&L(n) | Quotation(n) | PO(n) | Sales Order(n) | Contact(n) | More
+- **Quotation sub-tab**: Shows existing quotations table + "Create" button
+- **Right sidebar**: Service Team (members with avatars) + Activity Log (timeline of contacts/calls)
 
 ### Sub-tabs on Detail Page
 1. Details | 2. Product(n) | 3. P&L(n) | 4. Quotation(n) | 5. PO(n) | 6. Sales Order(n) | 7. Decision-Maker Map(n) | 8. Competitive Analysis(n) | 9. Cor More
@@ -104,12 +128,35 @@ AM submits P&L → MD/CM reviews → Approved → Quote generated
 - Team continuity: Clear All / Keep Existing
 
 ### Service Team Management
-- Add Group Member modal: Member selection, Permission (Read-only/Edit & Read), Group Character
-- Bug: "Project Character" field has no input widget
+
+**Add Team Members Modal** [V] — from "Service Team& Activity.mp4"
+- **Members** (*): User selector with "Select" placeholder + person icon button
+- **Permission** (*): Radio buttons — "Read-Only" (default) / "Read-Write"
+- **Team Role**: Checkbox — "Ordinary Members" (checked by default)
+- **Project Role**: Checkbox — "Customer Manager" (unchecked by default)
+- **Action Buttons**: Confirm (blue) | Cancel
+
+> **Business Logic**: Permission controls edit access; Team Role defines internal team structure; Project Role defines functional role on the account.
+
+- Bug: "Project Character" field in old version has no input widget
 
 ### Task Creation (slide-out drawer)
 - Fields: Task Title (*), Deadline (*), Owner, Executor (*), Priority (*), Associated Type, Associated Data (auto-linked), C.C. Recipient, Description, Attachment
 - Reminder sub-table with: Reminder Time, Method
+
+### Interaction Log (Activity Logging) [V] — from "Service Team& Activity.mp4"
+
+From Opportunity Details page, logging a new interaction/meeting:
+
+| Field | Widget | Notes |
+|-------|--------|-------|
+| Interaction Date | Date/Time Picker | Pre-filled with current datetime [V] |
+| Contact | Dropdown/Tag | Pre-filled from Opportunity contacts [V] |
+| Our Attendee | User Lookup | Pre-filled with Opportunity Owner [V] |
+| Related Business | Read-Only Lookup | Auto-filled with Opportunity Name [V] |
+| Discussion Details | Text Area | Placeholder "Enter", 0/1000 char counter [V] |
+| Attachment | File Upload | "Upload the attachment" [V] |
+| **Submit** | Primary Button | Blue, at bottom of form [V] |
 
 ### Approval Workflow
 - Approval Records table: Start Node → Drafting Node → Approval → End Node

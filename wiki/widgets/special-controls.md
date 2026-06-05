@@ -4,8 +4,8 @@ created: 2026-04-22
 updated: 2026-05-28
 type: widget
 tags: [widget/special, widget/lui, tool/playwright]
-sources: [skills/fill-crm-form.md, oss/Contact & Lead Creation.mp4, oss/Lead Management.mp4, oss/Contract & Payment Schedule.mp4, oss/PI.mp4, oss/Sales Order_v2.mp4]
-related: [[lead]], [[contact]], [[customer]], [[product]], [[pitfall-log]]
+sources: [skills/fill-crm-form.md, oss/Contact & Lead Creation.mp4, oss/Lead Management.mp4, oss/Contract & Payment Schedule.mp4, oss/PI.mp4, oss/Sales Order_v2.mp4, doc/Securemetric CRM_new features.docx]
+related: [[lead]], [[contact]], [[customer]], [[product]], [[pitfall-log]], [[pipeline-kanban]]
 ---
 
 # Widget Special Controls
@@ -39,6 +39,7 @@ related: [[lead]], [[contact]], [[customer]], [[product]], [[pitfall-log]]
 | Rich Text Editor | `.lui-richtext, .wysiwyg` | [#19-rich-text-editor] |
 | Wizard/Stepper Modal | `.lui-wizard, .lui-steps` | [#20-wizard-stepper-modal] |
 | User Chip/Tag Selector | `.lui-user-tag` | [#21-user-chip-selector] |
+| Pipeline Dot-Track | `.pipeline-stage-track` | [#22-pipeline-dot-track] |
 
 ---
 
@@ -1195,3 +1196,58 @@ await page.locator('button', { hasText: 'Submit' }).click();
 - User picker modal may have different selector pattern than standard modals
 - Toggle switch may use different attribute for state (data-state vs class name)
 - Circulation workflow may have different approval chain than standard submission
+
+---
+
+## 22. Pipeline Dot-Track [D]
+
+**Location**: Pipeline Kanban table "Pipeline Stage" column, Opportunity Details header
+
+### Characteristics
+
+A horizontal row of dots representing the sales pipeline stages. Used in:
+- **Pipeline Kanban table**: Each row shows a deal's current stage via filled/empty dots
+- **Opportunity Details**: Stage stepper with numbered circles
+
+**Visual states** (per dot):
+- **Filled dot** (solid color) = completed stage
+- **Ring/highlighted dot** = current stage
+- **Empty dot** = future/upcoming stage
+- **Stage tag** at the end = current stage name (e.g., "Sales Order", "Payment")
+
+### 6 Pipeline Stages
+
+| Position | Stage | Description |
+|----------|-------|-------------|
+| 1 | LEAD | Initial lead captured |
+| 2 | OPPORTUNITY | Lead qualified |
+| 3 | QUOTATION | Quotation generated |
+| 4 | PO | Purchase Order received |
+| 5 | SALES ORDER | Sales Order created |
+| 6 | PAYMENT | Payment received |
+
+### Playwright Operation Template
+
+```typescript
+// Verify dot-track renders for a pipeline row
+const stageTrack = page.locator('.pipeline-stage-track, [class*="stage-indicator"]').first();
+await stageTrack.waitFor({ state: 'visible', timeout: 10000 });
+
+// Get current stage from tag
+const stageTag = stageTrack.locator('.stage-tag, [class*="stage-name"]').first();
+const stageText = await stageTag.textContent();
+// e.g., "Sales Order", "Payment"
+
+// Count filled dots (completed stages)
+const filledDots = stageTrack.locator('.dot.filled, [class*="dot-completed"]');
+const filledCount = await filledDots.count();
+
+// Click a row to navigate to detail page
+const projectRow = page.locator('.pipeline-deals-table tr').nth(1);
+await projectRow.click();
+// → Navigates to opportunity/project detail page
+```
+
+### Pitfalls
+- Selector TBD — needs actual DOM inspection on Pipeline page
+- Chinese text in pagination footer ("前往", "每页 条") is a defect

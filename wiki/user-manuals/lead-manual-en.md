@@ -27,7 +27,7 @@ tags: [lead, user-manual, en]
 
 ## 1. Module Overview
 
-Leads (线索) represent potential sales opportunities that have not yet been qualified. They follow a lifecycle: Acquisition → Assignment → Follow-up → Conversion (to Opportunity or Customer).
+Leads represent potential sales opportunities that have not yet been qualified. They follow a lifecycle: Acquisition → Assignment → Follow-up → Conversion (to Opportunity or Customer).
 
 ### 1.1 Entry Points
 

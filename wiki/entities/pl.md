@@ -4,7 +4,7 @@ created: 2026-04-22
 updated: 2026-06-04
 type: entity
 tags: [pl, opportunity, quote, test/create, test/process]
-sources: [raw/articles/business-blueprint-v1.md, oss/P&L Creation.mp4, oss/New P&L management.mp4]
+sources: [raw/articles/business-blueprint-v1.md, oss/P&L Creation.mp4, oss/New P&L management.mp4, doc/Securemetric CRM_new features.docx]
 related: [[opportunity]], [[quote]], [[so]], [[widget-special-controls]], [[pitfall-log]]
 ---
 
@@ -311,6 +311,66 @@ From Business Blueprint V2, page 28:
 5. **Reimbursement** category for expense recovery
 6. **Global Discount** applies to all line items automatically when enabled
 7. **Margin validation**: Red exclamation mark icon shown when line item Margin < Target
+
+## Multi-User Collaboration Workflow [D] — from "Securemetric CRM_new features.docx"
+
+### Collaboration Flow (DOCX-Confirmed)
+
+The P&L creation supports **multi-user collaboration** before entering the approval workflow:
+
+![P&L Create - Collaborate Option](../assets/pl-collaborate-001.png)
+
+1. **Initiator creates P&L** → fills in form data
+2. **Initiator clicks "Collaborate"** in Process Approvals sidebar (instead of "submit")
+   - Operation radio buttons: `submit` | `Collaborate` (selected)
+   - Instructional text: *"After submitting the collaboration, the form modification permission will be transferred to the recipient. After the recipient submits back, you can edit the form and submit the workflow to next step."*
+3. **Select Recipient** → opens EasyCraft user picker modal
+   ![User Picker Modal](../assets/pl-collaborate-002.png)
+   - Modal title: "EasyCraft"
+   - Tabs: Recent contact / Administrative Org / Group
+   - Search: Fuzzy keyword search
+   - Select user(s) → Confirm
+4. **Form permission transfers to Recipient**
+   - Recipient receives a To-do item in Message Center
+   ![Message Center To-do](../assets/pl-collaborate-003.png)
+   - Task title: "Please handle the collaborative task of eKYC & Digital Identi..."
+   - Location: Message center → To-do Items → Unprocessed
+5. **Recipient opens P&L → clicks Edit** (pencil icon top-right)
+   ![P&L Details - Edit Button](../assets/pl-details-001.png)
+   - Recipient continues editing from initiator's version
+   - Can modify any field, add/remove line items
+6. **Recipient submits back** → returns to initiator
+7. **Initiator can**:
+   - Assign to another collaborator (repeat cycle)
+   - Click **"submit"** to enter approval workflow
+   ![P&L Details - Submit Operation](../assets/pl-details-002.png)
+
+### Approval Workflow Conditions (Updated with DOCX info)
+
+After collaboration is complete and initiator submits:
+
+1. If **any line item's margin does not meet the target margin** → route to Head of Department (HOD)
+2. If **P&L includes any monitored product** → route to HOD
+3. If **grand total margin of the whole deal does not meet the target** → route to Finance team
+4. If **all criteria met** → workflow ends (auto-approve)
+
+### Process Approvals Sidebar — Operation Modes
+
+| Mode | Description | Next Step |
+|------|-------------|-----------|
+| **submit** | Submit for approval workflow | Routes to HOD/Finance based on margin conditions |
+| **Collaborate** | Transfer edit permission to another user | Recipient receives To-do, can edit and submit back |
+| **Reply** | (When viewing received P&L) Reply to requester | Returns to previous step |
+
+### Collaboration UI Elements
+
+- **Process Approvals sidebar** (right panel):
+  - Track dropdown
+  - Operation radio buttons: submit / Collaborate / Reply
+  - Recipient field (user picker)
+  - Opinion/Comments text area
+  - Digital signature preview
+  - Submit button
 
 ## Known Issues
 

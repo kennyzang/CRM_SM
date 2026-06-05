@@ -1,10 +1,10 @@
 ---
 title: Lead Entity
 created: 2026-04-22
-updated: 2026-04-27
+updated: 2026-06-05
 type: entity
 tags: [lead, test/create, test/list, test/process]
-sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Contact & Lead Creation.mp4, oss/Lead Management.mp4, oss/Lead Import.mp4, oss/Lead cConversion & Lead Queue & Task.mp4]
+sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, oss/Contact & Lead Creation.mp4, oss/Lead Management.mp4, oss/Lead Import.mp4, oss/Lead cConversion & Lead Queue & Task.mp4, oss/Service Team& Activity.mp4]
 related: [[contact]], [[customer]], [[opportunity]], [[widget-special-controls]], [[fill-crm-form-procedure]], [[lead-management]]
 ---
 
@@ -248,15 +248,30 @@ Progress stepper: **1. Customer ✓** → **2. Opportunity ●**
 | Field | Widget | Notes |
 |-------|--------|-------|
 | * Sales Stage | Dropdown | → "Opportunity" |
-| Deal Category | Dropdown | → "PKI" |
+| Deal Category | Dropdown | → "PKI" / "ADSS" |
 | Status | Badge | → "In Progress" |
-| Currency | Dropdown | → "MYR" |
+| Currency | Dropdown | → "MYR" / "IDR" [V] |
 | Estimated Deal Amount | Numeric | — |
 | Win Rate | Percent | → 25.00% |
-| Exchange Rate | Numeric with stepper | — |
-| Entity | Text | → "SCMY" |
+| Exchange Rate | Numeric with stepper | e.g., 0.000223 for IDR→MYR [V] |
+| Entity | Text | → "SCMY" / "PTSM" [V] |
 | Sales Rep | Text input | — |
-| Sales Record | Text area | — |
+| Contacts | Tag input | Required (*), auto-carried from Lead [V] |
+| Sales Record | Text area | Auto-populated from activity log [V] |
+
+### Carry Over Information [V] — NEW from "Service Team& Activity.mp4"
+
+**Copy Team to** (checkboxes — all checked by default):
+- ☑ Customer — copy service team to new Customer record
+- ☑ Contact — copy service team to new Contact record
+- ☑ Opportunity — copy service team to new Opportunity record
+
+**Copy Activities to** (checkboxes — all checked by default):
+- ☑ Customer — copy activity history to Customer
+- ☑ Contact — copy activity history to Contact
+- ☑ Opportunity — copy activity history to Opportunity
+
+> **Tooltip**: "Need to check the box to 'add' the service team in the lead to customers, contacts, or opportunities"
 
 ### Opportunity Products Table (in conversion modal)
 - Toolbar: "+ Add rows", "Import", "More", "Revoke"

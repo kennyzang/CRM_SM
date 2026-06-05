@@ -4,8 +4,8 @@ created: 2026-04-22
 updated: 2026-04-22
 type: entity
 tags: [customer, test/create]
-sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md]
-related: [[contact]], [[lead]], [[opportunity]], [[widget-special-controls]]
+sources: [raw/articles/crm-user-manual-v1.md, raw/articles/business-blueprint-v1.md, doc/Securemetric CRM_new features.docx]
+related: [[contact]], [[lead]], [[opportunity]], [[widget-special-controls]], [[duplicate-check]]
 ---
 
 # Customer Entity
@@ -65,6 +65,20 @@ Unlike Lead and Contact which use single-line address inputs, Customer uses a de
 | Auto-release | 60 days without follow-up | Release to Public Pool |
 | Claim | Any AM in region | Claim ownership |
 | No hard cap | High-performing reps | Can hold unlimited leads/customers |
+
+## Duplicate Check [D]
+
+The CRM provides a dedicated **Duplicate Check** module (sidebar → DUPLICATE CHECK) to find existing customers or contacts before creating new records.
+
+![Duplicate Check Results](../assets/duplicate-check-001.png)
+
+- **Search fields**: Name, Mobile, Email, Registration Code
+- **Search behavior**: Fuzzy match — highlights matching text in yellow
+- **Results**: Split into Contacts tab and Customers tab with record counts
+- **Result columns**: No., Name, Owner, Entity, Legal ID
+- **Pagination**: Standard pagination with "前往 X" (Go to page X) and "每页 10 条" (10 items per page)
+
+> ⚠️ **Chinese UI labels** in pagination ("前往", "每页 条") are defects.
 
 ## Known Issues
 
