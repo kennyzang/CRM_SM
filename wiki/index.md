@@ -100,6 +100,30 @@ tags: [tool/wiki]
 
 ---
 
+## User Manuals (bilingual EN/ZH)
+
+| Module | English | Chinese |
+|--------|---------|---------|
+| Lead | [[user-manuals/lead-manual-en]] | [[user-manuals/lead-manual-zh]] |
+| Contact | [[user-manuals/contact-manual-en]] | [[user-manuals/contact-manual-zh]] |
+| Customer | [[user-manuals/customer-manual-en]] | [[user-manuals/customer-manual-zh]] |
+| Opportunity | [[user-manuals/opportunity-manual-en]] | [[user-manuals/opportunity-manual-zh]] |
+| P&L / Quotation | [[user-manuals/pl-quotation-manual-en]] | [[user-manuals/pl-quotation-manual-zh]] |
+| Quotation | [[user-manuals/quotation-manual-en]] | [[user-manuals/quotation-manual-zh]] |
+| PO | [[user-manuals/po-manual-en]] | [[user-manuals/po-manual-zh]] |
+| Sales Order | [[user-manuals/sales-order-manual-v2-en]] | [[user-manuals/sales-order-manual-v2-zh]] |
+| Contract | [[user-manuals/contract-manual-en]] | [[user-manuals/contract-manual-zh]] |
+| Payment Schedule | [[user-manuals/payment-schedule-manual-en]] | [[user-manuals/payment-schedule-manual-zh]] |
+| Invoice Application | [[user-manuals/invoice-application-manual-en]] | [[user-manuals/invoice-application-manual-zh]] |
+| Collection | [[user-manuals/collection-manual-en]] | [[user-manuals/collection-manual-zh]] |
+| Delivery | [[user-manuals/delivery-manual-en]] | [[user-manuals/delivery-manual-zh]] |
+| Duplicate Check | [[user-manuals/duplicate-check-manual-en]] | [[user-manuals/duplicate-check-manual-zh]] |
+| Pipeline Kanban | [[user-manuals/pipeline-kanban-manual-en]] | [[user-manuals/pipeline-kanban-manual-zh]] |
+| Service Team & Activity | [[user-manuals/service-team-activity-manual-en]] | [[user-manuals/service-team-activity-manual-zh]] |
+| Task Management | [[user-manuals/task-management-manual-en]] | [[user-manuals/task-management-manual-zh]] |
+
+---
+
 ## Concepts / Comparisons / Queries / Summaries
 
 (Growing as knowledge accumulates)

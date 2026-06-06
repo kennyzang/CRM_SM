@@ -669,3 +669,25 @@
   - Documents designed for new team members to quickly understand the system
 
 - **index.md updated**: Added "Deep Documentation" section with links to all 3 docs
+
+## [2026-06-05] create | Comprehensive Deep Test Cases — Full System (39 test cases)
+
+- **New document**: `doc/test-cases/CRM_TestCases_FullSystem_2026-06-05.md` (58 KB, 1,614 lines, 39 test cases)
+- **Scope**: Deep business logic tests across all 15 CRM modules — NOT basic CRUD operations
+- **Methodology**: Based on 17 video analyses (visual + STT audio), Business Blueprint V1, DOCX new features, schema-driven field registries
+- **Video order analysis**: Most recent features (2026-06-05 videos) take precedence over earlier definitions; deprecated/superseded features excluded
+- **Coverage by module**: P&L (6), Lead (5), Opportunity (5), Quotation (4), Cross-Module (4), SO (3), Task (3), Invoice Application (2), PO (1), Contract (1), Payment Schedule (1), Collection (1), Delivery (1), Pipeline Kanban (1), Duplicate Check (1)
+- **Coverage by priority**: P0 (1), P1 (20), P2 (17), P3 (1)
+- **Coverage by role**: Sales Rep (26), Sales Manager (10), PM (1), Finance User (1), Operations (1)
+- **Key test categories**: Data Inheritance, Financial Calculation, Permission Enforcement, Approval Routing, Multi-User Collaboration, End-to-End Pipeline, Currency Consistency, Entity Isolation, Version Control
+- **Known bug regression tests included**: 5 known bugs tracked with regression test cases
+
+## [2026-06-05] create | User Manuals — Service Team & Activity + Task Management (bilingual)
+
+- **New user manual pages created in `wiki/user-manuals/`** (4 files, ~1,400 lines total):
+  - **`service-team-activity-manual-en.md`** — Service Team & Activity Log (English): 6 sections covering Service Team member management, Activity Log creation, Lead Conversion carry-over, business rules, FAQ (7 Q&A)
+  - **`service-team-activity-manual-zh.md`** — 服务团队与活动日志（中文）: complete bilingual mirror of EN manual
+  - **`task-management-manual-en.md`** — Task Management (English): 8 sections covering full Owner/Executor/CC workflow, Task Feedback modal, Sub-tasks, Reminder configuration, FAQ (8 Q&A)
+  - **`task-management-manual-zh.md`** — 任务管理（中文）: complete bilingual mirror of EN manual
+- **Source**: `wiki/docs/module-service-team-activity-deep.md` + `wiki/docs/module-task-management-deep.md` (created same day)
+- **index.md updated**: Added "User Manuals" section with full bilingual index table (17 modules)

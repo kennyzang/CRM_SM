@@ -60,6 +60,8 @@ The Contract list shows all contracts accessible to the current user.
 
 Filter by Contract Title, Customer, or date range. Use status filters to identify contracts nearing expiry.
 
+![Contract list view — showing Contract Title, Contract ID, Sales Order, Customer, Signed Date and Expiry Date columns](../assets/contract-001.jpg)
+
 ---
 
 ## 3. Create a Contract
@@ -69,6 +71,8 @@ Filter by Contract Title, Customer, or date range. Use status filters to identif
 **Recommended path**: Open the linked Sales Order, navigate to the **Contract** tab, and click **+ New**. This pre-fills the Sales Order reference.
 
 You may also create from the standalone Contract list, but you must manually select the Sales Order.
+
+![Contract create form — Title, Sales Order (pre-filled), Signed Date, Expiry Date and Attachment fields](../assets/contract-002.jpg)
 
 ### 3.2 Field Reference
 
@@ -99,6 +103,8 @@ The **Contract Reminder** sub-table configures advance notifications before the 
 
 **Example**: Setting "Notify XX Days" to `30` means a reminder is sent 30 days before the Expiry Date to all users in the **Notify Who** list.
 
+![Contract Reminder sub-table — multiple notification rules with days-before-expiry and Notify Who fields](../assets/contract-004.jpg)
+
 You can add multiple rows for tiered reminders (e.g., 90 days, 30 days, 7 days before expiry).
 
 ### 3.4 Saving
@@ -112,6 +118,8 @@ Click **Save** in the top action bar. The system auto-generates the **Contract I
 ### 4.1 Main Information
 
 Displays all fields from the Create form. Contract ID is shown (auto-generated). Customer is read-only, derived from the linked SO.
+
+![Contract detail view — all fields including auto-generated Contract ID, Signed Date, Expiry Date and Reminder section](../assets/contract-003.jpg)
 
 ### 4.2 Sub-tabs
 

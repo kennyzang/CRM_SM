@@ -63,6 +63,8 @@ The Payment Schedule list shows all A/R milestones accessible to the current use
 | Amount Received | Amount already collected |
 | Amount Uncollected | Outstanding balance for this milestone |
 
+![Payment Schedule list view — showing Payment Schedule ID, Sales Order ID, Payment Status, Completion %, Payment Type and Receivable Amount columns](../assets/payment-001.jpg)
+
 ### Tab Filters
 
 The list view offers tab-based filters at the top:
@@ -98,6 +100,8 @@ Since Payment Schedules are system-generated, the primary user action is **viewi
 
 The Payment Schedule detail page shows full information for one milestone record.
 
+![Payment Schedule detail header — Status badge, A/R Amount, Received Amount and Customer Name](../assets/payment-002.jpg)
+
 ### 4.1 Detail Information
 
 | Field | Description |
@@ -114,6 +118,8 @@ The Payment Schedule detail page shows full information for one milestone record
 | Uninvoiced Amount | Remaining amount not yet invoiced |
 | Amount Uncollected | Amount invoiced but not yet received |
 
+![Payment Schedule detail fields — Receivable amount, Receivable %, Payment Type, Currency, Invoiced and Uninvoiced amounts](../assets/payment-003.jpg)
+
 ### 4.2 Sub-tabs
 
 | Sub-tab | Content |
@@ -122,6 +128,8 @@ The Payment Schedule detail page shows full information for one milestone record
 | Payment Detail (N) | Individual payment transactions received against this milestone |
 | Billing Detail (N) | Invoice records issued against this milestone |
 | System Record | Creation and modification audit trail |
+
+![Payment Schedule sub-tabs — Detail Information, Payment Detail(0), Billing Detail(0) tab bar](../assets/payment-004.jpg)
 
 ### 4.3 Payment Detail Sub-tab
 
