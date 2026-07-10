@@ -1,0 +1,101 @@
+---
+cases:
+- id: TC-INVOICE-001
+  module: 开票申请
+  name: 新建开票—正常流程
+  category: Create
+  role: 销售人员
+  priority: P0
+  precondition: '有销售订单
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.发票类型
+
+    4.SO/公司名称
+
+    5.保存
+
+    '
+  expected: '1.成功
+
+    2.编号
+
+    3.PI/Ref自动
+
+    '
+  status: 草稿
+- id: TC-INVOICE-002
+  module: 开票申请
+  name: 新建开票—必填项校验
+  category: Create/Validation
+  role: 销售人员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.发票类型/SO/公司名称留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.发票类型/SO/公司名称均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-INVOICE-003
+  module: 开票申请
+  name: 列表搜索
+  category: List/Search
+  role: 销售人员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输编号
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-INVOICE-004
+  module: 开票申请
+  name: 【SOW#16】基于里程碑的开票申请
+  category: CustomRule/Milestone
+  role: 销售人员
+  priority: P0
+  source: SOW需求#16（Easycraft定制开发）：合同里程碑关联产品行项目，里程碑完成后发起开票
+  precondition: '合同X已完成"硬件交付"里程碑（100%）
+
+    '
+  steps: '1.进入合同X详情
+
+    2.在已完成里程碑上点击"发起开票"
+
+    3.观察开票表单中的数据预填
+
+    4.提交开票申请
+
+    5.查看开票金额是否与里程碑关联的产品金额一致
+
+    '
+  expected: '1.从里程碑可一键发起开票
+
+    2.开票表单自动预填关联产品/金额
+
+    3.开票金额与里程碑产品金额一致
+
+    '
+  status: 草稿

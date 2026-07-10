@@ -1,0 +1,307 @@
+---
+cases:
+
+  - id: TC-ADMIN-LQ-001
+    module: 线索池管理
+    name: 归属规则—勾选成员+管理员时不同角色创建
+    category: Rule/Combination
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池Ownership Rules勾选If member + If admin；
+      准备3个账号：管理员A（同时也是成员）、普通成员B（非管理员）、非成员C
+    steps: |
+      1.A登录，新建一条线索，观察负责人
+      2.B登录，新建一条线索，观察负责人
+      3.C登录，新建一条线索，观察负责人
+    expected: |
+      1.A创建：负责人为A（既是成员又是管理员）
+      2.B创建：负责人为B（是成员）
+      3.C创建：负责人为空（非成员非管理员，不满足任一条件）
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-002
+    module: 线索池管理
+    name: 归属规则—仅勾选管理员时成员创建
+    category: Rule/Combination
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池Ownership Rules仅勾选If admin（不勾If member）；
+      准备账号：管理员A（可能是成员也可能不是）、普通成员B
+    steps: |
+      1.A登录，新建线索，观察负责人
+      2.B登录，新建线索，观察负责人
+    expected: |
+      1.A创建：负责人为A（是管理员，满足条件）
+      2.B创建：负责人为空（B只是成员不是管理员，不满足条件）
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-003
+    module: 线索池管理
+    name: 归属规则—仅勾选成员时管理员创建
+    category: Rule/Combination
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池Ownership Rules仅勾选If member（不勾If admin）；
+      准备账号：管理员A（不属于该池成员）、普通成员B
+    steps: |
+      1.A登录，新建线索，观察负责人
+      2.B登录，新建线索，观察负责人
+    expected: |
+      1.A创建：负责人为空（A是管理员但不是成员，不满足条件）
+      2.B创建：负责人为B（是成员，满足条件）
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-004
+    module: 线索池管理
+    name: 归属规则—均不勾选时所有创建人行为
+    category: Rule/Combination
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池Ownership Rules两个条件均不勾选；
+      准备账号：管理员A、成员B、非成员C
+    steps: |
+      1.A登录，新建线索，观察负责人
+      2.B登录，新建线索，观察负责人
+      3.C登录，新建线索，观察负责人
+    expected: |
+      1.A创建：负责人为空
+      2.B创建：负责人为空
+      3.C创建：负责人为空（默认行为，所有新建线索负责人均清空）
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-005
+    module: 线索池管理
+    name: 领取模式切换—Hidden→Visible后已有线索可见性
+    category: Rule/Switch
+    role: 销售管理员
+    priority: P0
+    precondition: |
+      当前线索池配置为Hidden from Members；
+      已有若干条未分配线索；有普通成员账号M
+    steps: |
+      1.M登录，查看Leads列表，记录可见的线索条数
+      2.管理员将领取规则改为Visible & Claimable by Members
+      3.M刷新页面，再次查看Leads列表
+      4.M尝试领取一条线索
+    expected: |
+      1.切换前M看不到未分配线索
+      2.切换后M能看到未分配线索
+      3.M可以成功领取
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-006
+    module: 线索池管理
+    name: 领取模式切换—Visible→Hidden后成员行为
+    category: Rule/Switch
+    role: 销售管理员
+    priority: P0
+    precondition: |
+      当前线索池配置为Visible & Claimable by Members；
+      成员M已领取一条线索（正在处理中），还有若干条未领取
+    steps: |
+      1.M登录，确认当前可见的待分配线索
+      2.管理员将领取规则改为Hidden from Members
+      3.M刷新页面，查看Leads列表
+      4.M已领取的线索是否仍显示在"我负责的"
+      5.M能否继续操作已领取的线索（跟进/推进）
+    expected: |
+      1.切换后M看不到新的待分配线索
+      2.M已领取的线索不受影响，仍在自己名下
+      3.M仍可操作已领取的线索
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-007
+    module: 线索池管理
+    name: 跨池转移—负责人+团队成员双清空
+    category: Transfer/Rule
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      有池A和池B，池B有管理员B；
+      线索L在池A中，负责人为成员M，且有1-2个团队成员
+    steps: |
+      1.记录线索L当前负责人和团队成员
+      2.将线索L从池A转移到池B
+      3.查看线索L的负责人
+      4.查看线索L的团队成员
+      5.查看Activity History
+    expected: |
+      1.转移后负责人清空（转移规则：线索到新池清空负责人）
+      2.团队成员也被清空（负责人变空→触发清空团队成员规则）
+      3.Activity History记录两条操作：负责人变更、团队成员移除
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-008
+    module: 线索池管理
+    name: Member同步—部门新增成员后的权限生效时机
+    category: Sync/Consistency
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池已配置部门D，Member列表仅有老成员；
+      在部门D中新增一个人员N
+    steps: |
+      1.新增后N立即登录，查看能否看到该池线索
+      2.管理员→基础数据设置→公司主体→Member Change同步
+      3.N刷新页面，再次查看该池线索
+      4.管理员给N分配一条线索
+    expected: |
+      1.同步前N看不到该池线索（Member列表未更新）
+      2.同步后N能看到该池线索
+      3.同步后N可以被分配线索
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-009
+    module: 线索池管理
+    name: Member同步—部门移除成员后的数据保留
+    category: Sync/Consistency
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      线索池已配置部门D，成员M已持有若干已分配的线索；
+      从部门D中移除成员M
+    steps: |
+      1.移除后M登录，查看"我负责的"中已有线索
+      2.M尝试操作已有线索（跟进/推进/编辑）
+      3.M查看能否看到新的待分配线索
+      4.管理员执行Member Change同步
+      5.M再次登录检查
+    expected: |
+      1.移除后M仍能看到自己持有的线索（已分配的不受影响）
+      2.M仍可操作已有线索
+      3.同步前后M都看不到新的待分配线索（已不是成员）
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-010
+    module: 线索池管理
+    name: 新线索通知—管理员接收待阅提醒
+    category: Notification
+    role: 销售管理员
+    priority: P1
+    source: 用户手册-线索池规则4.2；SOW需求#4
+    precondition: |
+      New Lead Notification已开启；
+      管理员A账号
+    steps: |
+      1.管理员A用其他账号（或切换角色）新建一条线索
+      2.A查看通知列表/待阅
+      3.A点击通知跳转
+      4.A对线索进行分配
+    expected: |
+      1.A收到新线索通知（待阅消息）
+      2.通知包含线索名称/来源/创建时间
+      3.点击可跳转到线索详情
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-011
+    module: 线索池管理
+    name: 领取上限—成员饱和时分配失败
+    category: Rule/Limit
+    role: 销售管理员
+    priority: P1
+    source: SOW第6页"线索分配时会进行线索持有量校验"
+    precondition: |
+      线索池存在"领取上限"配置（Claim Limit）；
+      成员M已持有线索数达到上限
+    steps: |
+      1.管理员尝试给M分配一条新线索
+      2.观察系统提示
+      3.管理员将线索分配给未达上限的成员N
+    expected: |
+      1.分配失败，提示"该成员已到达持有量上限"
+      2.分配给N成功
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-012
+    module: 线索池管理
+    name: 分配后成员可见性—手动刷新后显示
+    category: Permission/Timing
+    role: 销售管理员
+    priority: P0
+    source: SOW需求#4"管理员分配后系统向销售代表发送通知"
+    precondition: |
+      管理员A和成员M；
+      有一条未分配的线索L
+    steps: |
+      1.A给M分配线索L
+      2.M登录，查看"我负责的"列表
+      3.M点击线索详情
+    expected: |
+      1.M的"我负责的"列表出现线索L
+      2.M可打开线索详情查看
+      3.线索状态为待处理
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-013
+    module: 线索池管理
+    name: 非本池成员转入—跨池流转的权限与记录
+    category: Transfer/CrossPool
+    role: 销售管理员
+    priority: P1
+    source: 用户手册-线索池规则4.4
+    precondition: |
+      有池A和池B，池B有管理员B和成员M；
+      线索L在池A中，负责人为成员X
+    steps: |
+      1.非池B的成员账号登录，将线索L转入池B
+      2.查看线索L当前负责人
+      3.查看线索L的团队成员
+      4.管理B登录，分配线索L给成员M
+    expected: |
+      1.转入成功（非本池成员也允许转入）
+      2.转入后负责人清空（转移到新池清空负责人规则）
+      3.团队成员清空
+      4.B可以正常分配给M
+      5.Activity History记录转入操作
+    status: 草稿
+
+  # ════════════════════════════════════════
+  # SOW 定制功能用例（优先级最高）
+  # 来源：Securemetric_CRM_SOW_中文版.pdf 3.3节
+  # ════════════════════════════════════════
+
+  - id: TC-ADMIN-LQ-014
+    module: 线索池管理
+    name: 【SOW#3】线索交叉销售冲突预防
+    category: CustomRule/Conflict
+    role: 销售管理员
+    priority: P0
+    source: "SOW需求#3（Easycraft定制开发）：若销售代表尝试添加关联客户已由其他销售代表负责的线索，系统须触发冲突警告并阻止表单提交"
+    precondition: |
+      客户C已由销售代表A负责（A是C的负责人）；
+      销售代表B（与A不同的负责人）登录
+    steps: |
+      1.B新建线索，在"关联客户"字段选择客户C
+      2.观察系统行为
+      3.尝试强制提交
+      4.B新建线索，选择未被其他销售负责的客户D
+    expected: |
+      1.系统触发冲突警告："该客户已由其他销售代表负责"
+      2.表单提交被阻止
+      3.选择无冲突客户D可以正常提交
+    status: 草稿
+
+  - id: TC-ADMIN-LQ-015
+    module: 线索池管理
+    name: 【SOW#1】按注册码线索冲突检查
+    category: CustomRule/Conflict
+    role: 销售管理员
+    priority: P0
+    source: "SOW需求#1（Easycraft定制开发）：创建新线索时根据'公司注册码'验证防止重复参与或冲突"
+    precondition: |
+      已有线索L，其"公司注册码"为 REG-001；
+      存在另一条线索或其他数据也使用了 REG-001
+    steps: |
+      1.新建一条线索
+      2.在公司注册码字段输入 REG-001
+      3.尝试保存
+      4.在公司注册码字段输入一个全新未使用的注册码
+      5.尝试保存
+    expected: |
+      1.保存失败，系统提示注册码冲突
+      2.输入新注册码后可正常保存
+    status: 草稿

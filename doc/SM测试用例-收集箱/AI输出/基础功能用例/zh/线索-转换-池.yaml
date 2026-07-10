@@ -1,0 +1,200 @@
+---
+cases:
+
+  - id: TC-LEAD-CONVERT-001
+    module: 线索转换
+    name: 新客户—转换后状态/按钮/计数
+    category: Conversion
+    role: 销售人员
+    priority: P0
+    precondition: |
+      线索处于Follow-Up;选择新客户
+    steps: |
+      1.详情→Convert
+      2.选新客户，填名称/注册码/客户类型/来源/等
+      3.Next→Confirm
+      4.查看线索详情
+    expected: |
+      1.状态变Converted
+      2.按钮只剩Unlock/Print(锁定)
+      3.Activity History+1 商机+1 Conversion History+1
+      4.线索可锁定不可再Convert
+    status: 草稿
+
+  - id: TC-LEAD-CONVERT-002
+    module: 线索转换
+    name: 新客户—客户列表新增验证
+    category: Conversion
+    role: 销售人员
+    priority: P0
+    precondition: |
+      新客户转换成功
+    steps: |
+      1.客户列表搜索新客户名
+      2.查看客户详情
+    expected: |
+      1.客户存在
+      2.名称/注册码/客户类型与转换时一致
+    status: 草稿
+
+  - id: TC-LEAD-CONVERT-003
+    module: 线索转换
+    name: 新客户—客户页签线索/商机
+    category: Conversion
+    role: 销售人员
+    priority: P0
+    precondition: |
+      新客户转换成功
+    steps: |
+      1.客户详情
+      2.点Related Lead Tab
+      3.点Opportunity Tab
+      4.分别点记录跳转
+    expected: |
+      1.线索数=原线索数+1
+      2.商机数=原商机数+1
+      3.点击可跳到对应详情
+    status: 草稿
+
+  - id: TC-LEAD-CONVERT-004
+    module: 线索转换
+    name: 老客户—团队/销售记录/公海池
+    category: Conversion
+    role: 销售人员
+    priority: P0
+    precondition: |
+      线索处于Follow-Up;选现有客户;客户有原团队
+    steps: |
+      1.详情→Convert
+      2.选现有客户，关联已有客户
+      3.选客户类型/来源
+      4.Next→Confirm
+      5.查看客户详情
+    expected: |
+      1.团队按配置带过来(更新)
+      2.销售记录按配置带过来
+      3.客户原不在公海池→进入公海池
+    status: 草稿
+    note: |
+      需要通过配置判断: 转换配置中是否启用团队/销售记录传递
+
+  - id: TC-LEAD-CONVERT-005
+    module: 线索转换
+    name: 转换后商机字段核对
+    category: Conversion
+    role: 销售人员
+    priority: P0
+    precondition: |
+      线索转换成功；有转换前线索数据可对比
+    steps: |
+      1.线索详情→Opportunity Tab
+      2.点第一条商机→详情
+      3.逐字段核对
+    expected: |
+      1.源线索=当前线索
+      2.客户名称正确
+      3.联系人正确
+      4.产品从线索PA表传递过来
+      5.赢率/阶段/金额有正确默认值
+    status: 草稿
+
+  - id: TC-LEAD-CONVERT-006
+    module: 线索转换
+    name: 联系人团队传递
+    category: Conversion
+    role: 销售人员
+    priority: P1
+    precondition: |
+      线索转换成功;有关联联系人
+    steps: |
+      1.联系人详情查看
+      2.检查服务团队
+    expected: |
+      1.团队正确带过来
+    status: 草稿
+
+  - id: TC-LEAD-CONVERT-007
+    module: 线索转换
+    name: 老客户联系人团队传递
+    category: Conversion
+    role: 销售人员
+    priority: P1
+    precondition: |
+      老客户场景;联系人场景
+    steps: |
+      1.联系人详情
+      2.检查服务团队
+    expected: |
+      1.团队按配置带过来
+    status: 草稿
+
+  - id: TC-LEAD-POOL-001
+    module: 线索池更换负责人
+    name: 更换负责人—基础流程
+    category: Pool
+    role: 销售人员
+    priority: P0
+    precondition: |
+      有权操作;线索非锁定
+    steps: |
+      1.线索详情→更换负责人
+      2.弹窗选择新负责人
+      3.设原负责人为团队成员
+      4.设团队角色/权限
+      5.确认
+    expected: |
+      1.新负责人更新
+      2.原负责人变为团队成员
+      3.角色权限正确
+    status: 草稿
+
+  - id: TC-LEAD-POOL-002
+    module: 线索池更换负责人
+    name: 更换负责人—原负责人移出团队
+    category: Pool
+    role: 销售人员
+    priority: P1
+    precondition: |
+      有权操作;线索非锁定
+    steps: |
+      1.详情→更换负责人
+      2.选新负责人
+      3.原负责人→移出团队
+      4.确认
+    expected: |
+      1.新负责人更新
+      2.原负责人不在团队中
+    status: 草稿
+
+  - id: TC-LEAD-POOL-003
+    module: 线索池更换负责人
+    name: 管理员—线索分配
+    category: Pool
+    role: 管理员
+    priority: P0
+    precondition: |
+      管理员登录;有未分配线索
+    steps: |
+      1.列表选线索
+      2.分配→选销售人员
+      3.确认
+    expected: |
+      1.线索分配给指定人
+      2.原待分配状态变已分配
+    status: 草稿
+
+  - id: TC-LEAD-POOL-004
+    module: 线索池更换负责人
+    name: 管理员—线索收回
+    category: Pool
+    role: 管理员
+    priority: P0
+    precondition: |
+      管理员登录;有已分配线索
+    steps: |
+      1.列表选线索
+      2.收回→确认
+    expected: |
+      1.线索回到待分配/公海池
+      2.原负责人清空
+    status: 草稿

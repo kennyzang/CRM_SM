@@ -1,0 +1,90 @@
+---
+cases:
+- id: TC-PL-001
+  module: P&L
+  name: 新建P&L—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '有进行中商机
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.选商机/生效时间
+
+    4.Submit
+
+    '
+  expected: '1.成功
+
+    2.Version自动
+
+    '
+  status: 草稿
+- id: TC-PL-002
+  module: P&L
+  name: 新建P&L—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.商机/生效时间留空
+
+    2.点击Submit
+
+    3.逐字段填写后Submit
+
+    '
+  expected: '1.商机/生效时间均有必填提示
+
+    2.全部填完后提交成功
+
+    '
+  status: 草稿
+- id: TC-PL-003
+  module: P&L
+  name: 编辑—改Margin
+  category: Edit
+  role: 销售管理员
+  priority: P1
+  precondition: '是创建人
+
+    '
+  steps: '1.详情
+
+    2.编辑
+
+    3.改Margin
+
+    4.Submit
+
+    '
+  expected: '1.成功
+
+    '
+  status: 草稿
+- id: TC-PL-004
+  module: P&L
+  name: 列表搜索
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输关键词
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿

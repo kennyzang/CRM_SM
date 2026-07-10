@@ -1,0 +1,66 @@
+---
+cases:
+- id: TC-DELIVERY-001
+  module: Delivery
+  name: Create Delivery—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'SO exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.SO No.
+
+    4.Products/Qty
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-DELIVERY-002
+  module: Delivery
+  name: Create—SO Required
+  category: Create/Validation
+  role: Sales Admin
+  priority: P0
+  precondition: 'On form
+
+    '
+  steps: '1.SO empty
+
+    2.Save
+
+    '
+  expected: '1.Fail
+
+    2.SO required
+
+    '
+  status: Draft
+- id: TC-DELIVERY-003
+  module: Delivery
+  name: List Search
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type number
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

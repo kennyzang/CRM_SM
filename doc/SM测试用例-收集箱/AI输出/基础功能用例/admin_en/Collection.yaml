@@ -1,0 +1,72 @@
+---
+cases:
+- id: TC-COLLECTION-001
+  module: Collection
+  name: Create Collection—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'Customer/PaymentPlan exist
+
+    '
+  steps: '1.List(Revenue)
+
+    2.New
+
+    3.Customer/Date/Currency/Amount
+
+    4.Milestones
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    3.Allocated auto
+
+    '
+  status: Draft
+- id: TC-COLLECTION-002
+  module: Collection
+  name: Create Collection—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Customer/Date/Amount/Currency empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Customer/Date/Amount/Currency
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-COLLECTION-003
+  module: Collection
+  name: List Search
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type customer
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

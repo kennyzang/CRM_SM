@@ -1,0 +1,152 @@
+{
+  "formId": "mk_model_2026050955335",
+  "formName": "动态控件完整测试",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/xoex/add/1jo56chk4wcoow2kk3w5ddrk824imb5j3kw0",
+  "fields": [
+    {
+      "id": "fd_col_8jcrae",
+      "fdType": "dynamic",
+      "label": "动态控件-单选",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1jo56bd8mwcoow2k66wtpnd7c1o3ju952iw0",
+        "modelName": "币种-单选",
+        "type": "radio"
+      },
+      "fdLabelLangKey": "!{moxoijioa1l08b0o1mm}"
+    },
+    {
+      "id": "fd_col_uz8wjj",
+      "fdType": "dynamic",
+      "label": "动态控件-多选",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1jo56f44cwcoow2l96w2j50mfl18niqg7vw0",
+        "modelName": "币种-多选",
+        "type": "checkbox"
+      },
+      "fdLabelLangKey": "!{moxs6hrd3r5yppkpd5y}"
+    },
+    {
+      "id": "fd_col_i1upsr",
+      "fdType": "dynamic",
+      "label": "动态控件-单选下拉",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1i0ievt6sw3rwcb5w1kejvbo3ukgq5c29pw0",
+        "modelName": "用品选择-单选下拉框-cyy",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{moy2q8lnq3udrhbatvr}"
+    },
+    {
+      "id": "fd_col_xv0uju",
+      "fdType": "dynamic",
+      "label": "动态控件-多选下拉框",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1jo56oh2kwcoow2nlbw28tqfd438c5p9cew0",
+        "modelName": "币种-多选下拉",
+        "type": "multiSelect"
+      },
+      "fdLabelLangKey": "!{moy2rmgt3kulxmgc2wt}"
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-05-09T10:41:55.043Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_model_2026050955335_d_28adn",
+      "detailTableName": "明细表1",
+      "fields": [
+        {
+          "id": "mk_model_2026050955335_d_28adn.fd_col_4q2vly",
+          "fdType": "dynamic",
+          "label": "动态控件-单选",
+          "required": false,
+          "sourceComponent": "@elem/xform-dynamic",
+          "methods": [],
+          "renderMode": {
+            "modelId": "1jo56bd8mwcoow2k66wtpnd7c1o3ju952iw0",
+            "modelName": "币种-单选",
+            "type": "radio"
+          },
+          "fdLabelLangKey": "!{moxs7b3yada5jpxb3wg}"
+        },
+        {
+          "id": "mk_model_2026050955335_d_28adn.fd_col_clth9i",
+          "fdType": "dynamic",
+          "label": "动态控件-多选",
+          "required": false,
+          "sourceComponent": "@elem/xform-dynamic",
+          "methods": [],
+          "renderMode": {
+            "modelId": "1jo56f44cwcoow2l96w2j50mfl18niqg7vw0",
+            "modelName": "币种-多选",
+            "type": "checkbox"
+          },
+          "fdLabelLangKey": "!{moxs7ofvwdwklejlw7}"
+        },
+        {
+          "id": "mk_model_2026050955335_d_28adn.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_model_2026050955335_d_28adn.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_model_2026050955335_d_28adn.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

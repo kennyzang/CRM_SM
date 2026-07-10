@@ -1,0 +1,174 @@
+{
+  "source": "live API (172.18.114.231:8088), non-guessed",
+  "queried_with_account": "soo",
+  "right_groups": {
+    "销售管理员": {
+      "fdId": "1jmdajltbwhw32fiwug8jiv1tf8b7i7m7bw0",
+      "members_raw": [
+        "Yuwin",
+        "Chew",
+        "Alan",
+        "Shimi",
+        "Soo",
+        "Faizul",
+        "Affendi"
+      ],
+      "note": null
+    },
+    "销售人员": {
+      "fdId": "1jmdbnta4whw339cw2h2rvhl36m4dnq2aaw0",
+      "members_raw": [
+        "SMMY",
+        "SCMY",
+        "MSMY",
+        "PTSM",
+        "PTSK",
+        "SMPH",
+        "SMVN",
+        "Signing Cloud",
+        "Securemetric"
+      ],
+      "note": null
+    }
+  },
+  "pools": {
+    "线索池 (Lead Queue)": [
+      {
+        "pool_name": "SCMY",
+        "pool_no": "PLP20260417008",
+        "admins": [
+          "Yuwin"
+        ],
+        "member_departments": [
+          "SCMY",
+          "Signing Cloud"
+        ]
+      },
+      {
+        "pool_name": "MSMY",
+        "pool_no": "PLP20260417007",
+        "admins": [
+          "Chew"
+        ],
+        "member_departments": [
+          "MSMY",
+          "Malaysia"
+        ]
+      },
+      {
+        "pool_name": "SMPH",
+        "pool_no": "PLP20260417006",
+        "admins": [
+          "Alan"
+        ],
+        "member_departments": [
+          "SMPH",
+          "Philippines"
+        ]
+      },
+      {
+        "pool_name": "PTSM",
+        "pool_no": "PLP20260417005",
+        "admins": [
+          "Shimi"
+        ],
+        "member_departments": [
+          "PTSM",
+          "PTSM"
+        ]
+      },
+      {
+        "pool_name": "PTSK",
+        "pool_no": "PLP20260417004",
+        "admins": [
+          "Soo"
+        ],
+        "member_departments": [
+          "PTSK",
+          "PTSK"
+        ]
+      },
+      {
+        "pool_name": "SMVN",
+        "pool_no": "PLP20260417002",
+        "admins": [
+          "Faizul"
+        ],
+        "member_departments": [
+          "SMVN",
+          "Vietnam"
+        ]
+      },
+      {
+        "pool_name": "SMMY",
+        "pool_no": "PLP20260415001",
+        "admins": [
+          "Affendi"
+        ],
+        "member_departments": [
+          "SMMY",
+          "Malaysia"
+        ]
+      }
+    ],
+    "公海池 (Public Pool)": [
+      {
+        "pool_name": "SCMY",
+        "pool_no": "PCP20260417007",
+        "admins": [
+          "Yuwin"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "MSMY",
+        "pool_no": "PCP20260417006",
+        "admins": [
+          "Chew"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "PTSM",
+        "pool_no": "PCP20260417005",
+        "admins": [
+          "Shimi",
+          "Yeo"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "PTSK",
+        "pool_no": "PCP20260417004",
+        "admins": [
+          "Soo"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "SMPH",
+        "pool_no": "PCP20260417003",
+        "admins": [
+          "Alan"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "SMVN",
+        "pool_no": "PCP20260417002",
+        "admins": [
+          "Faizul"
+        ],
+        "member_departments": []
+      },
+      {
+        "pool_name": "SMMY",
+        "pool_no": "PCP20260415001",
+        "admins": [
+          "Affendi"
+        ],
+        "member_departments": []
+      }
+    ]
+  }
+}

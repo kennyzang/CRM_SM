@@ -1,0 +1,318 @@
+---
+cases:
+- id: TC-PL-001
+  module: P&L
+  name: 新建P&L—正常流程
+  category: Create
+  role: 销售人员
+  priority: P0
+  precondition: '有进行中商机
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.选商机/生效时间
+
+    4.Submit
+
+    '
+  expected: '1.成功
+
+    2.Version自动
+
+    '
+  status: 草稿
+- id: TC-PL-002
+  module: P&L
+  name: 新建P&L—必填项校验
+  category: Create/Validation
+  role: 销售人员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.商机/生效时间留空
+
+    2.点击Submit
+
+    3.逐字段填写后Submit
+
+    '
+  expected: '1.商机/生效时间均有必填提示
+
+    2.全部填完后提交成功
+
+    '
+  status: 草稿
+- id: TC-PL-003
+  module: P&L
+  name: 编辑—改Margin
+  category: Edit
+  role: 销售人员
+  priority: P1
+  precondition: '是创建人
+
+    '
+  steps: '1.详情
+
+    2.编辑
+
+    3.改Margin
+
+    4.Submit
+
+    '
+  expected: '1.成功
+
+    '
+  status: 草稿
+- id: TC-PL-004
+  module: P&L
+  name: 列表搜索
+  category: List/Search
+  role: 销售人员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输关键词
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-PL-005
+  module: P&L
+  name: 【SOW#6】损益→报价工作流分离
+  category: CustomRule/Workflow
+  role: 销售人员
+  priority: P0
+  source: SOW需求#6（Easycraft定制开发）：损益表单和客户报价表单分离，从损益数据直接生成报价单
+  precondition: '有商机X，有产品数据
+
+    '
+  steps: '1.在商机X下创建损益表单，填写成本和售价
+
+    2.提交损益表单
+
+    3.点击"生成报价"
+
+    4.观察是否自动跳转到报价单表单
+
+    5.检查报价单数据是否与损益一致
+
+    '
+  expected: '1.损益与报价是两个独立表单
+
+    2.从损益直接生成报价单
+
+    3.报价单自动填充损益中的产品/金额/货币
+
+    '
+  status: 草稿
+- id: TC-PL-006
+  module: P&L
+  name: 【SOW#7】损益定价逻辑—加价%+折扣%+货币覆盖重算
+  category: CustomRule/Pricing
+  role: 销售人员
+  priority: P0
+  source: SOW需求#7（Easycraft定制开发）：输入项（标价、成本、加价%、折扣%），先加价再折扣，覆盖货币时自动重算
+  precondition: '有产品，成本1000，标价2000
+
+    '
+  steps: '1.新建损益表单，添加行项目，输入标价和成本
+
+    2.设置加价%为20%
+
+    3.观察计算后的售价
+
+    4.再设置折扣%为10%
+
+    5.观察最终价格（先加价再折扣）
+
+    6.切换货币为另一种
+
+    7.观察是否自动重新计算
+
+    '
+  expected: '1.加价后售价 = 成本 × (1 + 20%)
+
+    2.折扣后 = 加价后售价 × (1 - 10%)
+
+    3.计算顺序：先加价再折扣
+
+    4.切换货币后金额自动重算
+
+    '
+  status: 草稿
+- id: TC-PL-007
+  module: P&L
+  name: 【SOW#8】利润率控制—低利润率自动路由CFO审批
+  category: ConfigRule/Approval
+  role: 销售人员
+  priority: P0
+  source: SOW需求#8（Securemetric配置）：目标利润率%字段，若低于目标利润率自动路由到CFO审批分支
+  precondition: '产品主数据已配置目标利润率%为30%
+
+    '
+  steps: '1.新建损益表单，输入数据使利润率低于30%
+
+    2.提交审批
+
+    3.观察审批流程走向
+
+    4.输入数据使利润率高于30%
+
+    5.提交审批
+
+    6.观察审批流程走向
+
+    '
+  expected: '1.利润率低于目标→审批流自动路由到CFO分支
+
+    2.利润率高于目标→走普通审批流
+
+    '
+  status: 草稿
+- id: TC-PL-008
+  module: P&L
+  name: 【SOW#9】版本控制—损益/报价版本管理
+  category: CustomRule/Version
+  role: 销售人员
+  priority: P0
+  source: SOW需求#9（Easycraft定制开发）：报价单和损益表单支持版本控制（v1.0、v1.1），报告取最新版本，历史版本保留
+  precondition: '有一份已提交的损益表单
+
+    '
+  steps: '1.打开已提交的损益表单
+
+    2.创建新版本v1.1
+
+    3.修改部分数据
+
+    4.保存新版
+
+    5.查看版本历史列表
+
+    6.切换到v1.0查看旧版
+
+    7.查看关联报告引用的版本
+
+    '
+  expected: '1.版本号自动递增（v1.0→v1.1）
+
+    2.历史版本只读可查看
+
+    3.报告取最新版本数据
+
+    '
+  status: 草稿
+- id: TC-PL-009
+  module: P&L
+  name: 【SOW#10】版本中动态成本—新版本更新成本仪表盘联动
+  category: CustomRule/Version
+  role: 销售人员
+  priority: P1
+  source: SOW需求#10（Easycraft定制开发）：新版本可更新成本，仪表盘反映更新后的利润/成本
+  precondition: '损益表单v1.0已有成本数据
+
+    '
+  steps: '1.创建v1.1版本
+
+    2.更新行项目的成本（例如从1000改为1500）
+
+    3.保存
+
+    4.查看仪表盘/报告
+
+    '
+  expected: '1.v1.1成本更新成功
+
+    2.仪表盘上的利润/成本数字同步更新为新版本数据
+
+    '
+  status: 草稿
+- id: TC-PL-010
+  module: P&L
+  name: 【SOW#11】损益循环与多年逻辑
+  category: CustomRule/Recurring
+  role: 销售人员
+  priority: P0
+  source: SOW需求#11（Easycraft定制开发）：行项目'循环'复选框，勾选纳入循环计算，提供第3、4年添加部分并自动计算总额
+  precondition: '有产品数据
+
+    '
+  steps: '1.新建损益表单，添加行项目A（循环勾选）和行项目B（不循环）
+
+    2.设置第1年数据
+
+    3.添加第2年部分，观察自动复制的内容
+
+    4.添加第3年部分
+
+    5.查看各年份汇总和总金额
+
+    '
+  expected: '1.循环项目自动复制到后续年份
+
+    2.非循环项目不复制
+
+    3.系统自动计算各年份小计和总金额
+
+    '
+  status: 草稿
+- id: TC-PL-011
+  module: P&L
+  name: 【SOW#13】签署人自动填充—根据工作流历史
+  category: ConfigRule/AutoFill
+  role: 销售人员
+  priority: P1
+  source: SOW需求#13（Securemetric配置）：根据工作流历史在损益和报价表单底部自动填充'销售代表'和'审批人'姓名
+  precondition: '有已完成的审批流转
+
+    '
+  steps: '1.查看已审批完成的损益表单
+
+    2.观察底部签署区域
+
+    '
+  expected: '1.自动显示销售代表姓名（创建人）
+
+    2.自动显示审批人姓名（最后一个审批节点处理人）
+
+    '
+  status: 草稿
+- id: TC-PL-012
+  module: P&L
+  name: 【SOW#14】损益/报价复制与重用
+  category: ConfigRule/Reuse
+  role: 销售人员
+  priority: P1
+  source: SOW需求#14（Easycraft定制开发）：用户可复制自己的损益/报价创建新记录，可重用/导入他人记录
+  precondition: '有自己的损益A，有其他用户的损益B
+
+    '
+  steps: '1.在自己的损益A详情页点击复制
+
+    2.修改名称后保存
+
+    3.尝试导入/重用用户B的损益B
+
+    4.确认权限校验
+
+    '
+  expected: '1.复制成功，生成一条新记录
+
+    2.可重用他人记录（如有权限）
+
+    3.无权限时提示限制
+
+    '
+  status: 草稿

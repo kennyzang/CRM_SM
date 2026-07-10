@@ -1,0 +1,70 @@
+---
+cases:
+- id: TC-CONTRACT-001
+  module: Contract
+  name: Create Contract—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'SO exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Title/SO/SignedDate/Expiry/Attach/Notify
+
+    4.Reminder table
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    '
+  status: Draft
+- id: TC-CONTRACT-002
+  module: Contract
+  name: Create Contract—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Title/SO/SignDate/ExpiryDate/Attachment empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Title/SO/SignDate/ExpiryDate/Attachment
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-CONTRACT-003
+  module: Contract
+  name: List Search—by Title
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type title
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

@@ -1,0 +1,346 @@
+{
+  "formId": "1i176k8omw60whh8w7rcq5a2h7njoq99bew1",
+  "formName": "securemetric-crm-schema",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1i176k8omw60whh8w7rcq5a2h7njoq99bew1",
+  "fields": [
+    {
+      "id": "fd_jbxx",
+      "fdType": "collapseAppearance",
+      "label": "Customer Payment Information",
+      "displayName": "Customer Payment Information",
+      "required": false,
+      "sourceComponent": "@elem/xform-collapse-appearance"
+    },
+    {
+      "id": "fd_account_id",
+      "fdType": "relation",
+      "label": "客户名称",
+      "displayName": "客户名称",
+      "required": false,
+      "renderMode": "singlelist",
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "xformName": "客户"
+      },
+      "sourceComponent": "@elem/xform-relation"
+    },
+    {
+      "id": "fd_payment_time",
+      "fdType": "timestamp",
+      "label": "回款日期",
+      "displayName": "回款日期",
+      "required": false,
+      "placeholder": "Select Date",
+      "sourceComponent": "@elem/xform-datetime"
+    },
+    {
+      "id": "fd_notification_time",
+      "fdType": "timestamp",
+      "label": "提醒日期",
+      "displayName": "提醒日期",
+      "required": false,
+      "placeholder": "Select Date",
+      "sourceComponent": "@elem/xform-datetime"
+    },
+    {
+      "id": "fd_amount",
+      "fdType": "moneytext",
+      "label": "Collection Amount (Total)",
+      "displayName": "Collection Amount (Total)",
+      "required": false,
+      "placeholder": "Input",
+      "sourceComponent": "@elem/xform-money"
+    },
+    {
+      "id": "fd_owner_people",
+      "fdType": "address",
+      "label": "负责人",
+      "displayName": "负责人",
+      "required": false,
+      "sourceComponent": "@elem/xform-address"
+    },
+    {
+      "id": "fd_data_own_department",
+      "fdType": "address",
+      "label": "归属部门",
+      "displayName": "归属部门",
+      "required": false,
+      "sourceComponent": "@elem/xform-address"
+    },
+    {
+      "id": "fd_hkmx",
+      "fdType": "collapseAppearance",
+      "label": "Milestone Payments",
+      "displayName": "Milestone Payments",
+      "required": false,
+      "sourceComponent": "@elem/xform-collapse-appearance"
+    },
+    {
+      "id": "fd_name",
+      "fdType": "mechnumber",
+      "label": "回款编号",
+      "displayName": "回款编号",
+      "required": false,
+      "sourceComponent": "@elem/xform-mechnumber"
+    },
+    {
+      "id": "fd_finance_employee_id",
+      "fdType": "address",
+      "label": "财务确认人",
+      "displayName": "财务确认人",
+      "required": false,
+      "sourceComponent": "@elem/xform-address"
+    },
+    {
+      "id": "fd_finance_confirm_time",
+      "fdType": "timestamp",
+      "label": "财务确认时间",
+      "displayName": "财务确认时间",
+      "required": false,
+      "placeholder": "Select Date",
+      "sourceComponent": "@elem/xform-datetime"
+    },
+    {
+      "id": "fd_purpose",
+      "fdType": "select",
+      "label": "回款用途",
+      "displayName": "回款用途",
+      "required": false,
+      "placeholder": "Select",
+      "sourceComponent": "@elem/xform-select"
+    },
+    {
+      "id": "fd_lock_status",
+      "fdType": "radio",
+      "label": "锁定状态",
+      "displayName": "锁定状态",
+      "required": false,
+      "sourceComponent": "@elem/xform-radio"
+    },
+    {
+      "id": "fd_submit_time",
+      "fdType": "timestamp",
+      "label": "回款提交时间",
+      "displayName": "回款提交时间",
+      "required": false,
+      "placeholder": "请选择日期",
+      "sourceComponent": "@elem/xform-datetime"
+    },
+    {
+      "id": "fd_xtxx",
+      "fdType": "collapseAppearance",
+      "label": "System Information",
+      "displayName": "System Information",
+      "required": false,
+      "sourceComponent": "@elem/xform-collapse-appearance"
+    },
+    {
+      "id": "fd_payment_amount",
+      "fdType": "calculate",
+      "label": "Allocated Amount",
+      "displayName": "Allocated Amount",
+      "required": false,
+      "sourceComponent": "@elem/xform-calculate"
+    },
+    {
+      "id": "fd_available_amount",
+      "fdType": "calculate",
+      "label": "可用金额",
+      "displayName": "可用金额",
+      "required": false,
+      "sourceComponent": "@elem/xform-calculate"
+    },
+    {
+      "id": "fd_sales_rep",
+      "fdType": "fd_input",
+      "label": "Sales Rep",
+      "displayName": "Sales Rep",
+      "required": false,
+      "placeholder": "请输入",
+      "sourceComponent": "@elem/xform-input"
+    },
+    {
+      "id": "fd_receipt",
+      "fdType": "attachment",
+      "label": "银行入账回单附件",
+      "displayName": "银行入账回单附件",
+      "required": false,
+      "sourceComponent": "@elem/xform-attach"
+    },
+    {
+      "id": "fd_currency",
+      "fdType": "dynamic",
+      "label": "结算货币",
+      "displayName": "结算货币",
+      "required": false,
+      "renderMode": {
+        "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+        "modelName": "CFG-币种下拉",
+        "type": "select"
+      },
+      "sourceComponent": "@elem/xform-dynamic"
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "sourceComponent": "-"
+    }
+  ],
+  "generatedAt": "2026-07-08T05:38:57.713Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_km_ltc_collection_detail",
+      "detailTableName": "回款明细",
+      "fields": [
+        {
+          "id": "fd_exchange_rate",
+          "fdType": "textarea",
+          "label": "Exchange Rate",
+          "displayName": "Exchange Rate",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_sales_order",
+          "fdType": "relation",
+          "label": "销售订单编号",
+          "displayName": "销售订单编号",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_contract_amount",
+          "fdType": "moneytext",
+          "label": "应收金额",
+          "displayName": "应收金额",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_Invoiced_amount",
+          "fdType": "moneytext",
+          "label": "已开票金额",
+          "displayName": "已开票金额",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_pending_payment_amount",
+          "fdType": "moneytext",
+          "label": "待回款金额",
+          "displayName": "待回款金额",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_salesman",
+          "fdType": "address",
+          "label": "销售人员",
+          "displayName": "销售人员",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_attachment",
+          "fdType": "attachment",
+          "label": "附件",
+          "displayName": "附件",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_milestone",
+          "fdType": "fd_input",
+          "label": "里程碑",
+          "displayName": "里程碑",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_proportion",
+          "fdType": "numbertext",
+          "label": "应收比例",
+          "displayName": "应收比例",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_received_amount",
+          "fdType": "moneytext",
+          "label": "已回款金额",
+          "displayName": "已回款金额",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_currency",
+          "fdType": "dynamic",
+          "label": "结算货币",
+          "displayName": "结算货币",
+          "required": false,
+          "renderMode": {
+            "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+            "modelName": "CFG-币种下拉",
+            "type": "select"
+          },
+          "sourceComponent": "@elem/xform-dynamic"
+        },
+        {
+          "id": "fd_remark",
+          "fdType": "textarea",
+          "label": "备注",
+          "displayName": "备注",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_payment_plan_id",
+          "fdType": "relation",
+          "label": "回款计划编号",
+          "displayName": "回款计划编号",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_reviewing_amount",
+          "fdType": "moneytext",
+          "label": "审批中金额",
+          "displayName": "审批中金额",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_contract",
+          "fdType": "fd_input",
+          "label": "合同",
+          "displayName": "合同",
+          "required": false,
+          "sourceComponent": "-"
+        },
+        {
+          "id": "fd_payment_amount",
+          "fdType": "moneytext",
+          "label": "使用金额",
+          "displayName": "使用金额",
+          "required": false,
+          "sourceComponent": "@elem/xform-calculate"
+        },
+        {
+          "id": "fd_pending_invoice_amount",
+          "fdType": "moneytext",
+          "label": "待开票金额",
+          "displayName": "待开票金额",
+          "required": false,
+          "sourceComponent": "-"
+        }
+      ]
+    }
+  ]
+}

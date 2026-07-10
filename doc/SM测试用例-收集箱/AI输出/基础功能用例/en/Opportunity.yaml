@@ -1,0 +1,210 @@
+---
+cases:
+- id: TC-OPPORTUNITY-001
+  module: Opportunity
+  name: Create Opportunity—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'Customer+products exist
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Name/Customer/Contacts/CloseDate/Pipeline/DealCat/Currency
+
+    4.PA table
+
+    5.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.ID auto
+
+    3.Not Started
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-002
+  module: Opportunity
+  name: Create Opportunity—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Name/Customer/CloseDate/Contacts/DealCat/Pipeline/Currency empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.All required hints shown
+
+    2.Submit succeeds after all filled
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-003
+  module: Opportunity
+  name: Edit—Change Name/WinRate
+  category: Edit
+  role: Sales Rep
+  priority: P0
+  precondition: 'Is owner of A
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Name/WinRate
+
+    4.Submit
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-004
+  module: Opportunity
+  name: Detail Sub-tabs
+  category: Detail/Tabs
+  role: Sales Rep
+  priority: P1
+  precondition: 'Has related data
+
+    '
+  steps: '1.Detail
+
+    2.Click tabs
+
+    '
+  expected: '1.Tabs correct
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-005
+  module: Opportunity
+  name: List View Switching
+  category: List/View
+  role: Sales Rep
+  priority: P1
+  precondition: 'Team has data
+
+    '
+  steps: '1.List
+
+    2.Click Owned/Team/Involved/All
+
+    '
+  expected: '1.4 views correct
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-006
+  module: Opportunity
+  name: List Search—by Name
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type name
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-007
+  module: Opportunity
+  name: Suspend/Resume
+  category: Detail/Action
+  role: Sales Rep
+  priority: P1
+  precondition: 'Is X owner;X In Progress
+
+    '
+  steps: '1.Detail
+
+    2.Suspend
+
+    3.Confirm
+
+    4.Observe
+
+    '
+  expected: '1.Suspended
+
+    2.Open appears
+
+    3.Stage unchanged
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-008
+  module: Opportunity
+  name: 【SOW#5】Pipeline—7 Stages with 1-2 as Lead Phase
+  category: ConfigRule/Stage
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#5 (Securemetric config): The pipeline shall consist of 7 Stages. Stages 1-2 are classified as the Lead Phase. Stages 3-7 are classified as the Opportunity Phase.'
+  precondition: 'Pipeline configured with 7 stages
+
+    '
+  steps: '1.Create opportunity, check stage dropdown
+
+    2.Advance to stages 1-2 (lead phase)
+
+    3.Advance to stages 3-7 (oppty phase)
+
+    4.Check stage classification labels
+
+    '
+  expected: '1.7 stages available
+
+    2.Stages 1-2 marked as lead phase
+
+    3.Stages 3-7 marked as oppty phase
+
+    4.All stages advance correctly
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-009
+  module: Opportunity
+  name: 【SOW#15】Multi-Contract Types—Main + SLA Different Reminders
+  category: ConfigRule/Contract
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#15 (Securemetric config): A single Opportunity must support multiple linked contracts: 1. Main Sales Contract. 2. After-sales SLA / Maintenance Agreement. Each contract type requires distinct fields for Expiration Reminders and notification logic.'
+  precondition: 'Opportunity X exists, contract types configured
+
+    '
+  steps: '1.Create Main Sales Contract under Oppty X, set expiry date
+
+    2.Create SLA/Maintenance Agreement under Oppty X, set different expiry
+
+    3.Check reminder behavior for each
+
+    '
+  expected: '1.Multiple contracts can coexist under one opportunity
+
+    2.Expiry dates set independently
+
+    3.Each contract triggers reminders based on its own configuration
+
+    '
+  status: Draft

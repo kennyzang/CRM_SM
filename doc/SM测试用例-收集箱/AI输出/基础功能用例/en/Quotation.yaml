@@ -1,0 +1,186 @@
+---
+cases:
+- id: TC-QUOTATION-001
+  module: Quotation
+  name: Create Quotation—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'Approved P&L exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Header/P&L/Date
+
+    4.Check auto-fill
+
+    5.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.ID auto
+
+    '
+  status: Draft
+- id: TC-QUOTATION-002
+  module: Quotation
+  name: Create Quotation—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave P&L/Header/Date empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.Required hints for P&L/Header/Date
+
+    2.Submit succeeds
+
+    '
+  status: Draft
+- id: TC-QUOTATION-003
+  module: Quotation
+  name: P&L Auto-fill
+  category: Create/Linkage
+  role: Sales Rep
+  priority: P1
+  precondition: 'Approved P&L exists
+
+    '
+  steps: '1.Header/Date
+
+    2.Select P&L
+
+    3.Observe
+
+    '
+  expected: '1.Currency/Oppty/Products auto
+
+    '
+  status: Draft
+- id: TC-QUOTATION-004
+  module: Quotation
+  name: List Search—by Header
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type header
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-QUOTATION-005
+  module: Quotation
+  name: 【SOW#9】Quotation Version Control
+  category: CustomRule/Version
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#9 (Easycraft custom): Quotation supports versioning; reports use latest version'
+  precondition: 'Quotation v1.0 exists
+
+    '
+  steps: '1.Open quotation detail
+
+    2.Create v1.1, modify price
+
+    3.Check version history
+
+    4.Switch to v1.0 to view
+
+    5.Generate PDF, check which version is used
+
+    '
+  expected: '1.Version auto-increments
+
+    2.Historical versions read-only
+
+    3.External output (PDF/report) uses latest version by default
+
+    '
+  status: Draft
+- id: TC-QUOTATION-006
+  module: Quotation
+  name: 【SOW#12】Branch-specific Quotation Templates
+  category: CustomRule/Template
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#12 (Easycraft custom): Quotation output templates differ by branch (different logo, address, terms)'
+  precondition: 'Branch A and B exist, each with different quotation templates
+
+    '
+  steps: '1.Sales rep from branch A creates quotation, generate PDF
+
+    2.Sales rep from branch B creates quotation, generate PDF
+
+    3.Compare the two PDFs
+
+    '
+  expected: '1.A''s quotation shows A''s logo/address/terms
+
+    2.B''s quotation shows B''s logo/address/terms
+
+    3.Content correctly differentiated
+
+    '
+  status: Draft
+- id: TC-QUOTATION-007
+  module: Quotation
+  name: 【SOW#13】Quotation Signatory Auto-fill
+  category: ConfigRule/AutoFill
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#13 (Securemetric config): Auto-fill ''Sales Rep'' and ''Approver'' based on workflow history'
+  precondition: 'Approved quotation exists
+
+    '
+  steps: '1.Open approved quotation bottom signatory area
+
+    '
+  expected: '1.Sales Rep name auto-filled
+
+    2.Approver name auto-filled
+
+    '
+  status: Draft
+- id: TC-QUOTATION-008
+  module: Quotation
+  name: 【SOW#14】Quotation Copy & Reuse
+  category: ConfigRule/Reuse
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#14 (Easycraft custom): Users can copy their own quotations to create new records'
+  precondition: 'Own quotation A exists
+
+    '
+  steps: '1.Click Copy on quotation A detail
+
+    2.Modify content and save
+
+    3.Check new record is independent
+
+    '
+  expected: '1.Copy succeeded, new quotation created
+
+    2.New quotation independent from original
+
+    '
+  status: Draft

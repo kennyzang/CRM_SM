@@ -1,0 +1,353 @@
+{
+  "formId": "mk_model_20260430x1w46",
+  "formName": "业务关联",
+  "url": "https://test.easycraft.ai/web/#/current/sys-modeling/app/km-test/add/1jne09fv4w8uw2g895w136u0rj1jkb2n03w4",
+  "fields": [
+    {
+      "id": "fd_col_0b7tpb",
+      "fdType": "relation",
+      "label": "业务关联-单选列表框",
+      "required": false,
+      "renderMode": "singlelist",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_col_hdmzv7",
+      "fdType": "relation",
+      "label": "业务关联-多选类表框",
+      "required": false,
+      "renderMode": "mullist",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_col_e6s10y",
+      "fdType": "relation",
+      "label": "业务关联-单选",
+      "required": false,
+      "renderMode": "radio",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_col_k831sf",
+      "fdType": "relation",
+      "label": "业务关联-多选",
+      "required": false,
+      "renderMode": "checkbox",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_col_u9uu1s",
+      "fdType": "relation",
+      "label": "业务关联-单选下拉",
+      "required": false,
+      "renderMode": "select",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_col_7wjhok",
+      "fdType": "relation",
+      "label": "业务关联-多选列表",
+      "required": false,
+      "renderMode": "multiSelect",
+      "options": [
+        {
+          "label": "选项1",
+          "value": "1"
+        },
+        {
+          "label": "选项2",
+          "value": "2"
+        },
+        {
+          "label": "选项3",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "fd_att_no_download",
+      "fdType": "boolean",
+      "label": "不可下载标记",
+      "required": false
+    },
+    {
+      "id": "fd_version",
+      "fdType": "text",
+      "label": "表单版本ID",
+      "required": false
+    },
+    {
+      "id": "fd_draft_no_edit_prints",
+      "fdType": "boolean",
+      "label": "起草人不可修改附件可打印者",
+      "required": false
+    },
+    {
+      "id": "fd_alter",
+      "fdType": "address",
+      "label": "修改人",
+      "required": false
+    },
+    {
+      "id": "fd_owner_dept",
+      "fdType": "address",
+      "label": "拥有者部门",
+      "required": false
+    },
+    {
+      "id": "fd_doc_status",
+      "fdType": "radio",
+      "label": "文档状态",
+      "required": false
+    },
+    {
+      "id": "fd_deleted",
+      "fdType": "boolean",
+      "label": "是否软删除",
+      "required": false
+    },
+    {
+      "id": "fd_draft_no_edit_download",
+      "fdType": "boolean",
+      "label": "起草人不可修改附件可下载者",
+      "required": false
+    },
+    {
+      "id": "fd_published_time",
+      "fdType": "timestamp",
+      "label": "发布时间",
+      "required": false
+    },
+    {
+      "id": "fd_draft_no_edit_copys",
+      "fdType": "boolean",
+      "label": "起草人不可修改附件可拷贝者",
+      "required": false
+    },
+    {
+      "id": "fd_create_time",
+      "fdType": "timestamp",
+      "label": "创建时间",
+      "required": false
+    },
+    {
+      "id": "fd_owner",
+      "fdType": "address",
+      "label": "拥有者",
+      "required": false
+    },
+    {
+      "id": "fd_last_modified_time",
+      "fdType": "timestamp",
+      "label": "最后修改时间",
+      "required": false
+    },
+    {
+      "id": "fd_att_nocopy",
+      "fdType": "boolean",
+      "label": "不可拷贝标记",
+      "required": false
+    },
+    {
+      "id": "fd_id",
+      "fdType": "text",
+      "label": "主键ID",
+      "required": false
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "text",
+      "label": "流程模板ID",
+      "required": false
+    },
+    {
+      "id": "fd_att_no_print",
+      "fdType": "boolean",
+      "label": "不可打印标记",
+      "required": false
+    },
+    {
+      "id": "fd_alter_time",
+      "fdType": "timestamp",
+      "label": "修改时间",
+      "required": false
+    },
+    {
+      "id": "fd_creator",
+      "fdType": "address",
+      "label": "创建人",
+      "required": false
+    },
+    {
+      "id": "fd_creator_dept",
+      "fdType": "address",
+      "label": "创建者部门",
+      "required": false
+    },
+    {
+      "id": "fd_doc_subject",
+      "fdType": "text",
+      "label": "文档标题",
+      "required": false,
+      "placeholder": "Input"
+    },
+    {
+      "id": "fd_xform_id",
+      "fdType": "text",
+      "label": "应用表单ID",
+      "required": false
+    }
+  ],
+  "generatedAt": "2026-05-01T23:56:54.699Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_model_20260430x1w46_d_9l2g0",
+      "detailTableName": "Detail Table",
+      "fields": [
+        {
+          "id": "relation_td2",
+          "fdType": "relation~multi",
+          "label": "业务关联-单选列表框",
+          "required": false
+        },
+        {
+          "id": "relation_td3",
+          "fdType": "relation~multi",
+          "label": "业务关联-多选类表框",
+          "required": false
+        },
+        {
+          "id": "relation_td4",
+          "fdType": "relation",
+          "label": "业务关联-单选",
+          "required": false
+        },
+        {
+          "id": "relation_td5",
+          "fdType": "relation",
+          "label": "业务关联-多选",
+          "required": false
+        },
+        {
+          "id": "fd_col_u9uu1s",
+          "fdType": "relation",
+          "label": "业务关联-单选下拉",
+          "required": false,
+          "renderMode": "select"
+        },
+        {
+          "id": "fd_col_7wjhok",
+          "fdType": "relation~multi",
+          "label": "业务关联-多选列表",
+          "required": false,
+          "renderMode": "multiSelect"
+        },
+        {
+          "id": "field_0",
+          "fdType": "checkbox",
+          "label": "field_0",
+          "required": false,
+          "options": [
+            {
+              "label": "THB",
+              "value": "1jglqf0qpw5fw61ibwefh5dl2g0l38f7cdw4"
+            },
+            {
+              "label": "SGD",
+              "value": "1jglqf0pvw5fw61i4w19vmrtv2rdh9pv3gw4"
+            },
+            {
+              "label": "PHP",
+              "value": "1jglqf0p6w5fw61huw2khr1ol3a1at352sw4"
+            },
+            {
+              "label": "VND",
+              "value": "1jglqf0oew5fw61hnwbcsp6536bpuq212kw4"
+            },
+            {
+              "label": "IDR",
+              "value": "1jglqf0njw5fw61hfw1p7atk215r9pg0f0w4"
+            },
+            {
+              "label": "MYR",
+              "value": "1jglqf0mlw5fw61h9w20lk2r03s2bl3p1mw4"
+            },
+            {
+              "label": "EUR",
+              "value": "1jglqf0lmw5fw61h2w2bs45033dhuem92cw4"
+            },
+            {
+              "label": "USD",
+              "value": "1jglqf0kfw5fw61gsw37o5328h6o0s12uhw4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

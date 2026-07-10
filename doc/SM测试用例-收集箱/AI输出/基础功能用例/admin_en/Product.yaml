@@ -1,0 +1,53 @@
+---
+cases:
+
+  - id: TC-PRODUCT-001
+    module: Product
+    name: Create Product—Normal Flow
+    category: Create
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Supplier exists
+    steps: |
+      1.List(Products)
+      2.New
+      3.Name/Code/Type/Supplier/UnitPrice/Currency
+      4.Save
+    expected: |
+      1.Saved
+      2.Published
+    status: Draft
+
+  - id: TC-PRODUCT-002
+    module: Product
+    name: Create Product—Required Field Validation
+    category: Create/Validation
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      On create form
+    steps: |
+      1.Leave Name/Code/Type/Supplier empty
+      2.Save
+      3.Fill each and save
+    expected: |
+      1.Required hints for Name/Code/Type/Supplier
+      2.Save succeeds
+    status: Draft
+
+  - id: TC-PRODUCT-003
+    module: Product
+    name: List Search
+    category: List/Search
+    role: Sales Admin
+    priority: P2
+    precondition: |
+      Multiple records
+    steps: |
+      1.List
+      2.Type name
+      3.Search
+    expected: |
+      1.Filtered
+    status: Draft

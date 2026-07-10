@@ -1,0 +1,723 @@
+{
+  "formId": "mk_ltc_delievery",
+  "formName": "mk_ltc_delievery",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1jihct6p2w5fw21p33w27t64ed12seupkmw4",
+  "fields": [
+    {
+      "id": "fd_Date",
+      "fdType": "timestamp",
+      "label": "日期",
+      "displayName": "Date",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5ws5pyoedg8ng4lst}",
+      "i18n": {
+        "label": {
+          "Cn": "日期",
+          "Us": "Date",
+          "default": "Date"
+        },
+        "placeholder": {
+          "Us": "Select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_SO_No",
+      "fdType": "relation",
+      "label": "销售订单号",
+      "displayName": "SO No",
+      "required": true,
+      "relationCfg": {
+        "appCode": "1i16frphvw5rw6cuvw2tudpb632vlssh2jw1",
+        "modelId": "1i16imb35w60w37jw1l2npp1f6lgd3188uw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_sales_orders",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "销售订单"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_Customer_Name",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_account_id",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_Product",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_sm_prodcut",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "numbertext",
+            "fdName": "fd_Remaining_Quantity",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "numbertext",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_sm_unit",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "numbertext",
+            "fdName": "fd_Quantity",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "numbertext",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_sm_unit",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_Product_Line_ID",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "mechnumber",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_Product_Line_ID",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_entity_code",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_entity_code",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_col_8z4pfk",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_sm_prodcut_name",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_product_type",
+            "tableName": "mk_ltc_delievery_d_67b55",
+            "tableType": "detail"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "mk_km_ltc_sales_orders_d_9f0t8.fd_product_type",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{mm5wsf0qe9wuslqz1s}",
+      "i18n": {
+        "label": {
+          "Cn": "销售订单号",
+          "Us": "SO No",
+          "default": "SO No"
+        }
+      }
+    },
+    {
+      "id": "fd_PI_No",
+      "fdType": "fd_input",
+      "label": "形式发票编号",
+      "displayName": "PI No",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wsus9j9cno3wwwio}",
+      "i18n": {
+        "label": {
+          "Cn": "形式发票编号",
+          "Us": "PI No",
+          "default": "PI No"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Self_collect_ID",
+      "fdType": "fd_input",
+      "label": "自提ID",
+      "displayName": "Self collect ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wt15bbu5mb5z409p}",
+      "i18n": {
+        "label": {
+          "Cn": "自提ID",
+          "Us": "Self collect ID",
+          "default": "Self collect ID"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Customer_Name",
+      "fdType": "relation",
+      "label": "客户名称",
+      "displayName": "Customer Name",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "客户"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wtfjriffphudc43n}",
+      "i18n": {
+        "label": {
+          "Cn": "客户名称",
+          "Us": "Customer Name",
+          "default": "Customer Name"
+        }
+      }
+    },
+    {
+      "id": "fd_Sales_Person",
+      "fdType": "address",
+      "label": "销售员",
+      "displayName": "Sales Person",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wubdmat1ow8qmaob}",
+      "i18n": {
+        "label": {
+          "Cn": "销售员",
+          "Us": "Sales Person",
+          "default": "Sales Person"
+        }
+      }
+    },
+    {
+      "id": "fd_Item_Description",
+      "fdType": "textarea",
+      "label": "项目描述",
+      "displayName": "Item Description",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wugj95y3rp74sw6t}",
+      "i18n": {
+        "label": {
+          "Cn": "项目描述",
+          "Us": "Item Description",
+          "default": "Item Description"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Invoice_Number",
+      "fdType": "fd_input",
+      "label": "发票编号",
+      "displayName": "Invoice Number",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5ww4jxduloj62x1ml}",
+      "i18n": {
+        "label": {
+          "Cn": "发票编号",
+          "Us": "Invoice Number",
+          "default": "Invoice Number"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Done_By",
+      "fdType": "address",
+      "label": "完成人",
+      "displayName": "Done By",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wwcruuycyx5mhlla}",
+      "i18n": {
+        "label": {
+          "Cn": "完成人",
+          "Us": "Done By",
+          "default": "Done By"
+        }
+      }
+    },
+    {
+      "id": "fd_Ship_Date",
+      "fdType": "timestamp",
+      "label": "发货日期",
+      "displayName": "Ship Date",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wwkjm30afyvpdbsu}",
+      "i18n": {
+        "label": {
+          "Cn": "发货日期",
+          "Us": "Ship Date",
+          "default": "Ship Date"
+        },
+        "placeholder": {
+          "Us": "Select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_Courier_Services",
+      "fdType": "fd_input",
+      "label": "快递服务",
+      "displayName": "Courier Services",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wwrkzskxg29c3voi}",
+      "i18n": {
+        "label": {
+          "Cn": "快递服务",
+          "Us": "Courier Services",
+          "default": "Courier Services"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Fuel_Surcharges",
+      "fdType": "moneytext",
+      "label": "燃油附加费（马币）",
+      "displayName": "Fuel Surcharges (RM)",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-money",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wyahb4xhbi3bnvht}",
+      "i18n": {
+        "label": {
+          "Cn": "燃油附加费（马币）",
+          "Us": "Fuel Surcharges (RM)",
+          "default": "Fuel Surcharges (RM)"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Air_Way_Bill",
+      "fdType": "fd_input",
+      "label": "空运提单",
+      "displayName": "Air Way Bill",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wz67awhcgxzjlcjl}",
+      "i18n": {
+        "label": {
+          "Cn": "空运提单",
+          "Us": "Air Way Bill",
+          "default": "Air Way Bill"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Weight",
+      "fdType": "numbertext",
+      "label": "重量",
+      "displayName": "Weight (Kg)",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-number",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5wzf79abfmi8obefm}",
+      "i18n": {
+        "label": {
+          "Cn": "重量",
+          "Us": "Weight (Kg)",
+          "default": "Weight (Kg)"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Courier_Invoice_Number",
+      "fdType": "fd_input",
+      "label": "快递发票编号",
+      "displayName": "Courier Invoice Number",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5x05xreg93s93s2a4}",
+      "i18n": {
+        "label": {
+          "Cn": "快递发票编号",
+          "Us": "Courier Invoice Number",
+          "default": "Courier Invoice Number"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Shipment",
+      "fdType": "moneytext",
+      "label": "运费（马币）",
+      "displayName": "Shipment (RM)",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-money",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5x0kwcb1sxbl455z}",
+      "i18n": {
+        "label": {
+          "Cn": "运费（马币）",
+          "Us": "Shipment (RM)",
+          "default": "Shipment (RM)"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Remarks",
+      "fdType": "textarea",
+      "label": "备注",
+      "displayName": "Remarks",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5x0uhnod3w4ju6de}",
+      "i18n": {
+        "label": {
+          "Cn": "备注",
+          "Us": "Remarks",
+          "default": "Remarks"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_entity_code",
+      "fdType": "fd_input",
+      "label": "实体代码",
+      "displayName": "实体代码",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mn4clchfntb8absdhqs}",
+      "i18n": {
+        "label": {
+          "Us": "Entity Code",
+          "Cn": "实体代码"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-06-04T05:49:20.236Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_ltc_delievery_d_67b55",
+      "detailTableName": "发货产品",
+      "fields": [
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_Product_Line_ID",
+          "fdType": "fd_input",
+          "label": "编号",
+          "displayName": "Product Line ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mm5zjhifi93f68tvpc}",
+          "i18n": {
+            "label": {
+              "Cn": "编号",
+              "Us": "Product Line ID",
+              "default": "Product Line ID"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_Remaining_Quantity",
+          "fdType": "numbertext",
+          "label": "剩余数量",
+          "displayName": "Remaining Quantity",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mm5xu9w2v71ias89ek}",
+          "i18n": {
+            "label": {
+              "Cn": "剩余数量",
+              "Us": "Remaining Quantity",
+              "default": "Remaining Quantity"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_Product",
+          "fdType": "relation",
+          "label": "产品",
+          "displayName": "Product",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1i16frphvw5rw6cuvw2tudpb632vlssh2jw1",
+            "modelId": "1i16imb35w60w37jw1l2npp1f6lgd3188uw1",
+            "refFieldName": "$mk_km_ltc_sales_orders_d_9f0t8.fd_sm_prodcut$",
+            "tableName": "mk_km_ltc_sales_orders_d_9f0t8",
+            "tableType": "detail",
+            "fdFormType": 0,
+            "xformName": "销售订单"
+          },
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{mm5xmimz3551dz3u59a}",
+          "i18n": {
+            "label": {
+              "Cn": "产品",
+              "Us": "Product",
+              "default": "Product"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_col_8z4pfk",
+          "fdType": "fd_input",
+          "label": "产品名称",
+          "displayName": "Product Name",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mn4cmo96gepv47s403i}",
+          "i18n": {
+            "label": {
+              "Cn": "产品名称",
+              "Us": "Product Name",
+              "default": "Product Name"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_Quantity",
+          "fdType": "numbertext",
+          "label": "数量",
+          "displayName": "Quantity",
+          "required": true,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mm5xmly6vh0ok89ikih}",
+          "i18n": {
+            "label": {
+              "Cn": "数量",
+              "Us": "Quantity",
+              "default": "Quantity"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_product_type",
+          "fdType": "fd_input",
+          "label": "Type",
+          "displayName": "Type",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mmd1fxb1yrrfer5cofs}",
+          "i18n": {
+            "label": {
+              "Us": "Type",
+              "Cn": "Type"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_ltc_delievery_d_67b55.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

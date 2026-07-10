@@ -1,0 +1,90 @@
+---
+cases:
+- id: TC-QUOTATION-001
+  module: Quotation
+  name: Create Quotation—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'Approved P&L exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Header/P&L/Date
+
+    4.Check auto-fill
+
+    5.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.ID auto
+
+    '
+  status: Draft
+- id: TC-QUOTATION-002
+  module: Quotation
+  name: Create Quotation—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave P&L/Header/Date empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.Required hints for P&L/Header/Date
+
+    2.Submit succeeds
+
+    '
+  status: Draft
+- id: TC-QUOTATION-003
+  module: Quotation
+  name: P&L Auto-fill
+  category: Create/Linkage
+  role: Sales Admin
+  priority: P1
+  precondition: 'Approved P&L exists
+
+    '
+  steps: '1.Header/Date
+
+    2.Select P&L
+
+    3.Observe
+
+    '
+  expected: '1.Currency/Oppty/Products auto
+
+    '
+  status: Draft
+- id: TC-QUOTATION-004
+  module: Quotation
+  name: List Search—by Header
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type header
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

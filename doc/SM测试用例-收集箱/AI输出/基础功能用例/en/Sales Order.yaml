@@ -1,0 +1,122 @@
+---
+cases:
+- id: TC-SO-001
+  module: Sales Order
+  name: Create Sales Order—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'Quotation exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.PO/OrderDate
+
+    4.Products table
+
+    5.Payment Schedule
+
+    6.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    '
+  status: Draft
+- id: TC-SO-002
+  module: Sales Order
+  name: Create Sales Order—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave PO/OrderDate empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for PO/OrderDate
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-SO-003
+  module: Sales Order
+  name: Edit—Change Terms
+  category: Edit
+  role: Sales Rep
+  priority: P1
+  precondition: 'Is owner of A
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Terms
+
+    4.Save
+
+    '
+  expected: '1.Saved
+
+    2.Terms updated
+
+    '
+  status: Draft
+- id: TC-SO-004
+  module: Sales Order
+  name: List Search—by No.
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type number
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-SO-005
+  module: Sales Order
+  name: Percentage Milestones
+  category: Create
+  role: Sales Rep
+  priority: P1
+  precondition: 'Quotation exists
+
+    '
+  steps: '1.Form
+
+    2.Fill required
+
+    3.Switch to ByPercentage
+
+    4.Set ratios 100%
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.Milestones distributed
+
+    '
+  status: Draft

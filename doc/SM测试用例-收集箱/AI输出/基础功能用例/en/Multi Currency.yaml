@@ -1,0 +1,62 @@
+---
+cases:
+
+  - id: TC-MC-001
+    module: Multi Currency
+    name: 【SOW#21】Multi-Currency—Base Currency Bidirectional Conversion
+    category: CustomRule/Currency
+    role: Sales Rep
+    priority: P0
+    source: "SOW#21 (Easycraft custom): Establish base currency logic; support bidirectional conversion; all monetary forms include target currency field"
+    precondition: |
+      Base currency configured (e.g., USD); exchange rate table exists
+    steps: |
+      1.Create form with monetary fields (lead/oppty/quotation)
+      2.Check if target currency field is present
+      3.Select target currency EUR, enter amount
+      4.Check converted base currency amount
+      5.Switch target currency to MYR
+      6.Check if amount recalculates
+    expected: |
+      1.All monetary forms include target currency field
+      2.Target currency amount entered → base currency auto-converted
+      3.Switching target currency triggers auto recalculation
+    status: Draft
+
+  - id: TC-MC-002
+    module: Multi Currency
+    name: 【SOW#21】Exchange Rate Table—Changes Affect Calculations
+    category: CustomRule/Currency
+    role: Sales Rep
+    priority: P1
+    source: "SOW#21 (Easycraft custom): Exchange rate table is the single source for all calculations"
+    precondition: |
+      Existing form data uses EUR→USD rate of 1.10
+    steps: |
+      1.Record current form's base currency amount
+      2.Admin changes EUR→USD rate to 1.20
+      3.Open existing form
+      4.Check if converted amount changes
+    expected: |
+      1.Rate changes affect all new conversions
+      2.Saved data unchanged; re-opening for edit uses new rate
+    status: Draft
+
+  - id: TC-MC-003
+    module: Multi Currency
+    name: 【SOW#20】Local Currency Report—Team's Local Currency
+    category: CustomRule/Report
+    role: Sales Rep
+    priority: P1
+    source: "SOW#20 (Easycraft custom): Team lead reports display in team's local currency regardless of transaction currency"
+    precondition: |
+      Team A local = MYR, Team B local = SGD; both have USD transactions
+    steps: |
+      1.Team A lead views report
+      2.Team B lead views report
+      3.Compare currency displayed
+    expected: |
+      1.A's report shows MYR
+      2.B's report shows SGD
+      3.Amounts converted to local currency
+    status: Draft

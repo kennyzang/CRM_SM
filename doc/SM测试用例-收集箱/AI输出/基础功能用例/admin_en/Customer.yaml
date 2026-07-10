@@ -1,0 +1,174 @@
+---
+cases:
+
+  - id: TC-CUSTOMER-001
+    module: Customer
+    name: Create Customer—Normal Flow
+    category: Create
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Logged in;RegCode free
+    steps: |
+      1.List
+      2.New
+      3.Name/RegCode/Type/Source
+      4.Address table
+      5.Save
+    expected: |
+      1.Saved
+      2.ID auto
+      3.Allocated
+    status: Draft
+
+  - id: TC-CUSTOMER-002
+    module: Customer
+    name: Create Customer—Required Field Validation
+    category: Create/Validation
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      On create form
+    steps: |
+      1.Leave Name/RegCode/Type/Source empty
+      2.Save
+      3.Fill each and save
+    expected: |
+      1.Required hints for Name/RegCode/Type/Source
+      2.Save succeeds after all filled
+    status: Draft
+
+  - id: TC-CUSTOMER-003
+    module: Customer
+    name: Create—Duplicate RegCode
+    category: Create/Validation
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      REG-001 exists
+    steps: |
+      1.Fill name
+      2.REG-001
+      3.Other
+      4.Save
+    expected: |
+      1.Fail
+      2.Duplicate error
+    status: Draft
+
+  - id: TC-CUSTOMER-004
+    module: Customer
+    name: Edit—Change Name/Phone
+    category: Edit
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Is owner of A
+    steps: |
+      1.Detail
+      2.Edit
+      3.Change Name/Phone
+      4.Save
+    expected: |
+      1.Saved
+      2.Updated
+    status: Draft
+
+  - id: TC-CUSTOMER-005
+    module: Customer
+    name: Detail Sub-tabs
+    category: Detail/Tabs
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Has related data
+    steps: |
+      1.Detail
+      2.Click tabs
+    expected: |
+      1.Tabs correct
+    status: Draft
+
+  - id: TC-CUSTOMER-006
+    module: Customer
+    name: List View Switching
+    category: List/View
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Team has data
+    steps: |
+      1.List
+      2.Click views
+    expected: |
+      1.4 views correct
+    status: Draft
+
+  - id: TC-CUSTOMER-007
+    module: Customer
+    name: List Search—by Name
+    category: List/Search
+    role: Sales Admin
+    priority: P2
+    precondition: |
+      Securemetric exists
+    steps: |
+      1.List
+      2.Type name
+      3.Search
+    expected: |
+      1.Filtered
+    status: Draft
+
+  - id: TC-CUSTOMER-008
+    module: Customer
+    name: Return to Pool
+    category: Pool
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Is owner of A;A allocated
+    steps: |
+      1.Detail
+      2.Return
+      3.Select reason
+      4.Confirm
+    expected: |
+      1.Success
+      2.Unallocated
+      3.Owner cleared
+    status: Draft
+
+  - id: TC-CUSTOMER-009
+    module: Customer
+    name: Merge A into B
+    category: Merge
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      A and B exist
+    steps: |
+      1.A detail
+      2.Merge
+      3.Select B
+      4.Confirm
+    expected: |
+      1.Success
+      2.A becomes B sub
+    status: Draft
+
+  - id: TC-CUSTOMER-010
+    module: Customer
+    name: Customer Lost
+    category: Lifecycle
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Is owner of A;Not Lost
+    steps: |
+      1.Detail
+      2.Customer Lost
+      3.Confirm
+    expected: |
+      1.Lifecycle=Lost
+    status: Draft

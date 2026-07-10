@@ -1,0 +1,99 @@
+---
+cases:
+- id: TC-COLLECTION-001
+  module: 回款
+  name: 新建回款—正常流程
+  category: Create
+  role: 销售人员
+  priority: P0
+  precondition: '有客户/回款计划
+
+    '
+  steps: '1.列表(Revenue)
+
+    2.新建
+
+    3.客户/日期/货币/金额
+
+    4.里程碑明细
+
+    5.保存
+
+    '
+  expected: '1.成功
+
+    2.编号
+
+    3.Allocated自动
+
+    '
+  status: 草稿
+- id: TC-COLLECTION-002
+  module: 回款
+  name: 新建回款—必填项校验
+  category: Create/Validation
+  role: 销售人员
+  priority: P0
+  precondition: '在新建表单
+
+    '
+  steps: '1.客户/日期/金额/货币留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.客户/日期/金额/货币均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-COLLECTION-003
+  module: 回款
+  name: 列表搜索
+  category: List/Search
+  role: 销售人员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输客户名
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-COLLECTION-004
+  module: 回款
+  name: 【SOW#17】里程碑100%通知发起账单
+  category: ConfigRule/Notification
+  role: 销售人员
+  priority: P1
+  source: SOW需求#17（Securemetric配置）：当里程碑达到100%时系统通知销售代表发起账单申请
+  precondition: '付款计划表单包含"完成百分比"字段；
+
+    有里程碑进行中
+
+    '
+  steps: '1.PM将里程碑的完成百分比更新到100%
+
+    2.观察系统行为
+
+    3.检查销售代表收到的通知内容
+
+    '
+  expected: '1.达到100%时系统自动发送通知
+
+    2.通知提示销售代表发起账单申请
+
+    3.点击通知可跳转到相关表单
+
+    '
+  status: 草稿

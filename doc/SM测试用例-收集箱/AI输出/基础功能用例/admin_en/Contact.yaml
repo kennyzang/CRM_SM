@@ -1,0 +1,244 @@
+---
+cases:
+
+  - id: TC-CONTACT-001
+    module: Contact
+    name: Create Contact—Normal Flow
+    category: 新建
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Logged in CRM
+      Has customer data
+    steps: |
+      1.List page
+      2.Create
+      3.Name/Gender/Biz Type
+      4.Mobile or Email
+      5.Save
+    expected: |
+      1.Saved
+      2.Appears in list
+    notes: |
+      Required: Name, Gender, Biz Type
+    status: Draft
+
+  - id: TC-CONTACT-002
+    module: Contact
+    name: Create Contact—Required Field Validation
+    category: 新建/校验
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Logged in CRM
+      On create form
+    steps: |
+      1.Leave Name/Gender/Biz Type/Mobile&Email empty
+      2.Check validation hints
+      3.Fill all required and save
+    expected: |
+      1.Name required hint
+      2.Gender required hint
+      3.Biz Type required hint
+      4."Mobile or Email" hint
+      5.Save succeeds
+    status: Draft
+
+  - id: TC-CONTACT-003
+    module: Contact
+    name: Create Contact—Mobile Only(Pass)
+    category: 新建/校验
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      On create form
+    steps: |
+      1.Name/Gender/Biz Type
+      2.Mobile only
+      3.Save
+    expected: |
+      1.Saved
+    status: Draft
+
+  - id: TC-CONTACT-004
+    module: Contact
+    name: Create Contact—Email Only(Pass)
+    category: 新建/校验
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      On create form
+    steps: |
+      1.Name/Gender/Biz Type
+      2.Email only
+      3.Save
+    expected: |
+      1.Saved
+    status: Draft
+
+  - id: TC-CONTACT-005
+    module: Contact
+    name: Create Contact—No Customer(Pass)
+    category: 新建/校验
+    role: Sales Admin
+    priority: P2
+    precondition: |
+      Logged in CRM
+      On create form
+    steps: |
+      1.Name/Gender/Biz Type/Mobile
+      2.Customer empty
+      3.Save
+    expected: |
+      1.Saved
+      2.No customer linked
+    status: Draft
+
+  - id: TC-CONTACT-006
+    module: Contact
+    name: Edit Contact—Change Name/Job Title
+    category: 编辑
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Logged in CRM
+      Owner of Contact A
+    steps: |
+      1.Detail page
+      2.Edit
+      3.Change Name/Job Title
+      4.Save
+    expected: |
+      1.Saved
+      2.Name/Title updated
+    status: Draft
+
+  - id: TC-CONTACT-007
+    module: Contact
+    name: Delete Contact
+    category: 删除
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Owner of Contact A
+    steps: |
+      1.Detail page
+      2.Delete
+      3.Confirm
+    expected: |
+      1.Deleted
+      2.Removed from list
+    status: Draft
+
+  - id: TC-CONTACT-008
+    module: Contact
+    name: Change Owner
+    category: 权限/转移
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Sales Rep B exists
+      A is owner of Contact X
+    steps: |
+      1.Detail
+      2.Change Owner
+      3.Select B
+      4.Confirm
+    expected: |
+      1.Changed
+      2.Owner now B
+    status: Draft
+
+  - id: TC-CONTACT-009
+    module: Contact
+    name: Add Team Member
+    category: 团队
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Sales Rep C exists
+    steps: |
+      1.Detail
+      2.Add C to Service Team
+      3.Save
+    expected: |
+      1.Added
+      2.C can see
+    status: Draft
+
+  - id: TC-CONTACT-010
+    module: Contact
+    name: Detail Sub-tab Switching
+    category: 详情/标签页
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Has related Lead/Oppty
+    steps: |
+      1.Detail
+      2.Click Lead/Opportunity tabs
+      3.Switch to Detailed Info
+    expected: |
+      1.Tabs switch correctly
+    status: Draft
+
+  - id: TC-CONTACT-011
+    module: Contact
+    name: List View—My Contact/All
+    category: 列表/视图
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Has contact data
+    steps: |
+      1.List
+      2.Check My Contact
+      3.Switch to All
+    expected: |
+      1.My shows only mine
+      2.All shows all
+    status: Draft
+
+  - id: TC-CONTACT-012
+    module: Contact
+    name: List Search—by Name
+    category: 列表/搜索
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Has contact "Zhang San"
+    steps: |
+      1.List
+      2.Type name
+      3.Search
+    expected: |
+      1.Filtered
+    status: Draft
+
+  - id: TC-CONTACT-013
+    module: Contact
+    name: Batch Import—Excel Template
+    category: 导入
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Logged in CRM
+      Has Excel template
+    steps: |
+      1.List
+      2.Import
+      3.Upload Excel
+      4.Select mode
+      5.Confirm
+    expected: |
+      1.Imported
+      2.Summary shown
+    status: Draft

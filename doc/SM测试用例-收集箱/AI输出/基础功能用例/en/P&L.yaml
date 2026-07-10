@@ -1,0 +1,318 @@
+---
+cases:
+- id: TC-PL-001
+  module: P&L
+  name: Create P&L—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'In-Progress Oppty exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Select Oppty/Effective Date
+
+    4.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.Version auto
+
+    '
+  status: Draft
+- id: TC-PL-002
+  module: P&L
+  name: Create P&L—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Oppty/Effective Date empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.Required hints for Oppty/Date
+
+    2.Submit succeeds
+
+    '
+  status: Draft
+- id: TC-PL-003
+  module: P&L
+  name: Edit—Change Margin
+  category: Edit
+  role: Sales Rep
+  priority: P1
+  precondition: 'Is creator
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Margin
+
+    4.Submit
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-PL-004
+  module: P&L
+  name: List Search
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type keyword
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-PL-005
+  module: P&L
+  name: 【SOW#6】P&L→Quotation Workflow Separation
+  category: CustomRule/Workflow
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#6 (Easycraft custom): Separate P&L and Quotation; system generates quotation from P&L data'
+  precondition: 'Opportunity X exists, product data available
+
+    '
+  steps: '1.Create P&L under Oppty X, fill cost and selling price
+
+    2.Submit P&L
+
+    3.Click "Generate Quotation"
+
+    4.Check auto-navigation to quotation form
+
+    5.Verify quotation data matches P&L
+
+    '
+  expected: '1.P&L and Quotation are separate forms
+
+    2.Quotation generated directly from P&L
+
+    3.Quotation auto-fills products/amounts/currency from P&L
+
+    '
+  status: Draft
+- id: TC-PL-006
+  module: P&L
+  name: 【SOW#7】P&L Pricing Logic—Markup% + Discount% + Currency Recalc
+  category: CustomRule/Pricing
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#7 (Easycraft custom): Inputs (list price, cost, markup%, discount%); markup first then discount; currency override triggers recalc'
+  precondition: 'Product exists, cost=1000, list price=2000
+
+    '
+  steps: '1.Create P&L, add line item, input list price and cost
+
+    2.Set markup% to 20%
+
+    3.Check calculated selling price
+
+    4.Set discount% to 10%
+
+    5.Check final price (markup first, then discount)
+
+    6.Switch currency to another
+
+    7.Check auto recalculation
+
+    '
+  expected: '1.Selling price after markup = cost × (1 + 20%)
+
+    2.After discount = marked up price × (1 - 10%)
+
+    3.Calc order: markup first, then discount
+
+    4.Currency switch triggers auto recalculation
+
+    '
+  status: Draft
+- id: TC-PL-007
+  module: P&L
+  name: 【SOW#8】Profit Margin Control—Low Margin Routes to CFO
+  category: ConfigRule/Approval
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#8 (Securemetric config): If product margin < target margin %, approval routes to CFO branch'
+  precondition: 'Product master has target margin% = 30%
+
+    '
+  steps: '1.Create P&L with margin below 30%
+
+    2.Submit for approval
+
+    3.Check approval routing
+
+    4.Create P&L with margin above 30%
+
+    5.Submit for approval
+
+    6.Check approval routing
+
+    '
+  expected: '1.Margin below target → routes to CFO approval
+
+    2.Margin above target → normal approval flow
+
+    '
+  status: Draft
+- id: TC-PL-008
+  module: P&L
+  name: 【SOW#9】Version Control—P&L/Quotation Versioning
+  category: CustomRule/Version
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#9 (Easycraft custom): P&L and Quotation support versioning (v1.0, v1.1); reports use latest; history preserved'
+  precondition: 'A submitted P&L exists
+
+    '
+  steps: '1.Open the submitted P&L
+
+    2.Create new version v1.1
+
+    3.Modify some data
+
+    4.Save new version
+
+    5.Check version history list
+
+    6.Switch to v1.0 to view old version
+
+    7.Check report data source version
+
+    '
+  expected: '1.Version auto-increments (v1.0 → v1.1)
+
+    2.Historical versions read-only
+
+    3.Reports use latest version data
+
+    '
+  status: Draft
+- id: TC-PL-009
+  module: P&L
+  name: 【SOW#10】Dynamic Cost in Versions—Dashboard Sync
+  category: CustomRule/Version
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#10 (Easycraft custom): New version can update costs; dashboard reflects updated profit/cost'
+  precondition: 'P&L v1.0 has cost data
+
+    '
+  steps: '1.Create v1.1
+
+    2.Update line item cost (e.g., 1000→1500)
+
+    3.Save
+
+    4.Check dashboard/report
+
+    '
+  expected: '1.v1.1 cost updated successfully
+
+    2.Dashboard profit/cost syncs to new version data
+
+    '
+  status: Draft
+- id: TC-PL-010
+  module: P&L
+  name: 【SOW#11】Recurring & Multi-Year Logic
+  category: CustomRule/Recurring
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#11 (Easycraft custom): ''Recurring'' checkbox on line items; recurring items auto-copied to subsequent years'
+  precondition: 'Product data available
+
+    '
+  steps: '1.Create P&L, add item A (recurring) and item B (not recurring)
+
+    2.Set Year 1 data
+
+    3.Add Year 2 section, check auto-copied content
+
+    4.Add Year 3 section
+
+    5.Check yearly subtotals and total
+
+    '
+  expected: '1.Recurring items auto-copy to subsequent years
+
+    2.Non-recurring items do not copy
+
+    3.System auto-calculates yearly subtotals and grand total
+
+    '
+  status: Draft
+- id: TC-PL-011
+  module: P&L
+  name: 【SOW#13】Auto-fill Signatories—Based on Workflow History
+  category: ConfigRule/AutoFill
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#13 (Securemetric config): System auto-fills ''Sales Rep'' and ''Approver'' names based on workflow history'
+  precondition: 'Approved P&L exists with completed approval flow
+
+    '
+  steps: '1.Open an approved P&L
+
+    2.Check the signatory section at the bottom
+
+    '
+  expected: '1.Sales Rep name auto-filled (creator)
+
+    2.Approver name auto-filled (last approval node)
+
+    '
+  status: Draft
+- id: TC-PL-012
+  module: P&L
+  name: 【SOW#14】P&L/Quotation Copy & Reuse
+  category: ConfigRule/Reuse
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#14 (Easycraft custom): Users can copy their own P&L/Quotation to create new records'
+  precondition: 'Own P&L A exists; Other user''s P&L B exists
+
+    '
+  steps: '1.Click Copy on own P&L A detail
+
+    2.Modify name and save
+
+    3.Try to import/reuse user B''s P&L
+
+    4.Check permission validation
+
+    '
+  expected: '1.Copy succeeded, new record created
+
+    2.Can reuse others'' records (with permission)
+
+    3.Without permission → access limited
+
+    '
+  status: Draft

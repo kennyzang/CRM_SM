@@ -1,0 +1,1111 @@
+{
+  "formId": "mk_km_ltc_collection",
+  "formName": "mk_km_ltc_collection",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1i176k8omw60whh8w7rcq5a2h7njoq99bew1",
+  "fields": [
+    {
+      "id": "fd_account_id",
+      "fdType": "relation",
+      "label": "客户名称",
+      "displayName": "Customer",
+      "required": true,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "xformName": "客户"
+      },
+      "datasourceFilter": [
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_owner_people",
+            "type": "address",
+            "dataType": "address"
+          },
+          "operator": "$in",
+          "value": {
+            "format": "parameter",
+            "val": "fd_owner_people"
+          }
+        }
+      ],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{lxu4gus6j1h7708zmlt}",
+      "i18n": {
+        "label": {
+          "Cn": "客户名称",
+          "default": "Customer",
+          "Us": "Customer"
+        },
+        "displayLabel": {
+          "Us": "",
+          "default": "",
+          "Cn": ""
+        }
+      }
+    },
+    {
+      "id": "fd_payment_time",
+      "fdType": "timestamp",
+      "label": "回款日期",
+      "displayName": "回款日期",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu4hqtje4sep2nxvbw}",
+      "i18n": {
+        "label": {
+          "Cn": "回款日期",
+          "default": "回款日期",
+          "Us": "Payment Date"
+        },
+        "placeholder": {
+          "Cn": "Select Date",
+          "default": "Select Date"
+        }
+      }
+    },
+    {
+      "id": "fd_notification_time",
+      "fdType": "timestamp",
+      "label": "提醒日期",
+      "displayName": "提醒日期",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu4jjblrmey7sidl7}",
+      "i18n": {
+        "label": {
+          "Cn": "提醒日期",
+          "default": "提醒日期",
+          "Us": "Reminder Date"
+        },
+        "placeholder": {
+          "Cn": "Select Date",
+          "default": "Select Date"
+        }
+      }
+    },
+    {
+      "id": "fd_amount",
+      "fdType": "moneytext",
+      "label": "Collection Amount (Total)",
+      "displayName": "Collection Amount (Total)",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-money",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu4jviknpzl5ktnw}",
+      "i18n": {
+        "label": {
+          "Cn": "Collection Amount (Total)",
+          "default": "Collection Amount (Total)",
+          "Us": "Collection Amount (Total)"
+        },
+        "placeholder": {
+          "Cn": "Input",
+          "default": "Input",
+          "Us": "Input"
+        },
+        "displayLabel": {
+          "Cn": "",
+          "default": "",
+          "Us": ""
+        }
+      }
+    },
+    {
+      "id": "fd_owner_people",
+      "fdType": "address",
+      "label": "负责人",
+      "displayName": "Owner",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu4m9w09mo6lbr9apc}",
+      "i18n": {
+        "label": {
+          "Cn": "负责人",
+          "default": "Owner",
+          "Us": "Owner"
+        }
+      }
+    },
+    {
+      "id": "fd_data_own_department",
+      "fdType": "address",
+      "label": "归属部门",
+      "displayName": "归属部门",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu4mmljy2rhzzhugoh}",
+      "i18n": {
+        "label": {
+          "Cn": "归属部门",
+          "default": "归属部门",
+          "Hk": "",
+          "Us": "Department"
+        }
+      }
+    },
+    {
+      "id": "fd_finance_employee_id",
+      "fdType": "address",
+      "label": "财务确认人",
+      "displayName": "Financial Confirmed By",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu53yk9y71hc01478b}",
+      "i18n": {
+        "label": {
+          "Cn": "财务确认人",
+          "default": "财务确认人",
+          "Us": "Finance Confirmation"
+        },
+        "displayLabel": {
+          "Us": "Financial Confirmed By",
+          "default": "Financial Confirmed By"
+        }
+      }
+    },
+    {
+      "id": "fd_finance_confirm_time",
+      "fdType": "timestamp",
+      "label": "财务确认时间",
+      "displayName": "Financial Confirmation Time",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu545551a3mbw2kqpaj}",
+      "i18n": {
+        "label": {
+          "Cn": "财务确认时间",
+          "default": "财务确认时间",
+          "Us": "Finance Confirmation Date"
+        },
+        "placeholder": {
+          "Cn": "Select Date",
+          "default": "Select Date"
+        },
+        "displayLabel": {
+          "Us": "Financial Confirmation Time",
+          "default": "Financial Confirmation Time"
+        }
+      }
+    },
+    {
+      "id": "fd_purpose",
+      "fdType": "select",
+      "label": "回款用途",
+      "displayName": "回款用途",
+      "required": false,
+      "options": [
+        {
+          "label": "销售收款",
+          "value": "1"
+        },
+        {
+          "label": "预存款",
+          "value": "2"
+        },
+        {
+          "label": "定金",
+          "value": "3"
+        },
+        {
+          "label": "收欠款",
+          "value": "4"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu598ulfxoo45gd9sf}",
+      "i18n": {
+        "label": {
+          "Cn": "回款用途",
+          "default": "回款用途",
+          "Us": "Use of Payment"
+        },
+        "placeholder": {
+          "Cn": "Select",
+          "default": "Select"
+        }
+      }
+    },
+    {
+      "id": "fd_lock_status",
+      "fdType": "radio",
+      "label": "锁定状态",
+      "displayName": "锁定状态",
+      "required": false,
+      "options": [
+        {
+          "label": "未锁定",
+          "value": "1"
+        },
+        {
+          "label": "已锁定",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu5ctr2662j9nj1275}",
+      "i18n": {
+        "label": {
+          "Cn": "锁定状态",
+          "default": "锁定状态",
+          "Us": "Status"
+        }
+      }
+    },
+    {
+      "id": "fd_submit_time",
+      "fdType": "timestamp",
+      "label": "回款提交时间",
+      "displayName": "回款提交时间",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lxu5f1snclwxrmoawb9}",
+      "i18n": {
+        "label": {
+          "Cn": "回款提交时间",
+          "default": "回款提交时间",
+          "Us": "Payment Time"
+        },
+        "placeholder": {
+          "Cn": "请选择日期",
+          "default": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_currency1",
+      "fdType": "fd_input",
+      "label": "币种",
+      "displayName": "币种",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{m04ptujjkymu88h2m9g}",
+      "i18n": {
+        "label": {
+          "Cn": "币种",
+          "default": "币种",
+          "Us": "Currency"
+        },
+        "placeholder": {
+          "Cn": "Input",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_sales_rep",
+      "fdType": "fd_input",
+      "label": "Sales Rep",
+      "displayName": "Sales Rep",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mpwctn4sq5ehh6aydg}",
+      "i18n": {
+        "label": {
+          "Us": "Sales Rep",
+          "default": "Sales Rep",
+          "Cn": "Sales Rep"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_receipt",
+      "fdType": "attachment",
+      "label": "银行入账回单附件",
+      "displayName": "Bank Deposit Slip",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-attach",
+      "methods": [],
+      "fdLabelLangKey": "!{m0m3dt87an23yl1zro7}",
+      "i18n": {
+        "label": {
+          "Cn": "银行入账回单附件",
+          "default": "Bank Deposit Slip",
+          "Us": "Bank Deposit Slip"
+        },
+        "displayLabel": {
+          "Us": "Bank Deposit Slip",
+          "default": "Bank Deposit Slip"
+        }
+      }
+    },
+    {
+      "id": "fd_currency",
+      "fdType": "dynamic",
+      "label": "结算货币",
+      "displayName": "Currency",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+        "modelName": "CFG-币种下拉",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{mmbdespd7677hqv60ct}",
+      "i18n": {
+        "label": {
+          "Cn": "结算货币",
+          "Us": "Currency",
+          "default": "Currency"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-06-04T05:49:33.669Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_km_ltc_collection_detail",
+      "detailTableName": "回款明细",
+      "fields": [
+        {
+          "id": "mk_km_ltc_collection_detail.fd_sales_order",
+          "fdType": "relation",
+          "label": "销售订单编号",
+          "displayName": "Sales Order ID",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1i16frphvw5rw6cuvw2tudpb632vlssh2jw1",
+            "modelId": "1i16imb35w60w37jw1l2npp1f6lgd3188uw1",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_km_ltc_sales_orders",
+            "tableType": "main",
+            "xformName": "销售订单"
+          },
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{m054hksr2gbt3u4wxno}",
+          "i18n": {
+            "label": {
+              "Cn": "销售订单编号",
+              "default": "Sales Order ID",
+              "Us": "Sales Order ID"
+            },
+            "displayLabel": {
+              "Us": "Sales Order ID",
+              "default": "Sales Order ID"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_contract_amount",
+          "fdType": "moneytext",
+          "label": "应收金额",
+          "displayName": "Receivable Amount",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lzcn5zo3xg2jfj7326f}",
+          "i18n": {
+            "label": {
+              "Cn": "应收金额",
+              "default": "Receivable Amount",
+              "Us": "Receivable Amount"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_Invoiced_amount",
+          "fdType": "moneytext",
+          "label": "已开票金额",
+          "displayName": "PI Amount",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lz9hqwecphjc4lh71qb}",
+          "i18n": {
+            "label": {
+              "Cn": "已开票金额",
+              "default": "PI Amount",
+              "Us": "PI Amount"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_pending_payment_amount",
+          "fdType": "moneytext",
+          "label": "待回款金额",
+          "displayName": "Amount Uncollected",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lz9hu5jvyejxszumccd}",
+          "i18n": {
+            "label": {
+              "Cn": "待回款金额",
+              "default": "Amount Uncollected",
+              "Us": "Amount Uncollected"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_salesman",
+          "fdType": "address",
+          "label": "销售人员",
+          "displayName": "销售人员",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-address",
+          "methods": [],
+          "fdLabelLangKey": "!{m0n7lfiuiugd38zo1rn}",
+          "i18n": {
+            "label": {
+              "Cn": "销售人员",
+              "default": "销售人员",
+              "Us": "Sales Person"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_attachment",
+          "fdType": "attachment",
+          "label": "附件",
+          "displayName": "附件",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-attach",
+          "methods": [],
+          "fdLabelLangKey": "!{lxu4woihlcrug29e5j}",
+          "i18n": {
+            "label": {
+              "Cn": "附件",
+              "default": "附件",
+              "Us": "Attachment"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_milestone",
+          "fdType": "fd_input",
+          "label": "里程碑",
+          "displayName": "Milestone",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{ml403t6upk3dd70ivl}",
+          "i18n": {
+            "label": {
+              "Cn": "里程碑",
+              "Us": "Milestone",
+              "default": "Milestone"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_proportion",
+          "fdType": "numbertext",
+          "label": "应收比例",
+          "displayName": "Receivable %",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{m0kovd11v5ytc0da4m}",
+          "i18n": {
+            "label": {
+              "Cn": "应收比例",
+              "default": "Receivable %",
+              "Us": "Receivable %"
+            },
+            "placeholder": {
+              "Cn": "请输入",
+              "default": "请输入"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_received_amount",
+          "fdType": "moneytext",
+          "label": "已回款金额",
+          "displayName": "Amount Received",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lz9hw5cr7zp74bp21gb}",
+          "i18n": {
+            "label": {
+              "Cn": "已回款金额",
+              "default": "Amount Received",
+              "Us": "Amount Received"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_currency",
+          "fdType": "dynamic",
+          "label": "结算货币",
+          "displayName": "Currency",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-dynamic",
+          "methods": [],
+          "renderMode": {
+            "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+            "modelName": "CFG-币种下拉",
+            "type": "select"
+          },
+          "fdLabelLangKey": "!{mm8t5225c8w2q60xcxa}",
+          "i18n": {
+            "label": {
+              "Cn": "结算货币",
+              "Us": "Currency",
+              "default": "Currency"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_remark",
+          "fdType": "textarea",
+          "label": "备注",
+          "displayName": "备注",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-textarea",
+          "methods": [],
+          "fdLabelLangKey": "!{lxu4ww1r93f1tg0fwx9}",
+          "i18n": {
+            "label": {
+              "Cn": "备注",
+              "default": "备注",
+              "Us": "Remarks"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_payment_plan_id",
+          "fdType": "relation",
+          "label": "回款计划编号",
+          "displayName": "回款计划编号",
+          "required": true,
+          "relationCfg": {
+            "appCode": "1i16frphvw5rw6cuvw2tudpb632vlssh2jw1",
+            "modelId": "1i174if24w61w4bw3a67era1dr0kkmqafiw1",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_km_ltc_collection_p",
+            "tableType": "main",
+            "xformName": "回款计划"
+          },
+          "datasourceFilter": [
+            {
+              "type": "conditionGroup",
+              "orAndOperator": "$or",
+              "condition": [
+                {
+                  "type": "conditionGroup",
+                  "orAndOperator": "$and",
+                  "condition": [
+                    {
+                      "type": "condition",
+                      "field": {
+                        "name": "fd_pending_payment_amount",
+                        "type": "moneytext",
+                        "dataType": "number"
+                      },
+                      "operator": "$gt",
+                      "value": {
+                        "format": "fixed",
+                        "val": 0
+                      }
+                    },
+                    {
+                      "type": "condition",
+                      "field": {
+                        "name": "fd_milestone_type",
+                        "type": "select",
+                        "dataType": "varchar"
+                      },
+                      "operator": "$in",
+                      "value": {
+                        "format": "fixed",
+                        "val": [
+                          "Percentage"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "conditionGroup",
+                  "orAndOperator": "$and",
+                  "condition": [
+                    {
+                      "type": "condition",
+                      "field": {
+                        "name": "fd_milestone_type",
+                        "type": "select",
+                        "dataType": "varchar"
+                      },
+                      "operator": "$in",
+                      "value": {
+                        "format": "fixed",
+                        "val": [
+                          "Products"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "condition",
+                      "field": {
+                        "name": "fd_pending_payment_amount",
+                        "type": "moneytext",
+                        "dataType": "number"
+                      },
+                      "operator": "$neq",
+                      "value": {
+                        "format": "fixed",
+                        "val": 0
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "conditionGroup",
+              "orAndOperator": "$and",
+              "condition": [
+                {
+                  "type": "condition",
+                  "field": {
+                    "name": "fd_account_id",
+                    "type": "relation",
+                    "dataType": "relation"
+                  },
+                  "operator": "$in",
+                  "value": {
+                    "format": "parameter",
+                    "val": "fd_account_id"
+                  }
+                },
+                {
+                  "type": "condition",
+                  "field": {
+                    "name": "fd_currency",
+                    "type": "dynamic",
+                    "dataType": "other"
+                  },
+                  "operator": "$in",
+                  "value": {
+                    "format": "parameter",
+                    "val": "fd_currency"
+                  }
+                }
+              ]
+            }
+          ],
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "outParams": [
+            {
+              "sourceField": {
+                "fdType": "moneytext",
+                "fdName": "fd_Invoiced_amount",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "moneytext",
+                "fdName": "fd_Invoiced_amount",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "moneytext",
+                "fdName": "fd_pending_payment_amount",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "moneytext",
+                "fdName": "fd_pending_payment_amount",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "moneytext",
+                "fdName": "fd_received_amount",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "moneytext",
+                "fdName": "fd_received_amount",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "moneytext",
+                "fdName": "fd_pending_invoice_amount",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "moneytext",
+                "fdName": "fd_pending_invoice_amount",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "moneytext",
+                "fdName": "fd_contract_amount",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "moneytext",
+                "fdName": "fd_contract_amount",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "relation",
+                "fdName": "fd_sales_order",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "relation",
+                "fdName": "fd_order_id",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "numbertext",
+                "fdName": "fd_proportion",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "numbertext",
+                "fdName": "fd_proportion",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "address",
+                "fdName": "fd_salesman",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "address",
+                "fdName": "fd_owner_people",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "dynamic",
+                "fdName": "fd_currency",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "dynamic",
+                "fdName": "fd_currency",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            },
+            {
+              "sourceField": {
+                "fdType": "text",
+                "fdName": "fd_milestone",
+                "tableName": "mk_km_ltc_collection_detail",
+                "tableType": "detail"
+              },
+              "targetField": {
+                "fdType": "text",
+                "fdName": "fd_Milestone_No",
+                "tableName": "main",
+                "tableType": "main"
+              }
+            }
+          ],
+          "fdLabelLangKey": "!{lxu4v06k8low2r1sfxk}",
+          "i18n": {
+            "label": {
+              "Cn": "回款计划编号",
+              "default": "回款计划编号",
+              "Us": "Payment Schedule No."
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_reviewing_amount",
+          "fdType": "moneytext",
+          "label": "审批中金额",
+          "displayName": "Invoice under Approval",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{m0w7noejusq3c3jppn9}",
+          "i18n": {
+            "label": {
+              "Cn": "审批中金额",
+              "default": "Invoice under Approval",
+              "Us": "Invoice under Approval"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "Invoice under Approval",
+              "default": "Invoice under Approval"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_contract",
+          "fdType": "fd_input",
+          "label": "合同",
+          "displayName": "Contract",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{ml403r0fa5fj5g998sk}",
+          "i18n": {
+            "label": {
+              "Cn": "合同",
+              "Us": "Contract",
+              "default": "Contract"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_payment_amount",
+          "fdType": "moneytext",
+          "label": "使用金额",
+          "displayName": "Amount Applied",
+          "required": true,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lxu4vypbjzotyyar3r}",
+          "i18n": {
+            "label": {
+              "Cn": "使用金额",
+              "default": "Amount Applied",
+              "Us": "Amount Applied"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_pending_invoice_amount",
+          "fdType": "moneytext",
+          "label": "待开票金额",
+          "displayName": "Univoiced Amount",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{lz9hrgg6zi4kha230yf}",
+          "i18n": {
+            "label": {
+              "Cn": "待开票金额",
+              "default": "Univoiced Amount",
+              "Us": "Univoiced Amount"
+            },
+            "placeholder": {
+              "Cn": "Input",
+              "default": "Input"
+            },
+            "displayLabel": {
+              "Us": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_km_ltc_collection_detail.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

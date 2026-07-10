@@ -1,0 +1,99 @@
+---
+cases:
+- id: TC-COLLECTION-001
+  module: Collection
+  name: Create Collection—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'Customer/PaymentPlan exist
+
+    '
+  steps: '1.List(Revenue)
+
+    2.New
+
+    3.Customer/Date/Currency/Amount
+
+    4.Milestones
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    3.Allocated auto
+
+    '
+  status: Draft
+- id: TC-COLLECTION-002
+  module: Collection
+  name: Create Collection—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Customer/Date/Amount/Currency empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Customer/Date/Amount/Currency
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-COLLECTION-003
+  module: Collection
+  name: List Search
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type customer
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-COLLECTION-004
+  module: Collection
+  name: 【SOW#17】Milestone 100% Notify Sales to Initiate Billing
+  category: ConfigRule/Notification
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#17 (Securemetric config): When milestone reaches 100%, system notifies Sales Rep to initiate Billing Request'
+  precondition: 'Payment plan has "% Complete" field;
+
+    Milestone in progress
+
+    '
+  steps: '1.PM updates milestone % Complete to 100%
+
+    2.Check system behavior
+
+    3.Verify notification sent to sales rep
+
+    '
+  expected: '1.System auto-sends notification at 100%
+
+    2.Notification prompts sales rep to initiate billing
+
+    3.Click notification → navigates to related form
+
+    '
+  status: Draft

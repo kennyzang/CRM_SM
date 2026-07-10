@@ -1,0 +1,46 @@
+{
+  "name": "crm-regression-tests",
+  "version": "1.0.0",
+  "description": "CRM黑盒回归测试 - Playwright Schema-Driven 自动化测试框架",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "install:browsers": "playwright install",
+    "test:sp3test": "playwright test --config=config/playwright.sp3test.config.ts",
+    "test:test": "playwright test --config=config/playwright.test.config.ts",
+    "test:crm": "playwright test --config=config/playwright.securemetric-crm.config.ts",
+    "schema:sp3test": "npx ts-node scripts/generate-schema.ts --env sp3test",
+    "schema:test": "npx ts-node scripts/generate-schema.ts --env test",
+    "schema:crm": "npx ts-node scripts/generate-schema.ts --env securemetric-crm",
+    "manual:docs": "node src/widget/km-ltc-manual/docs/server.js",
+    "widget:deploy": "bash scripts/deploy-widget.sh",
+    "wiki:docs": "python3 wiki/docs/generate.py"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "@playwright/test": "^1.49.0",
+    "dotenv": "^17.4.2",
+    "typescript": "^6.0.3",
+    "xlsx": "^0.18.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "schema-driven",
+    "crm",
+    "regression"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

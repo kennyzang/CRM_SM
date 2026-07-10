@@ -1,0 +1,307 @@
+---
+cases:
+
+  - id: TC-ADMIN-LQ-001
+    module: Lead Queue Management
+    name: Ownership Rules—Both Member+Admin Checked
+    category: Rule/Combination
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead Queue Ownership Rules: checked If member + If admin;
+      3 accounts: Admin A (also a member), Regular Member B (not admin), Non-member C
+    steps: |
+      1.A logs in, creates a lead, check owner
+      2.B logs in, creates a lead, check owner
+      3.C logs in, creates a lead, check owner
+    expected: |
+      1.A creates → owner is A (both member and admin)
+      2.B creates → owner is B (is member)
+      3.C creates → owner is empty (neither member nor admin)
+    status: Draft
+
+  - id: TC-ADMIN-LQ-002
+    module: Lead Queue Management
+    name: Ownership Rules—Only Admin Checked, Member Creates
+    category: Rule/Combination
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead Queue Ownership Rules: only If admin checked (If member unchecked);
+      Accounts: Admin A, Regular Member B
+    steps: |
+      1.A logs in, creates a lead, check owner
+      2.B logs in, creates a lead, check owner
+    expected: |
+      1.A creates → owner is A (is admin, condition met)
+      2.B creates → owner is empty (B is member only, not admin)
+    status: Draft
+
+  - id: TC-ADMIN-LQ-003
+    module: Lead Queue Management
+    name: Ownership Rules—Only Member Checked, Admin Creates
+    category: Rule/Combination
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead Queue Ownership Rules: only If member checked (If admin unchecked);
+      Accounts: Admin A (not a pool member), Regular Member B
+    steps: |
+      1.A logs in, creates a lead, check owner
+      2.B logs in, creates a lead, check owner
+    expected: |
+      1.A creates → owner is empty (A is admin but not member, condition not met)
+      2.B creates → owner is B (is member, condition met)
+    status: Draft
+
+  - id: TC-ADMIN-LQ-004
+    module: Lead Queue Management
+    name: Ownership Rules—Neither Checked, All Creators
+    category: Rule/Combination
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead Queue Ownership Rules: both conditions unchecked;
+      Accounts: Admin A, Member B, Non-member C
+    steps: |
+      1.A logs in, creates a lead, check owner
+      2.B logs in, creates a lead, check owner
+      3.C logs in, creates a lead, check owner
+    expected: |
+      1.A creates → owner is empty
+      2.B creates → owner is empty
+      3.C creates → owner is empty (default: all new leads have owner cleared)
+    status: Draft
+
+  - id: TC-ADMIN-LQ-005
+    module: Lead Queue Management
+    name: Claim Mode Switch—Hidden→Visible for Existing Leads
+    category: Rule/Switch
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Current lead queue config: Hidden from Members;
+      Several unassigned leads exist; Member M exists
+    steps: |
+      1.M logs in, check Leads list, record visible count
+      2.Admin changes to Visible & Claimable by Members
+      3.M refreshes page, check Leads list again
+      4.M tries to claim a lead
+    expected: |
+      1.Before switch: M cannot see unassigned leads
+      2.After switch: M can see unassigned leads
+      3.M can claim successfully
+    status: Draft
+
+  - id: TC-ADMIN-LQ-006
+    module: Lead Queue Management
+    name: Claim Mode Switch—Visible→Hidden for Member Behavior
+    category: Rule/Switch
+    role: Sales Admin
+    priority: P0
+    precondition: |
+      Current config: Visible & Claimable by Members;
+      Member M has claimed 1 lead (in progress), some unclaimed remain
+    steps: |
+      1.M logs in, confirm visible unassigned leads
+      2.Admin changes to Hidden from Members
+      3.M refreshes, check Leads list
+      4.Check if M's claimed lead still shows in "My Leads"
+      5.Check if M can still operate claimed lead (follow up/advance)
+    expected: |
+      1.After switch: M cannot see new unassigned leads
+      2.M's claimed lead unaffected, still under M's name
+      3.M can still operate claimed lead
+    status: Draft
+
+  - id: TC-ADMIN-LQ-007
+    module: Lead Queue Management
+    name: Cross-Pool Transfer—Owner+Team Members Both Cleared
+    category: Transfer/Rule
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Pool A and Pool B exist, Pool B has Admin B;
+      Lead L in Pool A, owner=Member M, has 1-2 team members
+    steps: |
+      1.Record lead L's current owner and team members
+      2.Transfer lead L from Pool A to Pool B
+      3.Check lead L's owner
+      4.Check lead L's team members
+      5.Check Activity History
+    expected: |
+      1.After transfer: owner cleared (transfer rule: lead to new pool → clear owner)
+      2.Team members also cleared (owner empty → triggers clear team rule)
+      3.Activity History records both actions: owner change + team removal
+    status: Draft
+
+  - id: TC-ADMIN-LQ-008
+    module: Lead Queue Management
+    name: Member Sync—New Dept Member Permission Timing
+    category: Sync/Consistency
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead queue configured with Dept D, Member list has only old members;
+      Person N added to Dept D
+    steps: |
+      1.N immediately logs in, check if pool leads visible
+      2.Admin → Basic Data Settings → Company Entity → Member Change sync
+      3.N refreshes page, check pool leads again
+      4.Admin assigns a lead to N
+    expected: |
+      1.Before sync: N cannot see pool leads (Member list not updated)
+      2.After sync: N can see pool leads
+      3.After sync: N can be assigned leads
+    status: Draft
+
+  - id: TC-ADMIN-LQ-009
+    module: Lead Queue Management
+    name: Member Sync—Dept Member Removed Data Retention
+    category: Sync/Consistency
+    role: Sales Admin
+    priority: P1
+    precondition: |
+      Lead queue configured with Dept D, Member M holds several assigned leads;
+      Member M removed from Dept D
+    steps: |
+      1.Deleted M logs in, check "My Leads" for existing leads
+      2.M tries to operate existing leads (follow up/advance/edit)
+      3.M checks if new unassigned leads visible
+      4.Admin executes Member Change sync
+      5.M checks again
+    expected: |
+      1.After removal: M still sees own claimed leads (assigned unaffected)
+      2.M can still operate existing leads
+      3.Before and after sync: M cannot see new unassigned leads (no longer member)
+    status: Draft
+
+  - id: TC-ADMIN-LQ-010
+    module: Lead Queue Management
+    name: New Lead Notification—Admin Receives To-Read Alert
+    category: Notification
+    role: Sales Admin
+    priority: P1
+    source: "User Manual-Lead Pool 4.2; SOW#4: Role Separation - 1. Sales Admin enters the new Lead. 2. A different Admin (or Manager) assigns the Lead to a specific Sales Rep. 3. Once assigned, the system triggers a notification to the Sales Rep."
+    precondition: |
+      New Lead Notification enabled;
+      Admin A account
+    steps: |
+      1.Admin A (using other account or switching role) creates a new lead
+      2.A checks notification list/to-read
+      3.A clicks notification to navigate
+      4.A assigns the lead
+    expected: |
+      1.A receives new lead notification (to-read message)
+      2.Notification includes lead name/source/creation time
+      3.Click navigates to lead detail
+    status: Draft
+
+  - id: TC-ADMIN-LQ-011
+    module: Lead Queue Management
+    name: Claim Limit—Allocation Fails When Member Saturated
+    category: Rule/Limit
+    role: Sales Admin
+    priority: P1
+    source: "SOW Section 3.3, item on lead assignment: Lead allocation validates claim holding limit check"
+    precondition: |
+      Lead queue has "Claim Limit" configured;
+      Member M has reached claim limit
+    steps: |
+      1.Admin tries to assign a new lead to M
+      2.Check system message
+      3.Admin assigns the lead to member N (not at limit)
+    expected: |
+      1.Assignment fails, prompt: "Member has reached claim limit"
+      2.Assign to N succeeds
+    status: Draft
+
+  - id: TC-ADMIN-LQ-012
+    module: Lead Queue Management
+    name: Post-Assignment Visibility—Seen After Manual Refresh
+    category: Permission/Timing
+    role: Sales Admin
+    priority: P0
+    source: "SOW#4: Role Separation - A different Admin assigns the Lead to a specific Sales Rep. Once assigned, the system triggers a notification to the Sales Rep."
+    precondition: |
+      Admin A and Member M;
+      Unassigned lead L exists
+    steps: |
+      1.A assigns lead L to M
+      2.M logs in, check "My Leads" list
+      3.M clicks lead detail
+    expected: |
+      1.M's "My Leads" list shows lead L
+      2.M can open lead detail
+      3.Lead status = Pending
+    status: Draft
+
+  - id: TC-ADMIN-LQ-013
+    module: Lead Queue Management
+    name: Non-Member Transfer-In—Cross-Pool Permission & Record
+    category: Transfer/CrossPool
+    role: Sales Admin
+    priority: P1
+    source: User Manual-Lead Pool 4.4
+    precondition: |
+      Pool A and Pool B exist, Pool B has Admin B and Member M;
+      Lead L in Pool A, owner is Member X
+    steps: |
+      1.Non-Pool-B member logs in, transfers lead L into Pool B
+      2.Check lead L's current owner
+      3.Check lead L's team members
+      4.Admin B logs in, assigns lead L to Member M
+    expected: |
+      1.Transfer succeeds (non-members also allowed to transfer in)
+      2.After transfer: owner cleared (transfer to new pool clears owner)
+      3.Team members cleared
+      4.B can assign to M normally
+      5.Activity History records transfer operation
+    status: Draft
+
+  # ════════════════════════════════════════
+  # SOW Custom Functionality (Highest Priority)
+  # Source: Securemetric_CRM_SOW_中文版.pdf Section 3.3
+  # ════════════════════════════════════════
+
+  - id: TC-ADMIN-LQ-014
+    module: Lead Queue Management
+    name: 【SOW#3】Lead Cross-Sell Conflict Prevention
+    category: CustomRule/Conflict
+    role: Sales Admin
+    priority: P0
+    source: "SOW#3 (Easycraft custom): If a Sales Rep attempts to add a Lead where the associated Customer is already owned/handled by another Sales Rep, the system must trigger a conflict warning and prevent the form submission (no auto-populate permissions)"
+    precondition: |
+      Customer C is owned by Sales Rep A (A is C's owner);
+      Sales Rep B (different owner) is logged in
+    steps: |
+      1.B creates a lead, selects customer C in "Related Customer" field
+      2.Check system behavior
+      3.Try to force submit
+      4.B creates another lead, selects customer D (not owned by other reps)
+    expected: |
+      1.System triggers conflict warning: "This customer is already handled by another sales rep"
+      2.Form submission blocked
+      3.Selecting non-conflict customer D → submits normally
+    status: Draft
+
+  - id: TC-ADMIN-LQ-015
+    module: Lead Queue Management
+    name: 【SOW#1】Company RegCode Lead Conflict Check
+    category: CustomRule/Conflict
+    role: Sales Admin
+    priority: P0
+    source: "SOW#1 (Easycraft custom): When creating a new Lead, the system must validate 'Company Registration Code' against the database to prevent duplicate participation or conflict"
+    precondition: |
+      Lead L exists with "Company Registration Code" REG-001;
+      Another lead or data also uses REG-001
+    steps: |
+      1.Create a new lead
+      2.Enter REG-001 in company registration code field
+      3.Try to save
+      4.Enter a new unused registration code
+      5.Try to save
+    expected: |
+      1.Save fails, system prompts registration code conflict
+      2.New registration code saves normally
+    status: Draft

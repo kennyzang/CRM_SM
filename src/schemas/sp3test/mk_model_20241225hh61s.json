@@ -1,0 +1,242 @@
+{
+  "formId": "LFT-normaltest",
+  "formName": "mk_model_20241225hh61s",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/LFT-normaltest/add/1iftq6gf6wqnwj3lw83j54d3i0n0ak1o0gw0",
+  "fields": [
+    {
+      "id": "fd_col_jjshu1",
+      "fdType": "moneytext",
+      "label": "金额（万元）",
+      "displayName": "金额（万元）",
+      "required": false,
+      "sourceComponent": "@elem/xform-money",
+      "methods": [],
+      "fdLabelLangKey": "!{m53a1zwrqw21uke3sie}",
+      "i18n": {
+        "label": {
+          "Cn": "金额（万元）",
+          "default": "金额（万元）"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_col_wpj17d",
+      "fdType": "upcasing",
+      "label": "大写1",
+      "displayName": "大写1",
+      "required": false,
+      "sourceComponent": "@elem/xform-upcasing",
+      "methods": [],
+      "fdLabelLangKey": "!{m53a32rsxvrxho08nh}",
+      "i18n": {
+        "label": {
+          "Cn": "大写1"
+        }
+      }
+    },
+    {
+      "id": "fd_col_hc60w4",
+      "fdType": "relation",
+      "label": "二级分类",
+      "displayName": "二级分类",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1ifp4nqh1wp0w1hcw1j6in3839einnu3hnw0",
+        "modelId": "1iftqtgi8wqjwl3ew1qmcruk1ncm0fa142w0",
+        "refFieldName": "$fd_col_9u769c$",
+        "tableName": "mk_model_20241225fy99o",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "二级分类"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{m53aguj52nza6ma0l42}",
+      "i18n": {
+        "label": {
+          "Cn": "二级分类",
+          "default": "二级分类"
+        }
+      }
+    },
+    {
+      "id": "fd_col_m35y49",
+      "fdType": "fd_input",
+      "label": "所属一级分类说明",
+      "displayName": "所属一级分类说明",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{m53aiu9d71ih4u61im}",
+      "i18n": {
+        "label": {
+          "Cn": "所属一级分类说明",
+          "default": "所属一级分类说明"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_col_7r2f6o",
+      "fdType": "fd_input",
+      "label": "二级分类说明",
+      "displayName": "二级分类说明",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{m53aj7vsku74laqlgve}",
+      "i18n": {
+        "label": {
+          "Cn": "二级分类说明",
+          "default": "二级分类说明"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_col_tnizlk",
+      "fdType": "dynamic",
+      "label": "动态控件4",
+      "displayName": "动态控件4",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1if9huuutwi3w2upwvqlspe24tfjl129kbw0",
+        "modelName": "低代码表单引用",
+        "type": "radio"
+      },
+      "fdLabelLangKey": "!{m53gkljhh4zvunlrc8}",
+      "i18n": {
+        "label": {
+          "Cn": "动态控件4"
+        }
+      }
+    },
+    {
+      "id": "fd_col_gvqsxb",
+      "fdType": "dynamic",
+      "label": "动态控件6",
+      "displayName": "动态控件6",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1if6n0eorwgiwdfvwltmuuhl7bgpu2kkckw0",
+        "modelName": "入参测试",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{m53gpn6mq0rpiicqdan}",
+      "i18n": {
+        "label": {
+          "Cn": "动态控件6"
+        }
+      }
+    },
+    {
+      "id": "fd_col_face1p",
+      "fdType": "dynamic",
+      "label": "动态控件7",
+      "displayName": "动态控件7",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1if6n0eorwgiwdfvwltmuuhl7bgpu2kkckw0",
+        "modelName": "入参测试",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{m53gq4djqy64hz1cec}",
+      "i18n": {
+        "label": {
+          "Cn": "动态控件7"
+        }
+      }
+    },
+    {
+      "id": "fd_col_sabkub",
+      "fdType": "dynamic",
+      "label": "动态控件8",
+      "displayName": "动态控件8",
+      "required": false,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1ifu5b2ejwraw32jw3ad4rm9lrfjpa2oclw0",
+        "modelName": "动态控件传值",
+        "type": "singlist"
+      },
+      "fdLabelLangKey": "!{m53gwh7zjjdipbc6ln}",
+      "i18n": {
+        "label": {
+          "Cn": "动态控件8"
+        }
+      }
+    },
+    {
+      "id": "fd_col_gbe40n",
+      "fdType": "fd_input",
+      "label": "单行文本3",
+      "displayName": "单行文本3",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{m53haljodls3opxyxgw}",
+      "i18n": {
+        "label": {
+          "Cn": "单行文本3"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_col_r2vbmf",
+      "fdType": "fd_input",
+      "label": "动态控件9传出的",
+      "displayName": "动态控件9传出的",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{m53hi7xev5rjyqq4f0r}",
+      "i18n": {
+        "label": {
+          "Cn": "动态控件9传出的",
+          "default": "动态控件9传出的"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-05-12T08:11:09.908Z",
+  "detailTables": []
+}

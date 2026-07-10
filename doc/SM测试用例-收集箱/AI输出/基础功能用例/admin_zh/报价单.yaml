@@ -1,0 +1,90 @@
+---
+cases:
+- id: TC-QUOTATION-001
+  module: 报价单
+  name: 新建报价单—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '有已审批P&L
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.Header/P&L/Date
+
+    4.确认自动填充
+
+    5.Submit
+
+    '
+  expected: '1.成功
+
+    2.编号自动
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-002
+  module: 报价单
+  name: 新建报价单—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.P&L/Header/Date留空
+
+    2.点击Submit
+
+    3.逐字段填写后Submit
+
+    '
+  expected: '1.P&L/Header/Date均有必填提示
+
+    2.全部填完后提交成功
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-003
+  module: 报价单
+  name: P&L自动填充验证
+  category: Create/Linkage
+  role: 销售管理员
+  priority: P1
+  precondition: '有已审批P&L
+
+    '
+  steps: '1.Header/Date
+
+    2.选P&L
+
+    3.观察
+
+    '
+  expected: '1.Currency/Oppty/产品自动
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-004
+  module: 报价单
+  name: 列表搜索—按标题
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输标题
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿

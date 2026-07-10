@@ -1,0 +1,222 @@
+---
+cases:
+- id: TC-LEAD-001
+  module: 线索
+  name: 新建线索—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '已登录;有产品
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.名称/池/类型/来源/级别/详情/流程/类别
+
+    4.产品表
+
+    5.保存
+
+    '
+  expected: '1.成功
+
+    2.待处理
+
+    '
+  status: 草稿
+- id: TC-LEAD-002
+  module: 线索
+  name: 新建线索—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P0
+  precondition: '在新建表单
+
+    '
+  steps: '1.所有必填字段留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.名称/池/来源/级别/详情/交易类别/产品表均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-LEAD-003
+  module: 线索
+  name: 编辑—改名称级别
+  category: Edit
+  role: 销售管理员
+  priority: P0
+  precondition: '是A负责人;未锁定
+
+    '
+  steps: '1.详情
+
+    2.编辑
+
+    3.改名称/级别
+
+    4.保存
+
+    '
+  expected: '1.成功
+
+    '
+  status: 草稿
+- id: TC-LEAD-004
+  module: 线索
+  name: 详情子标签
+  category: Detail/Tabs
+  role: 销售管理员
+  priority: P1
+  precondition: '有关联数据
+
+    '
+  steps: '1.详情
+
+    2.点流转/联系人/商机/相关/转化
+
+    '
+  expected: '1.各标签正确
+
+    '
+  status: 草稿
+- id: TC-LEAD-005
+  module: 线索
+  name: 添加团队成员
+  category: Team
+  role: 销售管理员
+  priority: P1
+  precondition: '有B
+
+    '
+  steps: '1.详情
+
+    2.服务团队加B
+
+    3.保存
+
+    4.B登录
+
+    '
+  expected: '1.成功
+
+    2.B在My Involved
+
+    '
+  status: 草稿
+- id: TC-LEAD-006
+  module: 线索
+  name: 列表视图切换
+  category: List/View
+  role: 销售管理员
+  priority: P1
+  precondition: '团队有数据
+
+    '
+  steps: '1.列表
+
+    2.点我拥有/团队/参与/全部
+
+    '
+  expected: '1.4视图正确
+
+    '
+  status: 草稿
+- id: TC-LEAD-007
+  module: 线索
+  name: 列表搜索—按电话
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '电话012-3456789
+
+    '
+  steps: '1.列表
+
+    2.输电话
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-LEAD-008
+  module: 线索
+  name: 线索转化—前提条件
+  category: Conversion
+  role: 销售管理员
+  priority: P1
+  precondition: '状态待处理;是负责人
+
+    '
+  steps: '1.详情
+
+    2.跟进中
+
+    3.看转化按钮
+
+    '
+  expected: '1.待处理不可见
+
+    2.跟进中出现
+
+    '
+  status: 草稿
+- id: TC-LEAD-009
+  module: 线索
+  name: 锁定/解锁
+  category: Permission
+  role: 销售管理员
+  priority: P1
+  precondition: '是X负责人
+
+    '
+  steps: '1.详情
+
+    2.锁定
+
+    3.试编辑
+
+    4.解锁
+
+    '
+  expected: '1.锁定不可编辑
+
+    2.解锁后可
+
+    '
+  status: 草稿
+- id: TC-LEAD-010
+  module: 线索
+  name: 归集A到B
+  category: Relation
+  role: 销售管理员
+  priority: P1
+  precondition: '有A和B;是池成员
+
+    '
+  steps: '1.A详情
+
+    2.归集
+
+    3.选B
+
+    4.确认
+
+    '
+  expected: '1.成功
+
+    2.B相关线索显A
+
+    '
+  status: 草稿

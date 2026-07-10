@@ -1,0 +1,1757 @@
+{
+  "formId": "mk_km_ltc_quotation",
+  "formName": "mk_km_ltc_quotation",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1huk5ae1mw4fw7b59wsflfgsvtk48i373gw1?lbpmTemplateId=1i1c8edbsw4uwbk2iwv4112es5asrt2cofw1",
+  "fields": [
+    {
+      "id": "fd_account_id",
+      "fdType": "relation",
+      "label": "Company Name",
+      "displayName": "Customer",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "xformName": "客户"
+      },
+      "datasourceFilter": [],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_account_name",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_name",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{lw1xbwukcfh20m5copd}",
+      "i18n": {
+        "label": {
+          "Cn": "Company Name",
+          "default": "Customer",
+          "Us": "Customer"
+        }
+      }
+    },
+    {
+      "id": "fd_owner_people",
+      "fdType": "address",
+      "label": "Owner",
+      "displayName": "Owner",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1xcr5wzlka2zaqeld}",
+      "i18n": {
+        "label": {
+          "Cn": "Owner",
+          "default": "Owner",
+          "Us": "Owner"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_pl",
+      "fdType": "relation",
+      "label": "P&L",
+      "displayName": "P&L",
+      "required": true,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1jolf9tffwfwtegbw1dkpp192vc2vnk3nqw0",
+        "refFieldName": "$fd_pl_version$",
+        "tableName": "mk_km_ltc_pl",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "P&L"
+      },
+      "datasourceFilter": [
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_quotation_gen_flg",
+            "type": "radio",
+            "dataType": "varchar"
+          },
+          "operator": "$notIn",
+          "value": {
+            "format": "fixed",
+            "val": [
+              "1"
+            ]
+          }
+        },
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_doc_status",
+            "type": "radio",
+            "dataType": "varchar"
+          },
+          "operator": "$in",
+          "value": {
+            "format": "fixed",
+            "val": [
+              "30"
+            ]
+          }
+        }
+      ],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "textarea",
+            "fdName": "fd_product_list",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "textarea",
+            "fdName": "fd_product_covert",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_opportunity_id",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_opportunity",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_account_id",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_customer",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_pl_version",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "mechnumber",
+            "fdName": "fd_pl_version",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "cfg",
+            "fdName": "fd_deal_category",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "cfg",
+            "fdName": "fd_deal_category",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{lw1xd5glnllpimjjimn}",
+      "i18n": {
+        "label": {
+          "Cn": "P&L",
+          "default": "P&L",
+          "Us": "P&L"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_date",
+      "fdType": "timestamp",
+      "label": "Date",
+      "displayName": "Quote Date",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1xdqnks73mz1pbyqe}",
+      "i18n": {
+        "label": {
+          "Cn": "Date",
+          "default": "Quote Date",
+          "Us": "Quote Date"
+        },
+        "placeholder": {
+          "Us": "Please select the date",
+          "Hk": "請選擇日期",
+          "Cn": "请选择日期",
+          "default": "Please select the date"
+        }
+      }
+    },
+    {
+      "id": "fd_lock_status",
+      "fdType": "radio",
+      "label": "锁定状态",
+      "displayName": "locked state",
+      "required": false,
+      "options": [
+        {
+          "label": "未锁定",
+          "value": "1"
+        },
+        {
+          "label": "已锁定",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1xqo8zekzhpcfpwgj}",
+      "i18n": {
+        "label": {
+          "Cn": "锁定状态",
+          "default": "locked state",
+          "Us": "locked state"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_title",
+      "fdType": "fd_input",
+      "label": "Quotation Header",
+      "displayName": "Quotation Title",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mlaatg611cr8jkdxzyj}",
+      "i18n": {
+        "label": {
+          "Cn": "Quotation Header",
+          "Us": "Quotation Title",
+          "default": "Quotation Title"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_sales_rep",
+      "fdType": "fd_input",
+      "label": "Sales Rep",
+      "displayName": "Sales Rep",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mlaavpjnt1wxqj2cqqm}",
+      "i18n": {
+        "label": {
+          "Cn": "Sales Rep",
+          "Us": "Sales Rep",
+          "default": "Sales Rep"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_ship",
+      "fdType": "select",
+      "label": "Ship Via",
+      "displayName": "Ship Via",
+      "required": false,
+      "options": [
+        {
+          "label": "Standard Shipping",
+          "value": "standard"
+        },
+        {
+          "label": "Express Shipping",
+          "value": "express"
+        },
+        {
+          "label": "Overnight Shipping",
+          "value": "overnight"
+        },
+        {
+          "label": "Priority Shipping",
+          "value": "priority"
+        },
+        {
+          "label": "Economy Shipping",
+          "value": "economy"
+        },
+        {
+          "label": "Air Shipping",
+          "value": "air"
+        },
+        {
+          "label": "Ground Shipping",
+          "value": "ground"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{mlab5dpq4qlp30sxtt6}",
+      "i18n": {
+        "label": {
+          "Cn": "Ship Via",
+          "Us": "Ship Via",
+          "default": "Ship Via"
+        },
+        "placeholder": {
+          "Us": "Select",
+          "Cn": "请选择",
+          "default": "Select"
+        }
+      }
+    },
+    {
+      "id": "fd_col_r0wgoi",
+      "fdType": "address",
+      "label": "Department",
+      "displayName": "Department",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mlab6zicduuux9yu1hr}",
+      "i18n": {
+        "label": {
+          "Cn": "Department",
+          "Us": "Department",
+          "default": "Department"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_attn",
+      "fdType": "relation",
+      "label": "Attn",
+      "displayName": "Attn",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1huk4vljow4bw7civw3cdgsju212d8jr1sw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_contacts",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "联系人"
+      },
+      "datasourceFilter": [
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_account_id",
+            "type": "relation",
+            "dataType": "relation"
+          },
+          "operator": "$in",
+          "value": {
+            "format": "parameter",
+            "val": "fd_account_id"
+          }
+        }
+      ],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_quote_attn_tel",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_mobile",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_quote_attn_mail",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_email",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_quote_attn_name",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_name",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{mlab90aokrvh5zpnrih}",
+      "i18n": {
+        "label": {
+          "Cn": "Attn",
+          "Us": "Attn",
+          "default": "Attn"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_attn_tel",
+      "fdType": "fd_input",
+      "label": "Tel",
+      "displayName": "Tel",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mlabbs2rzdvvr0slux}",
+      "i18n": {
+        "label": {
+          "Cn": "Tel",
+          "Us": "Tel",
+          "default": "Tel"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_attn_mail",
+      "fdType": "fd_input",
+      "label": "E-Mail",
+      "displayName": "E-Mail",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mlabbvlrgntkgti8o0r}",
+      "i18n": {
+        "label": {
+          "Cn": "E-Mail",
+          "Us": "E-Mail",
+          "default": "E-Mail"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_terms1",
+      "fdType": "textarea",
+      "label": "Terms & Conditions Txt",
+      "displayName": "Terms & Conditions",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mlafmmt6601jzsq3v3x}",
+      "i18n": {
+        "label": {
+          "Cn": "Terms & Conditions Txt",
+          "Us": "Terms & Conditions Txt",
+          "default": "Terms & Conditions Txt"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        },
+        "displayLabel": {
+          "Us": "Terms & Conditions",
+          "default": "Terms & Conditions",
+          "Cn": "Terms & Conditions"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_instruction1",
+      "fdType": "textarea",
+      "label": "1Acceptance Instruction",
+      "displayName": "1Acceptance Instruction",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mlafpc7odgk7tbzq79n}",
+      "i18n": {
+        "label": {
+          "Cn": "1Acceptance Instruction",
+          "Us": "1Acceptance Instruction",
+          "default": "1Acceptance Instruction"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_approved",
+      "fdType": "address",
+      "label": "Approved by",
+      "displayName": "Approved by",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mlafqy1x721quthgqck}",
+      "i18n": {
+        "label": {
+          "Cn": "Approved by",
+          "Us": "Approved by",
+          "default": "Approved by"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_address",
+      "fdType": "dynamic",
+      "label": "Address",
+      "displayName": "Address",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelName": "LTC-客户地址",
+        "modelId": "1jg74v5bjw58w8finwcnbbm63i33apo35ew4",
+        "type": "singlist"
+      },
+      "fdLabelLangKey": "!{mlag052wzensg2v76y9}",
+      "i18n": {
+        "label": {
+          "Cn": "Address",
+          "Us": "Address",
+          "default": "Address"
+        }
+      }
+    },
+    {
+      "id": "fd_product_list",
+      "fdType": "textarea",
+      "label": "Product List",
+      "displayName": "Product List",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mlaihjf9781kujc1kbw}",
+      "i18n": {
+        "label": {
+          "Cn": "Product List",
+          "Us": "Product List",
+          "default": "Product List"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_currency",
+      "fdType": "dynamic",
+      "label": "Currency",
+      "displayName": "Currency",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelName": "CFG-币种下拉",
+        "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{mlajkzmvt8g3leifsld}",
+      "i18n": {
+        "label": {
+          "Cn": "Currency",
+          "Us": "Currency",
+          "default": "Currency"
+        }
+      }
+    },
+    {
+      "id": "fd_pl_version",
+      "fdType": "fd_input",
+      "label": "Version",
+      "displayName": "Version",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm1u3jhf06u4j6hthmrd}",
+      "i18n": {
+        "label": {
+          "Cn": "Version",
+          "Us": "Version",
+          "default": "Version"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_opportunity_id",
+      "fdType": "relation",
+      "label": "Opportunity",
+      "displayName": "Opportunity",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1i02ls02kw5jw69bw36pppvh884viq1fciw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_business",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "Opportunity"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mlgcgbr9544wo6wfu6t}",
+      "i18n": {
+        "label": {
+          "Us": "Opportunity",
+          "default": "Opportunity",
+          "Cn": "Opportunity"
+        }
+      }
+    },
+    {
+      "id": "fd_product_tax",
+      "fdType": "dynamic",
+      "label": "Global Tax",
+      "displayName": "Global Service Tax",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelName": "LTC-税率",
+        "modelId": "1jgp1o69rw5fwa11gw13ju63717i6bes2iw4",
+        "type": "singlist"
+      },
+      "fdLabelLangKey": "!{mmbe3cns9go1n4lvx95}",
+      "i18n": {
+        "label": {
+          "Cn": "Global Tax",
+          "Us": "Global Service Tax",
+          "default": "Global Service Tax"
+        }
+      }
+    },
+    {
+      "id": "fd_entity",
+      "fdType": "relation",
+      "label": "实体",
+      "displayName": "Entity",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htvnekpqw5ow60dmlw2vr34p82h5jtlo3we",
+        "modelId": "1i35491bbw6owiarwk98i111l1jg5n3av6w1",
+        "refFieldName": "$fd_entity$",
+        "tableName": "mk_km_ltc_subject",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "公司主体"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "text",
+            "fdName": "fd_entity_code",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "text",
+            "fdName": "fd_entity_code",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "attachment",
+            "fdName": "fd_quote_tpl",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "attachment",
+            "fdName": "fd_quote_tpl",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "attachment",
+            "fdName": "fd_quote_tpl_o",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "attachment",
+            "fdName": "fd_quote_tpl_o",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{mmiqngmif2iokqid4xf}",
+      "i18n": {
+        "label": {
+          "Cn": "实体",
+          "Us": "Entity",
+          "default": "Entity"
+        }
+      }
+    },
+    {
+      "id": "fd_deal_category",
+      "fdType": "cfg",
+      "label": "交易类别",
+      "displayName": "Deal Category",
+      "required": false,
+      "cfgId": "1jg6n3v3jw59wc56bw3ceomvh10046j612w4",
+      "cfgConfig": {
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "trace": false,
+        "modelId": "1jg6n3v3jw59wc56bw3ceomvh10046j612w4",
+        "passValue": false
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mmiqxs6d4ie3ip3v9yu}",
+      "i18n": {
+        "label": {
+          "Us": "Deal Category",
+          "Cn": "交易类别",
+          "default": "Deal Category"
+        }
+      }
+    },
+    {
+      "id": "fd_entity_code",
+      "fdType": "fd_input",
+      "label": "实体代码",
+      "displayName": "Entity Code",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmitna7wqezmwmxqexr}",
+      "i18n": {
+        "label": {
+          "Cn": "实体代码",
+          "Us": "Entity Code",
+          "default": "Entity Code"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_product_tax_num",
+      "fdType": "numbertext",
+      "label": "Global Tax Num",
+      "displayName": "Global Tax Num",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-number",
+      "methods": [],
+      "fdLabelLangKey": "!{mmkg3hm9rf862mo2yom}",
+      "i18n": {
+        "label": {
+          "Cn": "Global Tax Num",
+          "Us": "Global Tax Num",
+          "default": "Global Tax Num"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_account_name",
+      "fdType": "fd_input",
+      "label": "Company Name for VDP",
+      "displayName": "Company Name for VDP",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlda1o3sgy1ajccs6}",
+      "i18n": {
+        "label": {
+          "Cn": "Company Name for VDP",
+          "Us": "Company Name for VDP",
+          "default": "Company Name for VDP"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_account_address",
+      "fdType": "textarea",
+      "label": "Address for VDP",
+      "displayName": "Address",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mmldfsutiejoa7urir}",
+      "i18n": {
+        "label": {
+          "Cn": "Address for VDP",
+          "Us": "Address for VDP",
+          "default": "Address for VDP"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        },
+        "displayLabel": {
+          "Us": "Address",
+          "default": "Address",
+          "Cn": "Address"
+        }
+      }
+    },
+    {
+      "id": "fd_fax",
+      "fdType": "fd_input",
+      "label": "传真",
+      "displayName": "Fax",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmleyknbswrei76v1b8}",
+      "i18n": {
+        "label": {
+          "Cn": "传真",
+          "Us": "Fax",
+          "default": "Fax"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_creator_sign1",
+      "fdType": "image",
+      "label": "Prepared Signature111",
+      "displayName": "Prepared Signature111",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-image",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlfiq21f4s8qtsjkc}",
+      "i18n": {
+        "label": {
+          "Cn": "Prepared Signature111",
+          "Us": "Prepared Signature111",
+          "default": "Prepared Signature111"
+        }
+      }
+    },
+    {
+      "id": "fd_approved_sign",
+      "fdType": "image",
+      "label": "Approved Signature111",
+      "displayName": "Approved Signature111",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-image",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlfl21jd34cs2e2jw}",
+      "i18n": {
+        "label": {
+          "Cn": "Approved Signature111",
+          "Us": "Approved Signature111",
+          "default": "Approved Signature111"
+        }
+      }
+    },
+    {
+      "id": "fd_approved_name",
+      "fdType": "fd_input",
+      "label": "Approved Name",
+      "displayName": "Approved Name",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlfoiydn60554fzvvg}",
+      "i18n": {
+        "label": {
+          "Cn": "Approved Name",
+          "Us": "Approved Name",
+          "default": "Approved Name"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_attn_name",
+      "fdType": "fd_input",
+      "label": "Attn",
+      "displayName": "Attn",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlmww18xqoa2hqfzcc}",
+      "i18n": {
+        "label": {
+          "Us": "Attn",
+          "default": "Attn"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_duty_stamp1",
+      "fdType": "numbertext",
+      "label": "DUTY STAMP1",
+      "displayName": "DUTY STAMP1",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-number",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlne6uh6rcpant6x9l}",
+      "i18n": {
+        "label": {
+          "Us": "DUTY STAMP1",
+          "default": "DUTY STAMP1"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_term",
+      "fdType": "fd_input",
+      "label": "Term",
+      "displayName": "Term",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmlshqwan2vzt6vp20l}",
+      "i18n": {
+        "label": {
+          "Us": "Term",
+          "default": "Term",
+          "Cn": "Term"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_currency_name",
+      "fdType": "fd_input",
+      "label": "Currency Name",
+      "displayName": "Currency Name",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmn6bp6qpdvt3kxe4of}",
+      "i18n": {
+        "label": {
+          "Us": "Currency Name",
+          "default": "Currency Name"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_tpl",
+      "fdType": "attachment",
+      "label": "VDP模板",
+      "displayName": "VDP template",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-attach",
+      "methods": [],
+      "fdLabelLangKey": "!{mmomilgzldc7ngpnd7p}",
+      "i18n": {
+        "label": {
+          "Cn": "VDP模板",
+          "Us": "VDP template",
+          "default": "VDP template"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_tpl_o",
+      "fdType": "attachment",
+      "label": "原始模板",
+      "displayName": "Original Template",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-attach",
+      "methods": [],
+      "fdLabelLangKey": "!{mmomiytegrcwppj02rs}",
+      "i18n": {
+        "label": {
+          "Cn": "原始模板",
+          "Us": "Original Template",
+          "default": "Original Template"
+        }
+      }
+    },
+    {
+      "id": "fd_col_n00h2i",
+      "fdType": "button",
+      "label": "Get Template",
+      "displayName": "Get Template",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-button",
+      "methods": [],
+      "fdLabelLangKey": "!{mmooadx6q6rt0cchnh}",
+      "i18n": {
+        "label": {
+          "Cn": "Get Template",
+          "Us": "Get Template",
+          "default": "Get Template"
+        }
+      }
+    },
+    {
+      "id": "fd_col_90mh1w",
+      "fdType": "custom_fkjcr2",
+      "label": "ltc-报价表导出1",
+      "displayName": "ltc-报价表导出1",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@user-elem/ltc-quation-excel-tmmka",
+      "methods": [],
+      "fdLabelLangKey": "!{mmopf32w8g560dchq2b}",
+      "i18n": {
+        "label": {
+          "Cn": "ltc-报价表导出1",
+          "Us": "ltc-报价表导出1",
+          "default": "ltc-报价表导出1"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_ship_name",
+      "fdType": "fd_input",
+      "label": "Ship Via Name",
+      "displayName": "Ship Via Name",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmsxrndzcfcbgn39mzs}",
+      "i18n": {
+        "label": {
+          "Cn": "Ship Via Name",
+          "Us": "Ship Via Name",
+          "default": "Ship Via Name"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_date_f",
+      "fdType": "fd_input",
+      "label": "Date Format",
+      "displayName": "Date Format",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mmvos9bby5yerstalg}",
+      "i18n": {
+        "label": {
+          "Cn": "Date Format",
+          "Us": "Date Format",
+          "default": "Date Format"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入",
+          "default": "Input"
+        }
+      }
+    },
+    {
+      "id": "fd_col_njttcg",
+      "fdType": "html",
+      "label": "自定义页面1",
+      "displayName": "自定义页面1",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-html",
+      "methods": [],
+      "fdLabelLangKey": "!{mn76ry1n022dspynq7zb}",
+      "i18n": {
+        "label": {
+          "Cn": "自定义页面1",
+          "Us": "自定义页面1",
+          "default": "自定义页面1"
+        }
+      }
+    },
+    {
+      "id": "fd_col_xpb02q",
+      "fdType": "custom_l40ved",
+      "label": "LTC-PDF模版1",
+      "displayName": "LTC-PDF模版1",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@user-elem/ltc-pdf-template-a9dp2",
+      "methods": [],
+      "fdLabelLangKey": "!{movcmpydln5875660m}",
+      "i18n": {
+        "label": {
+          "Cn": "LTC-PDF模版1",
+          "Us": "LTC-PDF模版1"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_terms",
+      "fdType": "rich-text",
+      "label": "Terms & Conditions",
+      "displayName": "Terms & Conditions",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-rich-text",
+      "methods": [],
+      "fdLabelLangKey": "!{moy7gbzyn7ok6rmnq2l}",
+      "i18n": {
+        "label": {
+          "Cn": "Terms & Conditions",
+          "Us": "Terms & Conditions",
+          "default": "Terms & Conditions"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        },
+        "displayLabel": {
+          "Us": "Terms & Conditions",
+          "default": "Terms & Conditions",
+          "Cn": "Terms & Conditions"
+        }
+      }
+    },
+    {
+      "id": "fd_approval_msg",
+      "fdType": "review",
+      "label": "审批意见",
+      "displayName": "Approval Opinion",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-review",
+      "methods": [],
+      "fdLabelLangKey": "!{mp0wrduq1om23v53gwz}",
+      "i18n": {
+        "label": {
+          "Cn": "审批意见",
+          "Us": "Approval Opinion",
+          "default": "Approval Opinion"
+        }
+      }
+    },
+    {
+      "id": "fd_quote_instruction",
+      "fdType": "rich-text",
+      "label": "Acceptance Instruction",
+      "displayName": "Acceptance Instruction",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-rich-text",
+      "methods": [],
+      "fdLabelLangKey": "!{mp0zw6mshvbybjylbc}",
+      "i18n": {
+        "label": {
+          "Cn": "Acceptance Instruction",
+          "Us": "Acceptance Instruction",
+          "default": "Acceptance Instruction"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-06-04T05:48:55.549Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_km_ltc_quotation_detail",
+      "detailTableName": "Quote Details",
+      "fields": [
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_unit",
+          "fdType": "numbertext",
+          "label": "Quantity",
+          "displayName": "Quantity",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{lxohtrpn7wj72tyo263}",
+          "i18n": {
+            "label": {
+              "Cn": "Quantity",
+              "default": "Quantity",
+              "Us": "Quantity"
+            },
+            "placeholder": {
+              "Cn": "",
+              "default": ""
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_product_type",
+          "fdType": "select",
+          "label": "Product Type",
+          "displayName": "Product Type",
+          "required": false,
+          "options": [
+            {
+              "label": "软件",
+              "value": "software"
+            },
+            {
+              "label": "硬件",
+              "value": "hardware"
+            },
+            {
+              "label": "服务",
+              "value": "service"
+            }
+          ],
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-select",
+          "methods": [],
+          "fdLabelLangKey": "!{mmd48k6r304aysnils4}",
+          "i18n": {
+            "label": {
+              "Cn": "Product Type",
+              "Us": "Product Type",
+              "default": "Product Type"
+            },
+            "placeholder": {
+              "Us": "Select",
+              "Cn": "请选择",
+              "default": "Select"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_product_code",
+          "fdType": "fd_input",
+          "label": "Product Code",
+          "displayName": "Product Code",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mmlf1farumybufy32bl}",
+          "i18n": {
+            "label": {
+              "Cn": "Product Code",
+              "Us": "Product Code",
+              "default": "Product Code"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_discount",
+          "fdType": "numbertext",
+          "label": "Discount",
+          "displayName": "Discount",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mmsx99ru9nkr1n2flvm}",
+          "i18n": {
+            "label": {
+              "Cn": "Discount",
+              "Us": "Discount",
+              "default": "Discount"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_prodcut_name",
+          "fdType": "fd_input",
+          "label": "Product Name",
+          "displayName": "Product Name",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mmkg1ve4859n6lczk58}",
+          "i18n": {
+            "label": {
+              "Cn": "Product Name",
+              "Us": "Product Name",
+              "default": "Product Name"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_product_tax",
+          "fdType": "dynamic",
+          "label": "Service Tax",
+          "displayName": "Service Tax",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-dynamic",
+          "methods": [],
+          "renderMode": {
+            "modelName": "LTC-税率",
+            "modelId": "1jgp1o69rw5fwa11gw13ju63717i6bes2iw4",
+            "type": "singlist"
+          },
+          "fdLabelLangKey": "!{mlamyc8fy8nxrwjqby}",
+          "i18n": {
+            "label": {
+              "Cn": "Service Tax",
+              "Us": "Service Tax",
+              "default": "Service Tax"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_prodcut",
+          "fdType": "relation",
+          "label": "Product",
+          "displayName": "Product Name",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1htvnekpqw5ow60dmlw2vr34p82h5jtlo3we",
+            "modelId": "1j1ckq9k1wcw22b3iw2f103901k2097813w0",
+            "refFieldName": "$fd_product_name$",
+            "tableName": "mk_km_ltc_new_product",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "产品"
+          },
+          "datasourceFilter": [
+            {
+              "type": "condition",
+              "field": {
+                "name": "fd_product_status",
+                "type": "select",
+                "dataType": "varchar"
+              },
+              "operator": "$in",
+              "value": {
+                "format": "fixed",
+                "val": [
+                  "1"
+                ]
+              }
+            }
+          ],
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{lxohqoe3sjw0ze4nr4q}",
+          "i18n": {
+            "label": {
+              "Cn": "Product",
+              "default": "Product Name",
+              "Us": "Product Name"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_product_tax_num",
+          "fdType": "numbertext",
+          "label": "Service Tax Num",
+          "displayName": "Service Tax Num",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mlamr2rrtd9g7ptsqx}",
+          "i18n": {
+            "label": {
+              "Cn": "Service Tax Num",
+              "Us": "Service Tax Num",
+              "default": "Service Tax Num"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_service_year",
+          "fdType": "numbertext",
+          "label": "Service Period",
+          "displayName": "Service Period",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mlak809ybmbdtpjlx7}",
+          "i18n": {
+            "label": {
+              "Cn": "Service Period",
+              "Us": "Service Period",
+              "default": "Service Period"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_price",
+          "fdType": "numbertext",
+          "label": "Unit Price",
+          "displayName": "Unit Price",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mlabjq03znz5zmc7a}",
+          "i18n": {
+            "label": {
+              "Cn": "Unit Price",
+              "Us": "Unit Price",
+              "default": "Unit Price"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_total_price",
+          "fdType": "numbertext",
+          "label": "Total Excl Service Tax",
+          "displayName": "Total Excl Service Tax",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mlakct363q9xib79pww}",
+          "i18n": {
+            "label": {
+              "Cn": "Total Excl Service Tax",
+              "Us": "Total Excl Service Tax",
+              "default": "Total Excl Service Tax"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_sm_note",
+          "fdType": "textarea",
+          "label": "Description",
+          "displayName": "Description",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-textarea",
+          "methods": [],
+          "fdLabelLangKey": "!{mlabhshnqhzsit3pjfj}",
+          "i18n": {
+            "label": {
+              "Cn": "Description",
+              "Us": "Description",
+              "default": "Description"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_km_ltc_quotation_detail.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    },
+    {
+      "detailModelId": "mk_km_ltc_quotation_address",
+      "detailTableName": "Customer Address",
+      "fields": [
+        {
+          "id": "mk_km_ltc_quotation_address.fd_quote_address",
+          "fdType": "fd_input",
+          "label": "Address",
+          "displayName": "Address",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mmlo9f5vkanrku2nwok}",
+          "i18n": {
+            "label": {
+              "Us": "Address",
+              "default": "Address"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入",
+              "default": "Input"
+            }
+          }
+        },
+        {
+          "id": "mk_km_ltc_quotation_address.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_km_ltc_quotation_address.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_km_ltc_quotation_address.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

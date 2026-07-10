@@ -1,0 +1,92 @@
+---
+cases:
+- id: TC-KANBAN-001
+  module: Pipeline Kanban
+  name: View—Stage Tiles
+  category: View
+  role: Sales Admin
+  priority: P0
+  precondition: 'Logged in;Data exists
+
+    '
+  steps: '1.Open kanban
+
+    2.Observe 7 tiles
+
+    3.Record counts
+
+    '
+  expected: '1.7 tiles:Lead/Oppty/Qtn/PO/SO/PI/Pmt
+
+    2.Show counts+amounts
+
+    '
+  status: Draft
+- id: TC-KANBAN-002
+  module: Pipeline Kanban
+  name: Filter by Stage Tile
+  category: Filter
+  role: Sales Admin
+  priority: P1
+  precondition: 'Data loaded
+
+    '
+  steps: '1.Open kanban
+
+    2.Click tile
+
+    3.View list
+
+    4.Reset
+
+    '
+  expected: '1.Filters to stage
+
+    2.Reset restores
+
+    '
+  status: Draft
+- id: TC-KANBAN-003
+  module: Pipeline Kanban
+  name: Time Period Filter
+  category: Filter
+  role: Sales Admin
+  priority: P1
+  precondition: 'Data loaded
+
+    '
+  steps: '1.Open kanban
+
+    2.This Year
+
+    3.This Month
+
+    4.Custom
+
+    '
+  expected: '1.Data changes per period
+
+    '
+  status: Draft
+- id: TC-KANBAN-004
+  module: Pipeline Kanban
+  name: View Deal List
+  category: View
+  role: Sales Admin
+  priority: P1
+  precondition: 'List has data
+
+    '
+  steps: '1.Open kanban
+
+    2.View list
+
+    3.Click deal name
+
+    '
+  expected: '1.Columns:Project/Amount/Rep/Stage/Date
+
+    2.Detail page
+
+    '
+  status: Draft

@@ -1,0 +1,411 @@
+{
+  "formId": "mk_ltc_contract",
+  "formName": "Contract",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1jihb07vbw5fw21kofw7b5qu2gcc7mo12ow4",
+  "fields": [
+    {
+      "id": "fd_Contract_Title",
+      "fdType": "fd_input",
+      "label": "合同标题",
+      "displayName": "Contract Title",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vilehp5vyf2unclf}",
+      "i18n": {
+        "label": {
+          "Cn": "合同标题",
+          "Us": "Contract Title",
+          "default": "Contract Title"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Sales_Order",
+      "fdType": "relation",
+      "label": "销售订单",
+      "displayName": "Sales Order",
+      "required": true,
+      "relationCfg": {
+        "appCode": "1i16frphvw5rw6cuvw2tudpb632vlssh2jw1",
+        "modelId": "1i16imb35w60w37jw1l2npp1f6lgd3188uw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_sales_orders",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "销售订单"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "outParams": [
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_Customer",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_account_id",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_quotation",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_quote_id",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "relation",
+            "fdName": "fd_opportunity",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "relation",
+            "fdName": "fd_business_id",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        },
+        {
+          "sourceField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          },
+          "targetField": {
+            "fdType": "dynamic",
+            "fdName": "fd_currency",
+            "tableName": "main",
+            "tableType": "main"
+          }
+        }
+      ],
+      "fdLabelLangKey": "!{mm5vjk044gh7z5jhgvh}",
+      "i18n": {
+        "label": {
+          "Cn": "销售订单",
+          "Us": "Sales Order",
+          "default": "Sales Order"
+        }
+      }
+    },
+    {
+      "id": "fd_Customer",
+      "fdType": "relation",
+      "label": "客户",
+      "displayName": "Customer",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "客户"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vkwa55vg1t0ubumv}",
+      "i18n": {
+        "label": {
+          "Cn": "客户",
+          "Us": "Customer",
+          "default": "Customer"
+        }
+      }
+    },
+    {
+      "id": "fd_Signed_Date",
+      "fdType": "timestamp",
+      "label": "签署日期",
+      "displayName": "Signed Date",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vl8day45eeur51ue}",
+      "i18n": {
+        "label": {
+          "Cn": "签署日期",
+          "Us": "Signed Date",
+          "default": "Signed Date"
+        },
+        "placeholder": {
+          "Us": "Select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_Remarks",
+      "fdType": "textarea",
+      "label": "备注",
+      "displayName": "Remarks",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vlnyqpwjcvw2yn0h}",
+      "i18n": {
+        "label": {
+          "Cn": "备注",
+          "Us": "Remarks",
+          "default": "Remarks"
+        },
+        "placeholder": {
+          "Us": "Input",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_Attachment",
+      "fdType": "attachment",
+      "label": "附件",
+      "displayName": "Attachment",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-attach",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vlqnsh4dc6nsrpd5}",
+      "i18n": {
+        "label": {
+          "Cn": "附件",
+          "Us": "Attachment",
+          "default": "Attachment"
+        }
+      }
+    },
+    {
+      "id": "fd_Notify_Who",
+      "fdType": "address",
+      "label": "通知对象",
+      "displayName": "Notify Who",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5vngxl3mldk1d4oz2}",
+      "i18n": {
+        "label": {
+          "Cn": "通知对象",
+          "Us": "Notify Who",
+          "default": "Notify Who"
+        }
+      }
+    },
+    {
+      "id": "fd_Expiry_Date",
+      "fdType": "timestamp",
+      "label": "到期日期",
+      "displayName": "Expiry Date",
+      "required": true,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{mm5w0c9iloelqexb30a}",
+      "i18n": {
+        "label": {
+          "Cn": "到期日期",
+          "Us": "Expiry Date",
+          "default": "Expiry Date"
+        },
+        "placeholder": {
+          "Us": "Select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_opportunity",
+      "fdType": "relation",
+      "label": "商机",
+      "displayName": "Opportunity",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1i02ls02kw5jw69bw36pppvh884viq1fciw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_business",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "商机"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mmd0sqv9lib09gxdap}",
+      "i18n": {
+        "label": {
+          "Cn": "商机",
+          "Us": "Opportunity",
+          "default": "Opportunity"
+        }
+      }
+    },
+    {
+      "id": "fd_quotation",
+      "fdType": "relation",
+      "label": "报价单",
+      "displayName": "Quotation",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1huk5ae1mw4fw7b59wsflfgsvtk48i373gw1",
+        "refFieldName": "$fd_quote_title$",
+        "tableName": "mk_km_ltc_quotation",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "报价单"
+      },
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mmd0sttegzug764jxrb}",
+      "i18n": {
+        "label": {
+          "Cn": "报价单",
+          "Us": "Quotation",
+          "default": "Quotation"
+        }
+      }
+    },
+    {
+      "id": "fd_currency",
+      "fdType": "dynamic",
+      "label": "结算货币",
+      "displayName": "Currency",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-dynamic",
+      "methods": [],
+      "renderMode": {
+        "modelId": "1jfs0fj3cw51wdtjmwrssl6v2llu1392v1w1",
+        "modelName": "CFG-币种下拉",
+        "type": "select"
+      },
+      "fdLabelLangKey": "!{mmd0xpuz5elkn84hgg2}",
+      "i18n": {
+        "label": {
+          "Cn": "结算货币",
+          "Us": "Currency",
+          "default": "Currency"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-06-04T05:49:13.411Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_ltc_contract_d_u9hmy",
+      "detailTableName": "提醒天数明细表",
+      "fields": [
+        {
+          "id": "mk_ltc_contract_d_u9hmy.fd_Due_Reminder_Days",
+          "fdType": "numbertext",
+          "label": "到期日前xx天提醒",
+          "displayName": "Notify XX Days before Expiry Date",
+          "required": true,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mm5voz1lxgdm22nlyz}",
+          "i18n": {
+            "label": {
+              "Cn": "到期日前xx天提醒",
+              "Us": "Notify XX Days before Expiry Date",
+              "default": "Notify XX Days before Expiry Date"
+            },
+            "placeholder": {
+              "Us": "Input",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "mk_ltc_contract_d_u9hmy.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_ltc_contract_d_u9hmy.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_ltc_contract_d_u9hmy.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "datasourceFilter": null,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+---
+cases:
+- id: TC-LEAD-001
+  module: Lead
+  name: Create Lead—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'Logged in;Products exist
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Name/Pool/Type/Source/Level/Details/Pipeline/DealCat
+
+    4.Products
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.Pending
+
+    '
+  status: Draft
+- id: TC-LEAD-002
+  module: Lead
+  name: Create Lead—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave all required fields empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Name/Pool/Source/Level/Details/DealCat/Products
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-LEAD-003
+  module: Lead
+  name: Edit—Change Name/Level
+  category: Edit
+  role: Sales Admin
+  priority: P0
+  precondition: 'Owner of A;Not locked
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Name/Level
+
+    4.Save
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-LEAD-004
+  module: Lead
+  name: Detail Sub-tab Switching
+  category: Detail/Tabs
+  role: Sales Admin
+  priority: P1
+  precondition: 'Has related data
+
+    '
+  steps: '1.Detail
+
+    2.Click Flow/Contacts/Oppty/Related/Conversion
+
+    '
+  expected: '1.Tabs correct
+
+    '
+  status: Draft
+- id: TC-LEAD-005
+  module: Lead
+  name: Add Team Member
+  category: Team
+  role: Sales Admin
+  priority: P1
+  precondition: 'Rep B exists
+
+    '
+  steps: '1.Detail
+
+    2.Service Team add B
+
+    3.Save
+
+    4.B login
+
+    '
+  expected: '1.Added
+
+    2.B sees in My Involved
+
+    '
+  status: Draft
+- id: TC-LEAD-006
+  module: Lead
+  name: List View Switching
+  category: List/View
+  role: Sales Admin
+  priority: P1
+  precondition: 'Team has data
+
+    '
+  steps: '1.List
+
+    2.Click My/Team/Involved/All
+
+    '
+  expected: '1.4 views correct
+
+    '
+  status: Draft
+- id: TC-LEAD-007
+  module: Lead
+  name: List Search—by Phone
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Phone 012-3456789
+
+    '
+  steps: '1.List
+
+    2.Type number
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-LEAD-008
+  module: Lead
+  name: Lead Conversion Prereqs
+  category: Conversion
+  role: Sales Admin
+  priority: P1
+  precondition: 'Status=Pending;Is owner
+
+    '
+  steps: '1.Detail
+
+    2.Follow Up
+
+    3.Check Convert button
+
+    '
+  expected: '1.Hidden when Pending
+
+    2.Appears after Follow Up
+
+    '
+  status: Draft
+- id: TC-LEAD-009
+  module: Lead
+  name: Lock/Unlock
+  category: Permission
+  role: Sales Admin
+  priority: P1
+  precondition: 'Is owner of X
+
+    '
+  steps: '1.Detail
+
+    2.Lock
+
+    3.Try edit
+
+    4.Unlock
+
+    '
+  expected: '1.Locked=cannot edit
+
+    2.Unlocked=can
+
+    '
+  status: Draft
+- id: TC-LEAD-010
+  module: Lead
+  name: Collect A into B
+  category: Relation
+  role: Sales Admin
+  priority: P1
+  precondition: 'A+B exist;Is pool member
+
+    '
+  steps: '1.A detail
+
+    2.Collect
+
+    3.Select B
+
+    4.Confirm
+
+    '
+  expected: '1.Done
+
+    2.B Related shows A
+
+    '
+  status: Draft

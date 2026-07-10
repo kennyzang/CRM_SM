@@ -1,0 +1,274 @@
+{
+  "formId": "mk_model_202604300v10z",
+  "formName": "SP3Test-基础数据控件",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/xoex/add/1jneivbl5wchqw2ctrwcoes8f2mpi7c32ow0",
+  "fields": [
+    {
+      "id": "fd_test1",
+      "fdType": "cfg",
+      "label": "基础数据-单行列表框",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokwc4mdd0pl64yqukf}"
+    },
+    {
+      "id": "fd_col_qxmibg",
+      "fdType": "cfg",
+      "label": "基础数据-多选列表",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokwd1cmrrxuhx67ykf}"
+    },
+    {
+      "id": "fd_col_7ipz2j",
+      "fdType": "cfg",
+      "label": "基础数据-单选框",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokwdc09zjta4pfg37}"
+    },
+    {
+      "id": "fd_checkbox",
+      "fdType": "cfg",
+      "label": "基础数据-多选款",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokwdurayc5yqulwbu}"
+    },
+    {
+      "id": "fd_col_lxznt4",
+      "fdType": "cfg",
+      "label": "基础数据-单选下拉",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+        "cascader": false
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokwed9prsh3u4ozx5}"
+    },
+    {
+      "id": "fd_col_89fkgl",
+      "fdType": "cfg",
+      "label": "基础数据-多选下拉",
+      "required": false,
+      "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+        "cascader": false
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mokweui7kfuzqeoa4re}"
+    },
+    {
+      "id": "fd_col_knofwp",
+      "fdType": "cfg",
+      "label": "基础数据-产品版本",
+      "required": false,
+      "cfgId": "1j1ddp5qewh0w2n5tw3lk7r5g2nc8eel2mw1",
+      "cfgConfig": {
+        "passValue": false,
+        "trace": false,
+        "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+        "modelId": "1j1ddp5qewh0w2n5tw3lk7r5g2nc8eel2mw1"
+      },
+      "sourceComponent": "@elem/xform-cfg",
+      "methods": [],
+      "fdLabelLangKey": "!{mopqmlp9rgbraz5omag}"
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-05-10T10:06:05.522Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_model_202604300v10z_d_b4p05",
+      "detailTableName": "明细表1",
+      "fields": [
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_test1",
+          "fdType": "cfg",
+          "label": "基础数据-单行列表框_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwpkp8uizav7xvue}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_col_qxmibg",
+          "fdType": "cfg",
+          "label": "基础数据-多选列表_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwpp0fr10ofx933mf}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_col_7ipz2j",
+          "fdType": "cfg",
+          "label": "基础数据-单选框_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwpsnhpryzd5n7ia}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_checkbox",
+          "fdType": "cfg",
+          "label": "基础数据-多选款_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0"
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwpw7e4aons5bx96s}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_col_lxznt4",
+          "fdType": "cfg",
+          "label": "基础数据-单选下拉_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+            "cascader": false
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwpzkdzahf9qm7vyo}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_col_89fkgl",
+          "fdType": "cfg",
+          "label": "基础数据-多选下拉_副本",
+          "required": false,
+          "cfgId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+          "cfgConfig": {
+            "passValue": false,
+            "modelName": "com.landray.sys.cfg.enums.core.entity.SysEnum",
+            "modelId": "1jneitm9dwchrw4tqdw6jh7a41ng836gguw0",
+            "cascader": false
+          },
+          "sourceComponent": "@elem/xform-cfg",
+          "methods": [],
+          "fdLabelLangKey": "!{mokwq3ivbzmh3e26lyh}"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_model_202604300v10z_d_b4p05.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

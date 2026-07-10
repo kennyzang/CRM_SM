@@ -1,0 +1,66 @@
+---
+cases:
+- id: TC-PO-001
+  module: PO
+  name: Create PO—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'Quotation exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.PO No./Quotation/PO File
+
+    4.Save
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-PO-002
+  module: PO
+  name: Create PO—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave PO No./Quotation/File empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for PO No./Quotation/File
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-PO-003
+  module: PO
+  name: List Search—by PO No.
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type number
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

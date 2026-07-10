@@ -1,0 +1,489 @@
+{
+  "formId": "mk_km_ltc_contacts",
+  "formName": "mk_km_ltc_contacts",
+  "url": "http://172.18.114.231:8088/web/#/current/sys-modeling/app/km-ltc/add/1huk4vljow4bw7civw3cdgsju212d8jr1sw1",
+  "fields": [
+    {
+      "id": "fd_account_id",
+      "fdType": "relation",
+      "label": "客户名称",
+      "displayName": "客户名称",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1hvjheq3nw4vw4j48w3doaci42dfrsq13tw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_customer",
+        "tableType": "main",
+        "xformName": "客户"
+      },
+      "datasourceFilter": [
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_owner_people",
+            "type": "address",
+            "dataType": "address"
+          },
+          "operator": "$in",
+          "value": {
+            "format": "parameter",
+            "val": "fd_owner_people"
+          }
+        }
+      ],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1q435ira4pbjes18l}"
+    },
+    {
+      "id": "fd_record_type",
+      "fdType": "select",
+      "label": "业务类型",
+      "displayName": "业务类型",
+      "required": false,
+      "options": [
+        {
+          "label": "客户联系人",
+          "value": "1"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1q8m88fa6ql5qzp2}"
+    },
+    {
+      "id": "fd_name",
+      "fdType": "fd_input",
+      "label": "姓名",
+      "displayName": "姓名",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qapuve74deeks74}"
+    },
+    {
+      "id": "fd_department",
+      "fdType": "fd_input",
+      "label": "部门",
+      "displayName": "部门",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qbaqso6bukuiecp}"
+    },
+    {
+      "id": "fd_job_title",
+      "fdType": "fd_input",
+      "label": "职务",
+      "displayName": "职务",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qbusqu5bq7uwdnq}"
+    },
+    {
+      "id": "fd_gender",
+      "fdType": "radio",
+      "label": "性别",
+      "displayName": "性别",
+      "required": false,
+      "options": [
+        {
+          "label": "男",
+          "value": "1"
+        },
+        {
+          "label": "女",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qcf2v3c9js6brwt}"
+    },
+    {
+      "id": "fd_primary_contact",
+      "fdType": "radio",
+      "label": "关键决策人",
+      "displayName": "关键决策人",
+      "required": false,
+      "options": [
+        {
+          "label": "是",
+          "value": "1"
+        },
+        {
+          "label": "否",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qfa2p1c0y2f8js0d}"
+    },
+    {
+      "id": "fd_introducer",
+      "fdType": "fd_input",
+      "label": "介绍人",
+      "displayName": "介绍人",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qghwpwo5le8k586}"
+    },
+    {
+      "id": "fd_owner_people",
+      "fdType": "address",
+      "label": "负责人",
+      "displayName": "负责人",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qgyisotwzfn3xtjr}"
+    },
+    {
+      "id": "fd_data_own_department",
+      "fdType": "address",
+      "label": "归属部门",
+      "displayName": "归属部门",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qjhh13tqfs0chdsz}"
+    },
+    {
+      "id": "fd_card",
+      "fdType": "image",
+      "label": "名片",
+      "displayName": "名片",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-image",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qlpnpwzxvw6hogjp}"
+    },
+    {
+      "id": "fd_remark",
+      "fdType": "textarea",
+      "label": "备注",
+      "displayName": "备注",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qlws2e58wkkwz4q}"
+    },
+    {
+      "id": "fd_add",
+      "fdType": "fd_input",
+      "label": "地址",
+      "displayName": "地址",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1quegi3t3fpmw2btk}"
+    },
+    {
+      "id": "fd_tel",
+      "fdType": "fd_input",
+      "label": "电话",
+      "displayName": "电话",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qxywsxj4cu93tvx}"
+    },
+    {
+      "id": "fd_mobile",
+      "fdType": "fd_input",
+      "label": "手机",
+      "displayName": "手机",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1qy0l7oi8deiuyz2n}"
+    },
+    {
+      "id": "fd_email",
+      "fdType": "fd_input",
+      "label": "邮件",
+      "displayName": "邮件",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1r0u2b8g0vugzqgim}"
+    },
+    {
+      "id": "fd_influence_level",
+      "fdType": "select",
+      "label": "决策描述",
+      "displayName": "决策描述",
+      "required": false,
+      "options": [
+        {
+          "label": "审批者",
+          "value": "4"
+        },
+        {
+          "label": "决策者",
+          "value": "3"
+        },
+        {
+          "label": "评审者",
+          "value": "2"
+        },
+        {
+          "label": "使用者",
+          "value": "1"
+        },
+        {
+          "label": "未知",
+          "value": "0"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1r79r5dv1dwhgy0x8}"
+    },
+    {
+      "id": "fd_lock_status",
+      "fdType": "radio",
+      "label": "锁定状态",
+      "displayName": "锁定状态",
+      "required": false,
+      "options": [
+        {
+          "label": "未锁定",
+          "value": "1"
+        },
+        {
+          "label": "已锁定",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1r83zxn1j7sfn92d7}"
+    },
+    {
+      "id": "fd_date_of_birth",
+      "fdType": "timestamp",
+      "label": "生日",
+      "displayName": "生日",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lw1s3epnkw7ffpg8tkc}"
+    },
+    {
+      "id": "fd_contacts_zh",
+      "fdType": "radio",
+      "label": "是否转换联系人",
+      "displayName": "是否转换联系人",
+      "required": false,
+      "options": [
+        {
+          "label": "是",
+          "value": "1"
+        },
+        {
+          "label": "否",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{lypo7vxsan0kyjrxzs5}"
+    },
+    {
+      "id": "fd_status",
+      "fdType": "radio",
+      "label": "状态",
+      "displayName": "状态",
+      "required": false,
+      "options": [
+        {
+          "label": "在职",
+          "value": "1"
+        },
+        {
+          "label": "离职",
+          "value": "2"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{m422lzqqxshy6nqlvm}"
+    },
+    {
+      "id": "fd_parent_contact",
+      "fdType": "relation",
+      "label": "直属上级",
+      "displayName": "直属上级",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1htgohs7dw5owvkdowk58mun1lgdi8mobswe",
+        "modelId": "1huk4vljow4bw7civw3cdgsju212d8jr1sw1",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_ltc_contacts",
+        "tableType": "main",
+        "xformName": "联系人"
+      },
+      "datasourceFilter": [
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_account_id.fdId",
+            "type": "relation",
+            "dataType": "relation"
+          },
+          "operator": "$in",
+          "value": {
+            "format": "parameter",
+            "val": "fd_account_id.fdId"
+          }
+        },
+        {
+          "type": "condition",
+          "field": {
+            "name": "fd_create_time",
+            "type": "timestamp",
+            "dataType": "timestamp"
+          },
+          "operator": "$neqDate",
+          "value": {
+            "format": "parameter",
+            "val": "fd_create_time"
+          }
+        }
+      ],
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{m42ebk8zgz0fv87dp2q}"
+    },
+    {
+      "id": "fd_position",
+      "fdType": "select",
+      "label": "关系强度",
+      "displayName": "关系强度",
+      "required": false,
+      "options": [
+        {
+          "label": "教练",
+          "value": "5"
+        },
+        {
+          "label": "强力支持",
+          "value": "4"
+        },
+        {
+          "label": "支持",
+          "value": "3"
+        },
+        {
+          "label": "中立",
+          "value": "2"
+        },
+        {
+          "label": "反对",
+          "value": "1"
+        }
+      ],
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{m485j0dgm2ka67cnpwo}"
+    },
+    {
+      "id": "fd_col_hctjcf",
+      "fdType": "button",
+      "label": "按钮",
+      "displayName": "按钮",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-button",
+      "methods": [],
+      "fdLabelLangKey": "!{mnrhot5ngjyuxnqc3d5}"
+    },
+    {
+      "id": "fd_sales_rep",
+      "fdType": "fd_input",
+      "label": "Sales Rep",
+      "displayName": "Sales Rep",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mqqcssq5l0hphbgt85p}"
+    },
+    {
+      "id": "fd_col_5z5lsr",
+      "fdType": "interval",
+      "label": "占位1",
+      "displayName": "占位1",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-interval",
+      "methods": [],
+      "fdLabelLangKey": "!{mnrhqxmlfrhskf58ex}"
+    },
+    {
+      "id": "fd_col_k58xzi",
+      "fdType": "interval",
+      "label": "占位2",
+      "displayName": "占位2",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-interval",
+      "methods": [],
+      "fdLabelLangKey": "!{mnrirhm5fmm4t4cpw1g}"
+    },
+    {
+      "id": "fd_col_26cm2s",
+      "fdType": "interval",
+      "label": "占位3",
+      "displayName": "占位3",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-interval",
+      "methods": [],
+      "fdLabelLangKey": "!{mnrirl7yysx3r3h3kq}"
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "datasourceFilter": null,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-07-08T10:01:22.002Z",
+  "detailTables": []
+}

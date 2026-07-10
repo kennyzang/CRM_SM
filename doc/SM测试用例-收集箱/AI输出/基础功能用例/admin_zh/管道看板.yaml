@@ -1,0 +1,92 @@
+---
+cases:
+- id: TC-KANBAN-001
+  module: 管道看板
+  name: 查看看板—验证阶段磁贴
+  category: View
+  role: 销售管理员
+  priority: P0
+  precondition: '已登录;有数据
+
+    '
+  steps: '1.进看板
+
+    2.观察7磁贴
+
+    3.记录数量和金额
+
+    '
+  expected: '1.7磁贴:Lead/Oppty/Qtn/PO/SO/PI/Pmt
+
+    2.各显示数量金额
+
+    '
+  status: 草稿
+- id: TC-KANBAN-002
+  module: 管道看板
+  name: 点击磁贴筛选
+  category: Filter
+  role: 销售管理员
+  priority: P1
+  precondition: '数据已加载
+
+    '
+  steps: '1.进看板
+
+    2.点磁贴
+
+    3.看列表
+
+    4.Reset
+
+    '
+  expected: '1.点击后仅该阶段
+
+    2.Reset恢复
+
+    '
+  status: 草稿
+- id: TC-KANBAN-003
+  module: 管道看板
+  name: 时间筛选
+  category: Filter
+  role: 销售管理员
+  priority: P1
+  precondition: '数据已加载
+
+    '
+  steps: '1.进看板
+
+    2.This Year
+
+    3.This Month
+
+    4.Custom
+
+    '
+  expected: '1.各时间数据变化
+
+    '
+  status: 草稿
+- id: TC-KANBAN-004
+  module: 管道看板
+  name: 查看交易列表
+  category: View
+  role: 销售管理员
+  priority: P1
+  precondition: '列表有数据
+
+    '
+  steps: '1.进看板
+
+    2.看列表
+
+    3.点项目名
+
+    '
+  expected: '1.列:Project/Amount/Rep/Stage/Date
+
+    2.点名称进详情
+
+    '
+  status: 草稿

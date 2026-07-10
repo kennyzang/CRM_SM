@@ -1,0 +1,156 @@
+---
+cases:
+- id: TC-OPPORTUNITY-001
+  module: Opportunity
+  name: Create Opportunity—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'Customer+products exist
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Name/Customer/Contacts/CloseDate/Pipeline/DealCat/Currency
+
+    4.PA table
+
+    5.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.ID auto
+
+    3.Not Started
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-002
+  module: Opportunity
+  name: Create Opportunity—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Name/Customer/CloseDate/Contacts/DealCat/Pipeline/Currency empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.All required hints shown
+
+    2.Submit succeeds after all filled
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-003
+  module: Opportunity
+  name: Edit—Change Name/WinRate
+  category: Edit
+  role: Sales Admin
+  priority: P0
+  precondition: 'Is owner of A
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Name/WinRate
+
+    4.Submit
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-004
+  module: Opportunity
+  name: Detail Sub-tabs
+  category: Detail/Tabs
+  role: Sales Admin
+  priority: P1
+  precondition: 'Has related data
+
+    '
+  steps: '1.Detail
+
+    2.Click tabs
+
+    '
+  expected: '1.Tabs correct
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-005
+  module: Opportunity
+  name: List View Switching
+  category: List/View
+  role: Sales Admin
+  priority: P1
+  precondition: 'Team has data
+
+    '
+  steps: '1.List
+
+    2.Click Owned/Team/Involved/All
+
+    '
+  expected: '1.4 views correct
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-006
+  module: Opportunity
+  name: List Search—by Name
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type name
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-OPPORTUNITY-007
+  module: Opportunity
+  name: Suspend/Resume
+  category: Detail/Action
+  role: Sales Admin
+  priority: P1
+  precondition: 'Is X owner;X In Progress
+
+    '
+  steps: '1.Detail
+
+    2.Suspend
+
+    3.Confirm
+
+    4.Observe
+
+    '
+  expected: '1.Suspended
+
+    2.Open appears
+
+    3.Stage unchanged
+
+    '
+  status: Draft

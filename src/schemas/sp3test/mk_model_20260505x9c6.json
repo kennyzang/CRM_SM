@@ -1,0 +1,384 @@
+{
+  "formId": "mk_model_202605055x9c6",
+  "formName": "业务关联组件测试_单个控件",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/xoex/add/1jnrn67skwclqw3le8w2f14q7g26r919g3w0",
+  "fields": [
+    {
+      "id": "fd_col_1",
+      "fdType": "relation",
+      "label": "业务关联-单选列表",
+      "displayName": "业务关联-单选列表",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{mosf8i2jdre7b7am9ie}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-单选列表",
+          "default": "业务关联-单选列表",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_col_wpvcdv",
+      "fdType": "relation",
+      "label": "业务关联-多选列表框",
+      "displayName": "业务关联-多选列表框",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_note$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{motm6k4ebhzgjvqqzgg}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-多选列表框",
+          "default": "业务关联-多选列表框",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_col_8wup7g",
+      "fdType": "relation",
+      "label": "业务关联-单选框",
+      "displayName": "业务关联-单选框",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{motrw8mx90vpcu3xtyb}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-单选框",
+          "default": "业务关联-单选框",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_col_zo42lr",
+      "fdType": "relation",
+      "label": "业务关联-多选框",
+      "displayName": "业务关联-多选框",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{motth3xumx1x9z9d0k}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-多选框",
+          "default": "业务关联-多选框",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_col_e5s97w",
+      "fdType": "relation",
+      "label": "业务关联-单选下拉",
+      "displayName": "业务关联-单选下拉",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{motu7aziueike89dihh}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-单选下拉",
+          "default": "业务关联-单选下拉",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_col_wngjh8",
+      "fdType": "relation",
+      "label": "业务关联-多选下拉",
+      "displayName": "业务关联-多选下拉",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+        "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_model_202510291co55",
+        "tableType": "main",
+        "fdFormType": 0,
+        "xformName": "基础控件"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{motu7ny4tr2bvc1qnhn}",
+      "i18n": {
+        "label": {
+          "Cn": "业务关联-多选下拉",
+          "default": "业务关联-多选下拉",
+          "Us": "Business Association - Single Choice List"
+        }
+      }
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "displayName": "流程模板ID",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-05-12T08:11:23.353Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_model_202605055x9c6_d_y175r",
+      "detailTableName": "明细表1",
+      "fields": [
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_1",
+          "fdType": "relation",
+          "label": "业务关联-单选列表_副本",
+          "displayName": "业务关联-单选列表",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motppzqroyggmukobum}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-单选列表_副本",
+              "default": "业务关联-单选列表",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_wpvcdv",
+          "fdType": "relation",
+          "label": "业务关联-多选列表框_副本",
+          "displayName": "业务关联-多选列表框",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_note$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motpq29gkp0ycna3p3o}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-多选列表框_副本",
+              "default": "业务关联-多选列表框",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_8wup7g",
+          "fdType": "relation",
+          "label": "业务关联-单选框_副本",
+          "displayName": "业务关联-单选框",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motrwtvnj6tf3naki0s}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-单选框_副本",
+              "default": "业务关联-单选框",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_zo42lr",
+          "fdType": "relation",
+          "label": "业务关联-多选框_副本",
+          "displayName": "业务关联-多选框",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motthgps8fr6kh10nq7}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-多选框_副本",
+              "default": "业务关联-多选框",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_e5s97w",
+          "fdType": "relation",
+          "label": "业务关联-单选下拉_副本",
+          "displayName": "业务关联-单选下拉",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motu86kwt3rkcmsozk}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-单选下拉_副本",
+              "default": "业务关联-单选下拉",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_col_wngjh8",
+          "fdType": "relation",
+          "label": "业务关联-多选下拉_副本",
+          "displayName": "业务关联-多选下拉",
+          "required": false,
+          "relationCfg": {
+            "appCode": "1j23ocaj2w621w1166w230dfqfv0np3c8iw0",
+            "modelId": "1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+            "refFieldName": "$fd_name$",
+            "tableName": "mk_model_202510291co55",
+            "tableType": "main",
+            "fdFormType": 0,
+            "xformName": "基础控件"
+          },
+          "sourceComponent": "@elem/xform-relation",
+          "methods": [],
+          "fdLabelLangKey": "!{motu81on37nqez5clns}",
+          "i18n": {
+            "label": {
+              "Cn": "业务关联-多选下拉_副本",
+              "default": "业务关联-多选下拉",
+              "Us": "Business Association - Single Choice List"
+            }
+          }
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_model_202605055x9c6_d_y175r.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

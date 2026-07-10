@@ -1,0 +1,199 @@
+---
+cases:
+
+  - id: TC-CUSTOMER-001
+    module: 客户
+    name: 新建客户—正常流程
+    category: Create
+    role: 销售人员
+    priority: P0
+    precondition: |
+      已登录;注册码未占
+    steps: |
+      1.列表
+      2.新建
+      3.名称/注册码/类型/来源
+      4.地址表
+      5.保存
+    expected: |
+      1.成功
+      2.编号自动
+      3.已分配
+    status: 草稿
+
+  - id: TC-CUSTOMER-002
+    module: 客户
+    name: 新建客户—必填项校验
+    category: Create/Validation
+    role: 销售人员
+    priority: P0
+    precondition: |
+      在新建表单
+    steps: |
+      1.名称/注册码/类型/来源留空
+      2.点击保存
+      3.逐字段填写后保存
+    expected: |
+      1.名称/注册码/类型/来源均有必填提示
+      2.全部填完后保存成功
+    status: 草稿
+
+  - id: TC-CUSTOMER-003
+    module: 客户
+    name: 注册码重复
+    category: Create/Validation
+    role: 销售人员
+    priority: P1
+    precondition: |
+      已有REG-001
+    steps: |
+      1.填名称
+      2.填REG-001
+      3.其他
+      4.保存
+    expected: |
+      1.失败
+      2.提示重复
+    status: 草稿
+
+  - id: TC-CUSTOMER-004
+    module: 客户
+    name: 编辑—改名称电话
+    category: Edit
+    role: 销售人员
+    priority: P0
+    precondition: |
+      是A负责人
+    steps: |
+      1.详情
+      2.编辑
+      3.改名称/电话
+      4.保存
+    expected: |
+      1.成功
+      2.更新
+    status: 草稿
+
+  - id: TC-CUSTOMER-005
+    module: 客户
+    name: 详情页子标签
+    category: Detail/Tabs
+    role: 销售人员
+    priority: P1
+    precondition: |
+      有关联数据
+    steps: |
+      1.详情
+      2.点各标签
+    expected: |
+      1.各标签正确
+    status: 草稿
+
+  - id: TC-CUSTOMER-006
+    module: 客户
+    name: 列表视图切换
+    category: List/View
+    role: 销售人员
+    priority: P1
+    precondition: |
+      团队有数据
+    steps: |
+      1.列表
+      2.点各视图
+    expected: |
+      1.4视图正确
+    status: 草稿
+
+  - id: TC-CUSTOMER-007
+    module: 客户
+    name: 列表搜索—按名称
+    category: List/Search
+    role: 销售人员
+    priority: P2
+    precondition: |
+      有Securemetric
+    steps: |
+      1.列表
+      2.输名称
+      3.搜索
+    expected: |
+      1.筛选
+    status: 草稿
+
+  - id: TC-CUSTOMER-008
+    module: 客户
+    name: 退回公海
+    category: Pool
+    role: 销售人员
+    priority: P0
+    precondition: |
+      是A负责人;A已分配
+    steps: |
+      1.详情
+      2.退回
+      3.选原因
+      4.确认
+    expected: |
+      1.成功
+      2.未分配
+      3.负责人清空
+    status: 草稿
+
+  - id: TC-CUSTOMER-009
+    module: 客户
+    name: 合并A到B
+    category: Merge
+    role: 销售人员
+    priority: P1
+    precondition: |
+      有A和B
+    steps: |
+      1.A详情
+      2.合并
+      3.选B
+      4.确认
+    expected: |
+      1.成功
+      2.A是B下级
+    status: 草稿
+
+  - id: TC-CUSTOMER-010
+    module: 客户
+    name: 客户流失
+    category: Lifecycle
+    role: 销售人员
+    priority: P1
+    precondition: |
+      是A负责人;未流失
+    steps: |
+      1.详情
+      2.客户流失
+      3.确认
+    expected: |
+      1.生命周期变Lost
+    status: 草稿
+
+  # ════════════════════════════════════════
+  # SOW 定制功能用例
+  # ════════════════════════════════════════
+
+  - id: TC-CUSTOMER-011
+    module: 客户
+    name: 【SOW#2】客户"是否伙伴"布尔标识
+    category: ConfigRule/Field
+    role: 销售人员
+    priority: P1
+    source: "SOW需求#2（Securemetric配置）：客户表单须有布尔字段标识客户是否为'伙伴'"
+    precondition: |
+      在客户表单编辑模式
+    steps: |
+      1.新建客户，找到"是否伙伴"字段
+      2.设置为"是"，保存
+      3.打开该客户详情
+      4.编辑客户，切回"否"
+      5.保存
+    expected: |
+      1.客户表单有布尔字段"是否伙伴"
+      2.设置为是后详情显示为伙伴客户
+      3.可修改
+    status: 草稿

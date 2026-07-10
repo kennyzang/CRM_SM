@@ -1,0 +1,442 @@
+{
+  "formId": "mk_model_202510291co55",
+  "formName": "基础控件测试_sp3test",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/xoex/add/1j8mp363lw7o2w1cj6w310l96c2fasdj63w0",
+  "fields": [
+    {
+      "id": "fd_name",
+      "fdType": "fd_input",
+      "label": "姓名",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbczqjjv9208tifqh}"
+    },
+    {
+      "id": "fd_note",
+      "fdType": "textarea",
+      "label": "备注",
+      "required": false,
+      "sourceComponent": "@elem/xform-textarea",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd0fj1wx9jv3rbt4}"
+    },
+    {
+      "id": "fd_gender",
+      "fdType": "radio",
+      "label": "性别",
+      "required": false,
+      "options": [
+        {
+          "label": "男",
+          "value": "male"
+        },
+        {
+          "label": "女",
+          "value": "female"
+        }
+      ],
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd4hnfblbj4xuz3}"
+    },
+    {
+      "id": "fd_inserest",
+      "fdType": "checkbox",
+      "label": "爱好",
+      "required": false,
+      "options": [
+        {
+          "label": "看书",
+          "value": "1"
+        },
+        {
+          "label": "写字",
+          "value": "2"
+        },
+        {
+          "label": "跳舞",
+          "value": "3"
+        }
+      ],
+      "sourceComponent": "@elem/xform-checkbox",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd5xcdwx9ll4zzn}"
+    },
+    {
+      "id": "fd_post",
+      "fdType": "select~multi",
+      "label": "职位",
+      "required": false,
+      "options": [
+        {
+          "label": "职员",
+          "value": "1"
+        },
+        {
+          "label": "经理",
+          "value": "2"
+        },
+        {
+          "label": "董事长",
+          "value": "3"
+        }
+      ],
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd7bqq7pdetik8n}"
+    },
+    {
+      "id": "fd_birthday",
+      "fdType": "timestamp",
+      "label": "生日",
+      "required": false,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd803g2xn8usv2ml}"
+    },
+    {
+      "id": "fd_salary_cur",
+      "fdType": "numbertext",
+      "label": "当前月薪",
+      "required": false,
+      "sourceComponent": "@elem/xform-number",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbd9cqqfj0rkn1uiq}"
+    },
+    {
+      "id": "fd_salary",
+      "fdType": "moneytext",
+      "label": "期望月薪",
+      "required": false,
+      "sourceComponent": "@elem/xform-money",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbda1pwjzdlvf48t}"
+    },
+    {
+      "id": "fd_col_8kxkcp",
+      "fdType": "address",
+      "label": "地址本1",
+      "required": false,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbdc946pb1jnjz1d}"
+    },
+    {
+      "id": "fd_col_lquj29",
+      "fdType": "image",
+      "label": "图片1",
+      "required": false,
+      "sourceComponent": "@elem/xform-image",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbddagijlracb2nn8}"
+    },
+    {
+      "id": "fd_col_ayqhqm",
+      "fdType": "switch",
+      "label": "开关1",
+      "required": false,
+      "sourceComponent": "@elem/xform-switch",
+      "methods": [],
+      "fdLabelLangKey": "!{mhbbdf43h985g3zbyi}"
+    },
+    {
+      "id": "fd_time",
+      "fdType": "timepicker",
+      "label": "时间",
+      "required": false,
+      "sourceComponent": "@elem/xform-timepicker",
+      "methods": [],
+      "fdLabelLangKey": "!{mofj40vvbkp22jtnzw}"
+    },
+    {
+      "id": "fd_skill",
+      "fdType": "select~multi",
+      "label": "技能",
+      "required": false,
+      "options": [
+        {
+          "label": "前端",
+          "value": "1"
+        },
+        {
+          "label": "后端",
+          "value": "2"
+        },
+        {
+          "label": "全栈",
+          "value": "3"
+        }
+      ],
+      "sourceComponent": "@elem/xform-select",
+      "methods": [],
+      "fdLabelLangKey": "!{moghvavwekodtzeg83n}"
+    },
+    {
+      "id": "fd_process_template_id",
+      "fdType": "fd_input",
+      "label": "流程模板ID",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+      ],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdProcessTemplateId"
+    }
+  ],
+  "generatedAt": "2026-05-10T10:02:25.954Z",
+  "detailTables": [
+    {
+      "detailModelId": "mk_model_202510291co55_d_fw62y",
+      "detailTableName": "明细表",
+      "fields": [
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_name",
+          "fdType": "fd_input",
+          "label": "姓名",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhf8vcyjxwym24fe}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_note",
+          "fdType": "textarea",
+          "label": "备注",
+          "required": false,
+          "sourceComponent": "@elem/xform-textarea",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfjkc0lly76xbzvmb}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_gender",
+          "fdType": "radio",
+          "label": "性别",
+          "required": false,
+          "options": [
+            {
+              "label": "男",
+              "value": "male"
+            },
+            {
+              "label": "女",
+              "value": "female"
+            }
+          ],
+          "sourceComponent": "@elem/xform-radio",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfnn9hx7jmhap71t}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_inserest",
+          "fdType": "checkbox",
+          "label": "爱好",
+          "required": false,
+          "options": [
+            {
+              "label": "看书",
+              "value": "1"
+            },
+            {
+              "label": "写字",
+              "value": "2"
+            },
+            {
+              "label": "跳舞",
+              "value": "3"
+            }
+          ],
+          "sourceComponent": "@elem/xform-checkbox",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfsbeegabjl93vla}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_post",
+          "fdType": "select~multi",
+          "label": "职位",
+          "required": false,
+          "options": [
+            {
+              "label": "职员",
+              "value": "1"
+            },
+            {
+              "label": "经理",
+              "value": "2"
+            },
+            {
+              "label": "董事长",
+              "value": "3"
+            }
+          ],
+          "sourceComponent": "@elem/xform-select",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfvf0jr0v8wvh3lc}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_birthday",
+          "fdType": "timestamp",
+          "label": "生日",
+          "required": false,
+          "sourceComponent": "@elem/xform-datetime",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfyl9j2q6hk58ku}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_salary_cur",
+          "fdType": "numbertext",
+          "label": "当前月薪",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhgavf6l5jwi5bhxb}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_salary",
+          "fdType": "moneytext",
+          "label": "期望月薪",
+          "required": false,
+          "sourceComponent": "@elem/xform-money",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhgg5qdjh88ja5wml}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_time",
+          "fdType": "timepicker",
+          "label": "时间",
+          "required": false,
+          "sourceComponent": "@elem/xform-timepicker",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhg1tmkda79iru8m}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_skill",
+          "fdType": "select~multi",
+          "label": "技能",
+          "required": false,
+          "options": [
+            {
+              "label": "前端",
+              "value": "1"
+            },
+            {
+              "label": "后端",
+              "value": "2"
+            },
+            {
+              "label": "全栈",
+              "value": "3"
+            }
+          ],
+          "sourceComponent": "@elem/xform-select",
+          "methods": [],
+          "fdLabelLangKey": "!{mojhfdogu85yzbvuix}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_model_202510291co55_d_fw62y.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    },
+    {
+      "detailModelId": "mk_model_202510291co55_d_7nm7e",
+      "detailTableName": "明细表1",
+      "fields": [
+        {
+          "id": "mk_model_202510291co55_d_7nm7e.fd_col_j21kpo",
+          "fdType": "textarea",
+          "label": "多行文本1",
+          "required": false,
+          "sourceComponent": "@elem/xform-textarea",
+          "methods": [],
+          "fdLabelLangKey": "!{moqx1r8dbqz61npw4gd}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_7nm7e.fd_col_ouvtwp",
+          "fdType": "fd_input",
+          "label": "单行文本1",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{moqx1p85el6wbip5l6m}"
+        },
+        {
+          "id": "mk_model_202510291co55_d_7nm7e.fd_id",
+          "fdType": "fd_input",
+          "label": "主键id",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "mk_model_202510291co55_d_7nm7e.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "mk_model_202510291co55_d_7nm7e.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        }
+      ]
+    }
+  ]
+}

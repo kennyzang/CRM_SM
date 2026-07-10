@@ -1,0 +1,63 @@
+---
+cases:
+
+  - id: TC-MC-001
+    module: 多货币
+    name: 【SOW#21】多货币—基础货币双向换算
+    category: CustomRule/Currency
+    role: 销售人员
+    priority: P0
+    source: "SOW需求#21（Easycraft定制开发）：建立基础货币逻辑，支持目标货币与基础货币的双向换算，所有货币金额表单均包含目标货币字段"
+    precondition: |
+      已配置基础货币（如USD）和汇率表（EUR→USD、MYR→USD等）
+    steps: |
+      1.新建线索/商机/报价等含金额字段的表单
+      2.观察是否有目标货币字段
+      3.选择目标货币为EUR
+      4.输入金额，观察换算后的基础货币金额
+      5.切换目标货币为MYR
+      6.观察金额是否重新换算
+    expected: |
+      1.所有金额相关表单都包含目标货币字段
+      2.输入目标货币金额后自动换算为基础货币金额
+      3.切换目标货币后自动重新换算
+    status: 草稿
+
+  - id: TC-MC-002
+    module: 多货币
+    name: 【SOW#21】汇率表—修改后影响现有数据
+    category: CustomRule/Currency
+    role: 销售人员
+    priority: P1
+    source: "SOW需求#21（Easycraft定制开发）：汇率表是所有计算的唯一数据来源"
+    precondition: |
+      已有表单数据使用EUR→USD汇率为1.10
+    steps: |
+      1.记录现有表单的基础货币金额
+      2.管理员修改EUR→USD汇率为1.20
+      3.打开已存在的表单
+      4.观察换算金额是否变化
+    expected: |
+      1.汇率变更影响所有新的换算
+      2.已有已保存数据保持不变，重新打开编辑时使用新汇率
+    status: 草稿
+
+  - id: TC-MC-003
+    module: 多货币
+    name: 【SOW#20】本地货币报告—以团队本地货币显示
+    category: CustomRule/Report
+    role: 销售人员
+    priority: P1
+    source: "SOW需求#20（Easycraft定制开发）：团队负责人报告以该团队本地货币显示，不论交易货币为何"
+    precondition: |
+      团队A本地货币为MYR，团队B本地货币为SGD；
+      两个团队都有交易记录（交易货币为USD）
+    steps: |
+      1.团队A负责人查看报告
+      2.团队B负责人查看报告
+      3.对比两份报告中的金额货币
+    expected: |
+      1.A的报告以MYR显示（即使原始交易货币是USD）
+      2.B的报告以SGD显示
+      3.金额已按汇率换算为本地货币
+    status: 草稿

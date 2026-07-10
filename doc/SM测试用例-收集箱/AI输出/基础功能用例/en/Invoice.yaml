@@ -1,0 +1,101 @@
+---
+cases:
+- id: TC-INVOICE-001
+  module: Invoice
+  name: Create Invoice—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'SO exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.InvoiceType
+
+    4.SO/Company
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    3.PI/Ref auto
+
+    '
+  status: Draft
+- id: TC-INVOICE-002
+  module: Invoice
+  name: Create Invoice—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Type/SO/Company empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Type/SO/Company
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-INVOICE-003
+  module: Invoice
+  name: List Search
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type number
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-INVOICE-004
+  module: Invoice
+  name: 【SOW#16】Milestone-based Invoice Application
+  category: CustomRule/Milestone
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#16 (Easycraft custom): Each milestone linked to product line items; initiate invoice upon 100%'
+  precondition: 'Contract X has "Hardware Delivery" milestone completed (100%)
+
+    '
+  steps: '1.Enter Contract X detail
+
+    2.Click "Initiate Invoice" on completed milestone
+
+    3.Check invoice form pre-filled data
+
+    4.Submit invoice application
+
+    5.Verify invoice amount matches milestone product amount
+
+    '
+  expected: '1.One-click invoice initiation from milestone
+
+    2.Invoice form auto-fills linked products/amounts
+
+    3.Invoice amount matches milestone product amount
+
+    '
+  status: Draft

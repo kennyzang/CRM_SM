@@ -1,0 +1,124 @@
+---
+cases:
+- id: TC-CONTRACT-001
+  module: Contract
+  name: Create Contract—Normal Flow
+  category: Create
+  role: Sales Rep
+  priority: P0
+  precondition: 'SO exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Title/SO/SignedDate/Expiry/Attach/Notify
+
+    4.Reminder table
+
+    5.Save
+
+    '
+  expected: '1.Saved
+
+    2.ID auto
+
+    '
+  status: Draft
+- id: TC-CONTRACT-002
+  module: Contract
+  name: Create Contract—Required Field Validation
+  category: Create/Validation
+  role: Sales Rep
+  priority: P0
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Title/SO/SignDate/ExpiryDate/Attachment empty
+
+    2.Save
+
+    3.Fill each and save
+
+    '
+  expected: '1.Required hints for Title/SO/SignDate/ExpiryDate/Attachment
+
+    2.Save succeeds
+
+    '
+  status: Draft
+- id: TC-CONTRACT-003
+  module: Contract
+  name: List Search—by Title
+  category: List/Search
+  role: Sales Rep
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type title
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft
+- id: TC-CONTRACT-004
+  module: Contract
+  name: 【SOW#15】Multi-Contract Types—Main + SLA Different Reminders
+  category: ConfigRule/Contract
+  role: Sales Rep
+  priority: P1
+  source: 'SOW#15 (Securemetric config): Main Sales Contract and SLA/Maintenance must have different expiry reminder fields and notification logic'
+  precondition: 'Main contract type and SLA contract type configured under an oppty
+
+    '
+  steps: '1.Create Main Sales Contract, set reminder 30 days ahead
+
+    2.Create SLA under same oppty, set reminder 60 days ahead
+
+    3.Check reminders for both
+
+    4.When approaching expiry, verify per-configuration trigger
+
+    '
+  expected: '1.Both contract types can coexist under one oppty
+
+    2.Reminders trigger independently per config
+
+    3.Main contract: 30-day notice, SLA: 60-day notice
+
+    '
+  status: Draft
+- id: TC-CONTRACT-005
+  module: Contract
+  name: 【SOW#16】Milestone-based Billing—Link to Product Line Items
+  category: CustomRule/Milestone
+  role: Sales Rep
+  priority: P0
+  source: 'SOW#16 (Easycraft custom): Each milestone must link to specific product line items (hardware & software)'
+  precondition: 'Contract X includes hardware and software product line items
+
+    '
+  steps: '1.Add milestone "Hardware Delivery", link to hardware product
+
+    2.Add milestone "Software Deployment", link to software product
+
+    3.Submit contract
+
+    4.Check milestone list
+
+    '
+  expected: '1.Each milestone can independently link to product line items
+
+    2.Hardware milestone only links to hardware
+
+    3.Software milestone only links to software
+
+    '
+  status: Draft

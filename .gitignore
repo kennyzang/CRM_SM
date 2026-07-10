@@ -1,0 +1,69 @@
+# Node
+node_modules/
+
+# Build output
+dist/
+
+# Playwright
+playwright-report/
+test-results/
+.playwright-mcp/
+.playwright-cli/
+midscene_run/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+~$*
+~*.xlsx
+~*.xls
+.~*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.*.example
+
+# Temporary
+*.tmp
+.cache/
+
+# Auth sessions (contains cookies — do not commit)
+auth*.json
+config/session.json
+
+# Wiki raw media files (large files, managed locally)
+wiki/raw/audio/
+wiki/raw/videos/
+wiki/raw/videos-oss/
+wiki/raw/raw-frames/
+wiki/raw/transcripts/
+wiki/raw/transcripts-oss/
+wiki/raw-frames/
+
+# Python
+.mcp-venv/
+__pycache__/
+*.pyc
+
+# Reports
+/reports/
+wiki/user-manuals/doc/
+wiki/docs/output/
+doc/对话暂存池/
+
+tests/temp/
+
+# Wiki content (stored on main branch)
+wiki/

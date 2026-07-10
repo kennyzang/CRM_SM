@@ -1,0 +1,489 @@
+{
+  "formId": "km-supervise-2",
+  "formName": "km_supervise_2_14vaq52",
+  "url": "https://sp3test.landray.com.cn/mkpaas/web/#/current/sys-modeling/app/km-supervise-2/add/1ies9vafhwcdw6dvw2h27far8akr413c7rw0?fdTemplateId=1iesa47dowcdw8t3w1qfnkhf2mtjq0n3g3w0",
+  "fields": [
+    {
+      "id": "fd_sgin_leader",
+      "fdType": "address",
+      "label": "签发领导",
+      "displayName": "签发领导",
+      "required": true,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{liztwj8lffxn6el53ph}",
+      "i18n": {
+        "label": {
+          "Cn": "签发领导",
+          "default": "签发领导"
+        }
+      }
+    },
+    {
+      "id": "fd_approved_agency",
+      "fdType": "cfg",
+      "label": "立项单位",
+      "displayName": "立项单位",
+      "required": true,
+      "cfgConfig": {
+        "trace": false,
+        "multi": false
+      },
+      "sourceComponent": "@elem/xform-agency",
+      "methods": [],
+      "fdLabelLangKey": "!{ljcvr46fn0345wk10i8}",
+      "i18n": {
+        "label": {
+          "Cn": "立项单位",
+          "default": "立项单位"
+        }
+      }
+    },
+    {
+      "id": "fd_material",
+      "fdType": "attachment",
+      "label": "附件材料",
+      "displayName": "附件材料",
+      "required": false,
+      "sourceComponent": "@elem/xform-attach",
+      "methods": [],
+      "fdLabelLangKey": "!{liztv5ul0qravj2b620s}",
+      "i18n": {
+        "label": {
+          "Cn": "附件材料",
+          "default": "附件材料"
+        }
+      }
+    },
+    {
+      "id": "fd_finish_date",
+      "fdType": "timestamp",
+      "label": "督办完成日期",
+      "displayName": "督办完成日期",
+      "required": true,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt3bczoejn4rrygr}",
+      "i18n": {
+        "label": {
+          "Cn": "督办完成日期",
+          "default": "督办完成日期"
+        },
+        "placeholder": {
+          "Us": "Please select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_project_date",
+      "fdType": "timestamp",
+      "label": "督办立项日期",
+      "displayName": "督办立项日期",
+      "required": true,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt2s4ig07igaswnff}",
+      "i18n": {
+        "label": {
+          "Cn": "督办立项日期",
+          "default": "督办立项日期"
+        },
+        "placeholder": {
+          "Us": "Please select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_cause_source_d",
+      "fdType": "fd_input",
+      "label": "来源备注",
+      "displayName": "来源备注",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt6j6moywtr6182ke}",
+      "i18n": {
+        "label": {
+          "Cn": "来源备注",
+          "default": "来源备注"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入事项来源备注",
+          "default": "请输入事项来源备注"
+        }
+      }
+    },
+    {
+      "id": "fd_cause_type",
+      "fdType": "relation",
+      "label": "事项类型",
+      "displayName": "事项类型",
+      "required": false,
+      "relationCfg": {
+        "appCode": "1ies9v8j4wcdw6dhw7mk3tqmd8klf27590w0",
+        "modelId": "1ies9vafgwcdw6duw22o82kd21v2hb13n4w0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_supervise_st",
+        "tableType": "main",
+        "xformName": "督办事项类型"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt4ulxa1sgs1fkcin}",
+      "i18n": {
+        "label": {
+          "Cn": "事项类型",
+          "default": "事项类型"
+        }
+      }
+    },
+    {
+      "id": "fd_charge_leader",
+      "fdType": "address",
+      "label": "分管领导",
+      "displayName": "分管领导",
+      "required": true,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{liztw12a6h8l2fe8uyt}",
+      "i18n": {
+        "label": {
+          "Cn": "分管领导",
+          "default": "分管领导"
+        }
+      }
+    },
+    {
+      "id": "fd_name",
+      "fdType": "fd_input",
+      "label": "督办事项",
+      "displayName": "督办事项",
+      "required": true,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "!{lizszav8cfcoga0jl4s}",
+      "i18n": {
+        "label": {
+          "Cn": "督办事项",
+          "default": "督办事项"
+        },
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        }
+      }
+    },
+    {
+      "id": "fd_trustee",
+      "fdType": "address",
+      "label": "经办人",
+      "displayName": "经办人",
+      "required": true,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt3wvmkp2bd8tvug}",
+      "i18n": {
+        "label": {
+          "Cn": "经办人",
+          "default": "经办人"
+        }
+      }
+    },
+    {
+      "id": "fd_drafter_date",
+      "fdType": "timestamp",
+      "label": "起草日期",
+      "displayName": "起草日期",
+      "required": true,
+      "sourceComponent": "@elem/xform-datetime",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt1osolam26xjg64}",
+      "i18n": {
+        "label": {
+          "Cn": "起草日期",
+          "default": "起草日期"
+        },
+        "placeholder": {
+          "Us": "Please select the date",
+          "Cn": "请选择日期"
+        }
+      }
+    },
+    {
+      "id": "fd_reply_reminder",
+      "fdType": "radio",
+      "label": "办理回复提醒",
+      "displayName": "办理回复提醒",
+      "required": false,
+      "options": [
+        {
+          "label": "无需提醒",
+          "value": "none"
+        },
+        {
+          "label": "按周提醒（每周一提醒）",
+          "value": "week"
+        },
+        {
+          "label": "按月提醒（每月1号提醒）",
+          "value": "month"
+        }
+      ],
+      "sourceComponent": "@elem/xform-radio",
+      "methods": [],
+      "fdLabelLangKey": "!{ljbhqjtvoiu5k0pnc6j}",
+      "i18n": {
+        "label": {
+          "Cn": "办理回复提醒",
+          "default": "办理回复提醒"
+        }
+      }
+    },
+    {
+      "id": "fd_drafter_org",
+      "fdType": "address",
+      "label": "起草人",
+      "displayName": "起草人",
+      "required": true,
+      "sourceComponent": "@elem/xform-address",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt145c69f2sslebgi}",
+      "i18n": {
+        "label": {
+          "Cn": "起草人",
+          "default": "起草人"
+        }
+      }
+    },
+    {
+      "id": "fd_cause_source",
+      "fdType": "relation",
+      "label": "事项来源",
+      "displayName": "事项来源",
+      "required": true,
+      "relationCfg": {
+        "appCode": "1ies9v8j4wcdw6dhw7mk3tqmd8klf27590w0",
+        "modelId": "1ies9vaffwcdw6dtw2dajpek25idjaudnjw0",
+        "refFieldName": "$fd_name$",
+        "tableName": "mk_km_supervise_s",
+        "tableType": "main",
+        "xformName": "督办事项来源"
+      },
+      "sourceComponent": "@elem/xform-relation",
+      "methods": [],
+      "fdLabelLangKey": "!{lizt5oqrh66o4qxizg}",
+      "i18n": {
+        "label": {
+          "Cn": "事项来源",
+          "default": "事项来源"
+        }
+      }
+    },
+    {
+      "id": "fd_number",
+      "fdType": "fd_input",
+      "label": "编号",
+      "displayName": "督办编号",
+      "required": false,
+      "sourceComponent": "@elem/xform-input",
+      "methods": [],
+      "fdLabelLangKey": "sys-modeling:SysModelingMainEntity.fdNumber",
+      "i18n": {
+        "placeholder": {
+          "Us": "Please enter",
+          "Cn": "请输入"
+        },
+        "displayLabel": {
+          "Cn": "督办编号",
+          "default": "督办编号"
+        }
+      }
+    }
+  ],
+  "generatedAt": "2026-05-12T08:09:02.773Z",
+  "detailTables": [
+    {
+      "detailModelId": "km_supervise_2_c_277z7co376ms8",
+      "detailTableName": "督办事项主要内容及要求",
+      "fields": [
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_id",
+          "fdType": "fd_input",
+          "label": "主键ID",
+          "displayName": "主键ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_id"
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_m_org",
+          "fdType": "address",
+          "label": "主办责任人",
+          "displayName": "主办责任人",
+          "required": true,
+          "sourceComponent": "@elem/xform-address",
+          "methods": [],
+          "fdLabelLangKey": "!{liztls62rm2uvght2wn}",
+          "i18n": {
+            "label": {
+              "Cn": "主办责任人",
+              "default": "主办责任人"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_a_org",
+          "fdType": "address",
+          "label": "协办责任人",
+          "displayName": "协办责任人",
+          "required": false,
+          "sourceComponent": "@elem/xform-address",
+          "methods": [],
+          "fdLabelLangKey": "!{lizttczbh30ujm6x7mk}",
+          "i18n": {
+            "label": {
+              "Cn": "协办责任人",
+              "default": "协办责任人"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_a_agency",
+          "fdType": "cfg",
+          "label": "协办单位",
+          "displayName": "协办单位",
+          "required": false,
+          "cfgConfig": {
+            "trace": false,
+            "multi": true
+          },
+          "sourceComponent": "@elem/xform-agency",
+          "methods": [],
+          "fdLabelLangKey": "!{ljcvq5xoexzx415ovha}",
+          "i18n": {
+            "label": {
+              "Cn": "协办单位",
+              "default": "协办单位"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_end",
+          "fdType": "timestamp",
+          "label": "限办日期",
+          "displayName": "限办日期",
+          "required": true,
+          "sourceComponent": "@elem/xform-datetime",
+          "methods": [],
+          "fdLabelLangKey": "!{liztjhpfsjio81vp89}",
+          "i18n": {
+            "label": {
+              "Cn": "限办日期",
+              "default": "限办日期"
+            },
+            "placeholder": {
+              "Us": "Please select the date",
+              "Cn": "请选择日期"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_main_id",
+          "fdType": "fd_input",
+          "label": "主文档ID",
+          "displayName": "主文档ID",
+          "required": false,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_main_id"
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_order",
+          "fdType": "numbertext",
+          "label": "行号",
+          "displayName": "行号",
+          "required": false,
+          "sourceComponent": "@elem/xform-number",
+          "methods": [
+            "onChange",
+            "onFocus",
+            "onBlur"
+          ],
+          "fdLabelLangKey": "sys-xform:SYS-XFORM.fd_order"
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_desc",
+          "fdType": "fd_input",
+          "label": "督办内容及要求",
+          "displayName": "督办内容及要求",
+          "required": true,
+          "sourceComponent": "@elem/xform-input",
+          "methods": [],
+          "fdLabelLangKey": "!{liztg0hnum8uzhtrik}",
+          "i18n": {
+            "label": {
+              "Cn": "督办内容及要求",
+              "default": "督办内容及要求"
+            },
+            "placeholder": {
+              "Us": "Please enter",
+              "Cn": "请输入"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_m_agency",
+          "fdType": "cfg",
+          "label": "主办单位",
+          "displayName": "主办单位",
+          "required": true,
+          "cfgConfig": {
+            "trace": false,
+            "multi": true
+          },
+          "sourceComponent": "@elem/xform-agency",
+          "methods": [],
+          "fdLabelLangKey": "!{ljcvp9ltr20gmc26ib}",
+          "i18n": {
+            "label": {
+              "Cn": "主办单位",
+              "default": "主办单位"
+            }
+          }
+        },
+        {
+          "id": "km_supervise_2_c_277z7co376ms8.fd_begin",
+          "fdType": "timestamp",
+          "label": "开始日期",
+          "displayName": "开始日期",
+          "required": true,
+          "sourceComponent": "@elem/xform-datetime",
+          "methods": [],
+          "fdLabelLangKey": "!{liztir2u6ivabu84bvc}",
+          "i18n": {
+            "label": {
+              "Cn": "开始日期",
+              "default": "开始日期"
+            },
+            "placeholder": {
+              "Us": "Please select the date",
+              "Cn": "请选择日期"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+---
+cases:
+- id: TC-SO-001
+  module: 销售订单
+  name: 新建销售订单—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '有报价单
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.PO/下单日期
+
+    4.产品表
+
+    5.Payment Schedule
+
+    6.保存
+
+    '
+  expected: '1.成功
+
+    2.编号
+
+    '
+  status: 草稿
+- id: TC-SO-002
+  module: 销售订单
+  name: 新建销售订单—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.PO/下单日期留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.PO/下单日期均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-SO-003
+  module: 销售订单
+  name: 编辑—改条款
+  category: Edit
+  role: 销售管理员
+  priority: P1
+  precondition: '是A负责人
+
+    '
+  steps: '1.详情
+
+    2.编辑
+
+    3.改条款
+
+    4.保存
+
+    '
+  expected: '1.成功
+
+    2.条款更新
+
+    '
+  status: 草稿
+- id: TC-SO-004
+  module: 销售订单
+  name: 列表搜索—按编号
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输编号
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-SO-005
+  module: 销售订单
+  name: 按百分比里程碑
+  category: Create
+  role: 销售管理员
+  priority: P1
+  precondition: '有报价单
+
+    '
+  steps: '1.表单
+
+    2.填必填
+
+    3.里程碑切按百分比
+
+    4.设比例验证100%
+
+    5.保存
+
+    '
+  expected: '1.成功
+
+    2.里程碑按比例
+
+    '
+  status: 草稿

@@ -1,0 +1,246 @@
+---
+cases:
+
+  - id: TC-CONTACT-001
+    module: 联系人
+    name: 新建联系人—正常流程
+    category: 新建
+    role: 销售管理员
+    priority: P0
+    precondition: |
+      已登录CRM
+      有客户数据
+    steps: |
+      1.进入列表页
+      2.点击新建
+      3.填写姓名/性别/业务类型
+      4.填写手机或邮件
+      5.点击保存
+    expected: |
+      1.保存成功
+      2.列表出现新记录
+    notes: |
+      必填3个:姓名、性别、业务类型
+    status: 草稿
+
+  - id: TC-CONTACT-002
+    module: 联系人
+    name: 新建联系人—必填项校验
+    category: 新建/校验
+    role: 销售管理员
+    priority: P0
+    precondition: |
+      已登录CRM
+      在新建表单
+    steps: |
+      1.姓名留空/性别不选/业务类型不选/手机和邮件都留空
+      2.分别验证各必填字段的提示信息
+      3.填写必填后再次保存
+    expected: |
+      1.姓名必填提示
+      2.性别必填提示
+      3.业务类型必填提示
+      4.手机或邮件至少填一项提示
+      5.全部填完后保存成功
+    status: 草稿
+
+  - id: TC-CONTACT-003
+    module: 联系人
+    name: 新建联系人—仅填手机(通过)
+    category: 新建/校验
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      在新建表单
+    steps: |
+      1.填写姓名/性别/业务类型
+      2.填写手机号
+      3.邮件留空
+      4.点击保存
+    expected: |
+      1.保存成功
+    status: 草稿
+
+  - id: TC-CONTACT-004
+    module: 联系人
+    name: 新建联系人—仅填邮件(通过)
+    category: 新建/校验
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      在新建表单
+    steps: |
+      1.填写姓名/性别/业务类型
+      2.手机号留空
+      3.填写邮件
+      4.点击保存
+    expected: |
+      1.保存成功
+    status: 草稿
+
+  - id: TC-CONTACT-005
+    module: 联系人
+    name: 新建联系人—不关联客户
+    category: 新建/校验
+    role: 销售管理员
+    priority: P2
+    precondition: |
+      已登录CRM
+      在新建表单
+    steps: |
+      1.填写姓名/性别/业务类型/手机号
+      2.客户字段留空
+      3.点击保存
+    expected: |
+      1.保存成功
+      2.未关联客户
+    status: 草稿
+
+  - id: TC-CONTACT-006
+    module: 联系人
+    name: 编辑联系人—修改姓名和职务
+    category: 编辑
+    role: 销售管理员
+    priority: P0
+    precondition: |
+      已登录CRM
+      是联系人A的负责人
+    steps: |
+      1.进入详情页
+      2.点击编辑
+      3.修改姓名和职务
+      4.点击保存
+    expected: |
+      1.保存成功
+      2.姓名和职务更新
+    status: 草稿
+
+  - id: TC-CONTACT-007
+    module: 联系人
+    name: 删除联系人
+    category: 删除
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      是联系人A的负责人
+    steps: |
+      1.进入详情页
+      2.点击删除
+      3.确认
+    expected: |
+      1.删除成功
+      2.列表消失
+    status: 草稿
+
+  - id: TC-CONTACT-008
+    module: 联系人
+    name: 变更负责人
+    category: 权限/转移
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有销售人员B
+      A是联系人X的负责人
+    steps: |
+      1.进入详情页
+      2.点击变更负责人
+      3.选择B
+      4.确认
+    expected: |
+      1.变更成功
+      2.负责人显示为B
+    status: 草稿
+
+  - id: TC-CONTACT-009
+    module: 联系人
+    name: 添加团队成员(服务团队面板)
+    category: 团队
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有销售人员C
+    steps: |
+      1.进入详情页
+      2.服务团队添加C
+      3.保存
+    expected: |
+      1.添加成功
+      2.C可看到
+    status: 草稿
+
+  - id: TC-CONTACT-010
+    module: 联系人
+    name: 详情页子标签页切换
+    category: 详情/标签页
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有关联线索和商机
+    steps: |
+      1.进入详情页
+      2.点击Lead/Opportunity标签
+      3.切回Detailed Info
+    expected: |
+      1.标签页正常切换
+    status: 草稿
+
+  - id: TC-CONTACT-011
+    module: 联系人
+    name: 列表页视图切换—My Contact/All
+    category: 列表/视图
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有联系人数据
+    steps: |
+      1.进入列表页
+      2.观察My Contact
+      3.切换到All
+    expected: |
+      1.My Contact仅显示本人
+      2.All显示全部
+    status: 草稿
+
+  - id: TC-CONTACT-012
+    module: 联系人
+    name: 列表搜索—按姓名搜索
+    category: 列表/搜索
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有联系人张三丰
+    steps: |
+      1.进入列表页
+      2.输入张三丰
+      3.触发搜索
+    expected: |
+      1.筛选出匹配的联系人
+    status: 草稿
+
+  - id: TC-CONTACT-013
+    module: 联系人
+    name: 批量导入联系人—Excel模板
+    category: 导入
+    role: 销售管理员
+    priority: P1
+    precondition: |
+      已登录CRM
+      有Excel模板
+    steps: |
+      1.进入列表页
+      2.点击导入
+      3.上传Excel
+      4.选择导入模式
+      5.确认
+    expected: |
+      1.导入完成
+      2.显示导入汇总
+    status: 草稿

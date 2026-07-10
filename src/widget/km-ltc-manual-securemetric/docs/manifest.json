@@ -1,0 +1,8 @@
+{
+  "modules": [
+    { "id": "1-contact",     "title": "Contact Management",  "fileBase": "contact-user-manual" },
+    { "id": "2-lead",        "title": "Lead Management",     "fileBase": "lead-user-manual" },
+    { "id": "3-lead-convert","title": "Lead Convert",        "fileBase": "lead-convert-user-manual" },
+    { "id": "4-P&L",        "title": "P&L",                 "fileBase": "pl-user-manual" }
+  ]
+}

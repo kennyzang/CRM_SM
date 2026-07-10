@@ -1,0 +1,190 @@
+---
+cases:
+- id: TC-QUOTATION-001
+  module: 报价单
+  name: 新建报价单—正常流程
+  category: Create
+  role: 销售人员
+  priority: P0
+  precondition: '有已审批P&L
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.Header/P&L/Date
+
+    4.确认自动填充
+
+    5.Submit
+
+    '
+  expected: '1.成功
+
+    2.编号自动
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-002
+  module: 报价单
+  name: 新建报价单—必填项校验
+  category: Create/Validation
+  role: 销售人员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.P&L/Header/Date留空
+
+    2.点击Submit
+
+    3.逐字段填写后Submit
+
+    '
+  expected: '1.P&L/Header/Date均有必填提示
+
+    2.全部填完后提交成功
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-003
+  module: 报价单
+  name: P&L自动填充验证
+  category: Create/Linkage
+  role: 销售人员
+  priority: P1
+  precondition: '有已审批P&L
+
+    '
+  steps: '1.Header/Date
+
+    2.选P&L
+
+    3.观察
+
+    '
+  expected: '1.Currency/Oppty/产品自动
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-004
+  module: 报价单
+  name: 列表搜索—按标题
+  category: List/Search
+  role: 销售人员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输标题
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-005
+  module: 报价单
+  name: 【SOW#9】报价版本控制
+  category: CustomRule/Version
+  role: 销售人员
+  priority: P0
+  source: SOW需求#9（Easycraft定制开发）：报价单支持版本控制，报告取最新版本
+  precondition: '有一份报价单v1.0
+
+    '
+  steps: '1.打开报价单详情
+
+    2.创建v1.1版本并修改价格
+
+    3.查看版本历史
+
+    4.切换到v1.0查看
+
+    5.生成PDF查看引用版本
+
+    '
+  expected: '1.版本号自动递增
+
+    2.历史版本只读
+
+    3.对外输出（PDF/报告）默认取最新版
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-006
+  module: 报价单
+  name: 【SOW#13】报价签署人自动填充
+  category: ConfigRule/AutoFill
+  role: 销售人员
+  priority: P1
+  source: SOW需求#13（Securemetric配置）：根据工作流历史自动填充'销售代表'和'审批人'姓名
+  precondition: '有已审批的报价单
+
+    '
+  steps: '1.查看已审批的报价单底部签署区域
+
+    '
+  expected: '1.自动显示销售代表姓名
+
+    2.自动显示审批人姓名
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-007
+  module: 报价单
+  name: 【SOW#14】报价单复制与重用
+  category: ConfigRule/Reuse
+  role: 销售人员
+  priority: P1
+  source: SOW需求#14（Easycraft定制开发）：用户可复制自己的报价创建新记录
+  precondition: '有自己的报价单A
+
+    '
+  steps: '1.在报价单A详情点击复制
+
+    2.修改内容后保存
+
+    3.查看新记录是否独立
+
+    '
+  expected: '1.复制成功生成新报价
+
+    2.新报价独立，不影响原报价
+
+    '
+  status: 草稿
+- id: TC-QUOTATION-008
+  module: 报价单
+  name: 【SOW#12】按分支机构定制报价模板
+  category: CustomRule/Template
+  role: 销售人员
+  priority: P1
+  source: SOW需求#12（Easycraft定制开发）：报价输出模板根据发起人所属分支机构不同（不同Logo、地址、条款与条件）
+  precondition: '有分支机构A和B，各有不同报价模板
+
+    '
+  steps: '1.分支机构A的销售员创建报价单
+
+    2.导出/生成PDF
+
+    3.分支机构B的销售员创建报价单
+
+    4.导出/生成PDF
+
+    5.对比两份报价PDF
+
+    '
+  expected: '1.A的报价显示A的Logo/地址/条款
+
+    2.B的报价显示B的Logo/地址/条款
+
+    3.内容正确区分
+
+    '
+  status: 草稿

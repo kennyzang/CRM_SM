@@ -1,0 +1,66 @@
+---
+cases:
+- id: TC-PO-001
+  module: 采购订单
+  name: 新建采购订单—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '有报价单
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.PO编号/报价单/PO文件
+
+    4.保存
+
+    '
+  expected: '1.成功
+
+    '
+  status: 草稿
+- id: TC-PO-002
+  module: 采购订单
+  name: 新建采购订单—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P1
+  precondition: '在新建表单
+
+    '
+  steps: '1.PO编号/报价单/PO文件留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.PO编号/报价单/PO文件均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-PO-003
+  module: 采购订单
+  name: 列表搜索—按编号
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输编号
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿

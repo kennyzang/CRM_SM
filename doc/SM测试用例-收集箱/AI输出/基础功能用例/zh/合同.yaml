@@ -1,0 +1,130 @@
+---
+cases:
+- id: TC-CONTRACT-001
+  module: 合同
+  name: 新建合同—正常流程
+  category: Create
+  role: 销售人员
+  priority: P0
+  precondition: '有销售订单
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.标题/销售订单/签署/到期/附件/通知
+
+    4.Reminder明细
+
+    5.保存
+
+    '
+  expected: '1.成功
+
+    2.编号
+
+    '
+  status: 草稿
+- id: TC-CONTRACT-002
+  module: 合同
+  name: 新建合同—必填项校验
+  category: Create/Validation
+  role: 销售人员
+  priority: P0
+  precondition: '在新建表单
+
+    '
+  steps: '1.标题/SO/签署日期/到期日期/附件留空
+
+    2.点击保存
+
+    3.逐字段填写后保存
+
+    '
+  expected: '1.标题/SO/签署日期/到期日期/附件均有必填提示
+
+    2.全部填完后保存成功
+
+    '
+  status: 草稿
+- id: TC-CONTRACT-003
+  module: 合同
+  name: 列表搜索—按标题
+  category: List/Search
+  role: 销售人员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输标题
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-CONTRACT-004
+  module: 合同
+  name: 【SOW#15】多合同类型—主合同+SLA到期提醒差异
+  category: ConfigRule/Contract
+  role: 销售人员
+  priority: P1
+  source: SOW需求#15（Securemetric配置）：主销售合同和售后SLA/维护协议须有不同的到期提醒字段和通知逻辑
+  precondition: '商机下有主合同类型和SLA合同类型已配置
+
+    '
+  steps: '1.创建主销售合同，设置到期提醒提前30天
+
+    2.对同一商机创建SLA/维护协议，设置到期提醒提前60天
+
+    3.观察两个合同的到期提醒通知
+
+    4.接近到期日时检查通知是否按各自配置触发
+
+    '
+  expected: '1.两种合同可共存于同一商机
+
+    2.到期提醒按各自配置独立触发
+
+    3.主合同提前30天提醒，SLA提前60天提醒
+
+    '
+  status: 草稿
+- id: TC-CONTRACT-005
+  module: 合同
+  name: 【SOW#16】基于里程碑的开票—里程碑关联产品行项目
+  category: CustomRule/Milestone
+  role: 销售人员
+  priority: P0
+  source: SOW需求#16（Easycraft定制开发）：设置里程碑时每个里程碑须与特定产品行项目（硬件与软件）关联
+  precondition: '合同X包含硬件和软件产品行项目
+
+    '
+  steps: '1.在合同X中添加里程碑"硬件交付"
+
+    2.关联硬件产品行项目
+
+    3.添加里程碑"软件部署"
+
+    4.关联软件产品行项目
+
+    5.提交合同
+
+    6.查看里程碑清单
+
+    '
+  expected: '1.每个里程碑可独立关联产品行项目
+
+    2.硬件里程碑只关联硬件产品
+
+    3.软件里程碑只关联软件产品
+
+    4.里程碑清单展示正确
+
+    '
+  status: 草稿

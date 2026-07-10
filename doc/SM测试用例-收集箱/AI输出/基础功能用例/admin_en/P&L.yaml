@@ -1,0 +1,90 @@
+---
+cases:
+- id: TC-PL-001
+  module: P&L
+  name: Create P&L—Normal Flow
+  category: Create
+  role: Sales Admin
+  priority: P0
+  precondition: 'In-Progress Oppty exists
+
+    '
+  steps: '1.List
+
+    2.New
+
+    3.Select Oppty/Effective Date
+
+    4.Submit
+
+    '
+  expected: '1.Submitted
+
+    2.Version auto
+
+    '
+  status: Draft
+- id: TC-PL-002
+  module: P&L
+  name: Create P&L—Required Field Validation
+  category: Create/Validation
+  role: Sales Admin
+  priority: P1
+  precondition: 'On create form
+
+    '
+  steps: '1.Leave Oppty/Effective Date empty
+
+    2.Submit
+
+    3.Fill each and submit
+
+    '
+  expected: '1.Required hints for Oppty/Date
+
+    2.Submit succeeds
+
+    '
+  status: Draft
+- id: TC-PL-003
+  module: P&L
+  name: Edit—Change Margin
+  category: Edit
+  role: Sales Admin
+  priority: P1
+  precondition: 'Is creator
+
+    '
+  steps: '1.Detail
+
+    2.Edit
+
+    3.Change Margin
+
+    4.Submit
+
+    '
+  expected: '1.Saved
+
+    '
+  status: Draft
+- id: TC-PL-004
+  module: P&L
+  name: List Search
+  category: List/Search
+  role: Sales Admin
+  priority: P2
+  precondition: 'Multiple records
+
+    '
+  steps: '1.List
+
+    2.Type keyword
+
+    3.Search
+
+    '
+  expected: '1.Filtered
+
+    '
+  status: Draft

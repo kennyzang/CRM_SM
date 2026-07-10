@@ -1,0 +1,6 @@
+commitor=<谢幸>
+commit=<docs: add changelog and related docs for repeat check component>
+hash=<50cef2c>
+date=<Fri May 22 08:55:44 2026 +0800>
+branch=<Securemetric>
+repository=<https://git.landray.com.cn/project-group/OVERSEABU_MK-PaaS20241906/publish/lcode/km-ltc-customer.git>

@@ -1,0 +1,156 @@
+---
+cases:
+- id: TC-OPPORTUNITY-001
+  module: 商机
+  name: 新建商机—正常流程
+  category: Create
+  role: 销售管理员
+  priority: P0
+  precondition: '有客户和产品
+
+    '
+  steps: '1.列表
+
+    2.新建
+
+    3.名称/客户/Contacts/结单日期/流程/类别/Currency
+
+    4.PA表
+
+    5.提交
+
+    '
+  expected: '1.成功
+
+    2.编号
+
+    3.未开始
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-002
+  module: 商机
+  name: 新建商机—必填项校验
+  category: Create/Validation
+  role: 销售管理员
+  priority: P0
+  precondition: '在新建表单
+
+    '
+  steps: '1.名称/客户/结单日期/Contacts/类别/流程/Currency留空
+
+    2.点击提交
+
+    3.逐字段填写后提交
+
+    '
+  expected: '1.所有必填字段均有提示
+
+    2.全部填完后提交成功
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-003
+  module: 商机
+  name: 编辑—改名称赢率
+  category: Edit
+  role: 销售管理员
+  priority: P0
+  precondition: '是A负责人
+
+    '
+  steps: '1.详情
+
+    2.编辑
+
+    3.改名称/赢率
+
+    4.提交
+
+    '
+  expected: '1.成功
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-004
+  module: 商机
+  name: 详情子标签
+  category: Detail/Tabs
+  role: 销售管理员
+  priority: P1
+  precondition: '有关联数据
+
+    '
+  steps: '1.详情
+
+    2.点各标签
+
+    '
+  expected: '1.各标签正确
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-005
+  module: 商机
+  name: 列表视图切换
+  category: List/View
+  role: 销售管理员
+  priority: P1
+  precondition: '团队有数据
+
+    '
+  steps: '1.列表
+
+    2.点Owned/Team/Involved/All
+
+    '
+  expected: '1.4视图正确
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-006
+  module: 商机
+  name: 列表搜索—按名称
+  category: List/Search
+  role: 销售管理员
+  priority: P2
+  precondition: '有多条
+
+    '
+  steps: '1.列表
+
+    2.输名称
+
+    3.搜索
+
+    '
+  expected: '1.筛选
+
+    '
+  status: 草稿
+- id: TC-OPPORTUNITY-007
+  module: 商机
+  name: 暂停/恢复
+  category: Detail/Action
+  role: 销售管理员
+  priority: P1
+  precondition: '是X负责人;X进行中
+
+    '
+  steps: '1.详情
+
+    2.Suspend
+
+    3.确认
+
+    4.观察
+
+    '
+  expected: '1.暂停
+
+    2.Open出现
+
+    3.阶段不变
+
+    '
+  status: 草稿
