@@ -1,0 +1,1 @@
+[{"name":"@user-elem/km-ltc-wiki-securemetric","version":"0.0.1","mkVersion":"v5","type":"preset","category":"dataDisplay","platform":"all","form":"user-elem","title":{"zh-cn":"CRM Wiki","en":"CRM Wiki"},"desc":{"zh-cn":"CRM Wiki Knowledge Base","en":"CRM Wiki Knowledge Base"},"hash":"WkiSmSecure1","styles":["style.css"],"deps":[],"module":"sys-portal"}]

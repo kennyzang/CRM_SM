@@ -65,5 +65,9 @@ doc/对话暂存池/
 
 tests/temp/
 
-# Wiki content (stored on main branch)
-wiki/
+# Wiki raw media files (large files, managed locally)
+wiki/raw/
+wiki/raw-frames/
+wiki/user-manuals/doc/
+wiki/docs/output/
+wiki/.obsidian/

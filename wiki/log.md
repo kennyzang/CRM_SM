@@ -1,0 +1,778 @@
+# Wiki Log
+
+> Chronological record of all Wiki operations. Append-only.
+> Format: `## [YYYY-MM-DD] action | subject`
+> Action types: ingest, update, query, lint, create, archive, delete
+> Rotate when exceeding 500 entries: rename to `log-YYYY.md`, start fresh.
+
+---
+
+## [2026-04-22] create | Wiki initialized
+
+- **Domain**: Securemetric CRM Automated Testing Knowledge Base
+- **Wiki path**: `/Users/xiex/Documents/GIT/OVERSEABU/Test/CRM-Securemetric/wiki`
+- **Background**: CRM implementation project needs AI-driven automated testing framework with Hermes Agent LLM Wiki for knowledge consolidation
+- Created by: WorkBuddy AI (with user)
+
+---
+
+## [2026-04-22] ingest | User Manual (raw document)
+
+- Extracted `CRM客户关系管理-用户手册V1_20250318.docx` → `raw/articles/crm-user-manual-v1.md`
+- Content: Lead/Customer/Contact/Opportunity/Quote user operation manual
+- Characters: 21,453 | Lines: 960
+- Includes: TOC structure, control type summary table, important business rules
+
+---
+
+## [2026-04-22] ingest | Business Blueprint (raw document)
+
+- Extracted `Business Blueprint.docx` → `raw/articles/business-blueprint-v1.md`
+- Content: 5 design principles, P&L flow, org structure, business rules
+- Lines: 164 (summary)
+- Key: Locked Pair pricing, 72h lead timeout, 60-day ocean, milestone settlement
+
+---
+
+## [2026-04-22] translate | Full wiki English rewrite (major restructure)
+
+- **Language policy**: English is the primary language. CRM system official language is English. Any Chinese UI text is a defect.
+- **Action**: Translated ALL wiki pages from Chinese to English, restructured, and enriched with code analysis
+- **New entity pages created**:
+  - `entities/quote.md` — Quote/Quotation module (P&L-generated, read-only, version-locked)
+  - `entities/pl.md` — P&L (Profit & Loss) module (pricing engine, approval workflow)
+  - `entities/so.md` — SO (Sales Order) module (milestone-driven invoicing)
+- **Pages rewritten in English**:
+  - `SCHEMA.md` — Added language policy, updated tag taxonomy with new modules (quote, pl, so, pool)
+  - `index.md` — Restructured with 18 pages across 8 sections
+  - `entities/lead.md` — Complete field registry from `lead.fields.ts`, Principal Allocation detail table, currency ranges
+  - `entities/contact.md` — Field registry, gender no-tid handling, window.close pitfall
+  - `entities/customer.md` — Public ocean rules, address detail table, multi-country sharding
+  - `entities/product.md` — Target margin, principal relation, error page reload handling
+  - `entities/opportunity.md` — P&L approval workflow, stage pipeline, version locking
+- **Source enrichment**: Incorporated data from source code files:
+  - Field registries (lead.fields.ts, contact.fields.ts, opportunity.fields.ts)
+  - Core types (field.types.ts), configs (labels.ts, env.config.ts), generators (faker-generator.ts)
+  - FormEngine architecture, BasePage helper methods
+- **Key additions from code analysis**:
+  - Principal Allocation detail table column data-tids
+  - Currency-specific estimated amount ranges (8 currencies)
+  - CRM typo documentation: "teaxtarea", "raido", "prodcut"
+  - FormEngine iframe resolution pattern
+  - Promise.race .catch() requirement for all branches
+  - Network tips overlay handling pattern
+  - about:blank redirect handling
+  - Residual cascader panel isolation strategy
+  - Label mapping table from config/labels.ts (60+ EN↔ZH pairs)
+
+---
+
+## [2026-04-24] ingest | OSS Videos: "Contact & Lead Creation" + "Lead Management"
+
+- **Source 1**: `Contact & Lead Creation.mp4` (80.0 MB, 1412s, 23.5 min) — 94 frames extracted at 15s intervals
+- **Source 2**: `Lead Management.mp4` (74.3 MB, 1188s, 19.8 min) — 79 frames extracted at 15s intervals
+- **Method**: Frame extraction via ffmpeg → vision AI analysis → Wiki update
+
+### New knowledge added:
+
+**entities/lead.md** — Major expansion:
+  - Lead lifecycle statuses (Unassigned → Pending → Follow-up → Converted → Invalid)
+  - Lead stage pipeline (Targeting 0% → Prospecting 5% → End)
+  - 13 business rules (was 5), including currency localization, win rate calculation, autocomplete, drag-sortable tables, assignment workflow, reclaim countdown
+  - New fields: Owner, Internal Dept (header), Legal ID, Partner, Phone, URL, Business Card, Note, Marketing Event, Entity (tag), Currency, Estimated Deal Amount, Win Rate (footer)
+  - Principal Allocation: Added Principal Name, MYR Value, Weighted amount columns
+  - New section: Contact Person detail table with lookup modal pattern
+  - Lead management operations: list view filters, detail view sub-tabs, "More" menu actions, service team management
+
+**entities/contact.md** — Major expansion:
+  - 7 business rules (was 3): added email/phone requirement, relationship scoring, owner auto-assignment, duplicate validation
+  - 20 fields (was 8): Added Customer, Reports To, Relationship (scoring dropdown), Referred By, Business Card, Owner, Type, Decision Maker, Role in Decision, Birthday, Office Phone, Owner's Department
+  - Gender marked as Required (was No)
+
+**Widget patterns documented** — 7 new control types:
+  - Autocomplete (Lead Name, Mobile)
+  - Tag/Multi-Select Input (Entity, Customer)
+  - Validation Banner ("Form validation anomaly, total of N items")
+  - Progress Stepper (stage pipeline)
+  - Toast Notification ("Operation succeeded")
+  - Service Team Modal (team member management)
+  - File Upload (Business Card)
+
+**index.md** — Updated Procedures section with new lead-management page
+
+---
+
+## [2026-04-27] ingest | OSS Videos: Lead Import, Lead Conversion/Queue/Task, Opportunity Management, P&L Creation
+
+- **Source 1**: `Lead Import.mp4` (38.0 MB, 605s, 10.1 min) — 40 frames extracted, 14 analyzed
+- **Source 2**: `Lead cConversion & Lead Queue & Task.mp4` (69.6 MB, 1627s, 27.1 min) — 108 frames extracted, 20 analyzed
+- **Source 3**: `Opportunity Management.mp4` (30.5 MB, 789s, 13.2 min) — 53 frames extracted, 18 analyzed
+- **Source 4**: `P&L Creation.mp4` (81.1 MB, 1612s, 26.9 min) — 107 frames extracted, 6 key frames analyzed
+- **Method**: Frame extraction via ffmpeg → parallel delegate_task vision analysis → Wiki update
+
+### New knowledge added:
+
+**entities/lead.md** — Major expansion (4 new sections):
+  - **Lead Import**: Import modal fields (Import Mode radio cards, Condition Field, Duplicate Check), 4 import modes (Add/Update/Upsert/Quick), Excel template (17 columns, 9 required), enum validation rules, Lock Status mapping
+  - **Lead Conversion**: 3-step wizard (Customer → Contact → Opportunity), conversion modal fields, Opportunity Products table with auto-calculated Weighted Amount, post-conversion state changes
+  - **Lead Queue Configuration**: Queue Edit page fields, Claim & Assign Rules (radio), Ownership Rules (checkboxes), New Lead Notification toggle, 7-day SLA reclaim countdown
+  - **Task Management**: Task Create modal fields, reminder configuration, Task Details page, Task Feedback modal with slider progress (0-100%), WYSIWYG editor, task workflow states
+
+**entities/opportunity.md** — Video-confirmed expansion:
+  - 5-stage pipeline confirmed: Qualifying (25%) → Proposal/POC (50%) → Price Negotiation (75%) → Deal Won (100%) / Deal Lost (0%)
+  - Opportunity Code format: BSOP + YYYYMMDD + sequence
+  - Ownership Transfer Logic: new owner selection, original owner disposition (remove/demote), permission levels, team continuity
+  - Service Team Management: Add Group Member modal, Project Character bug noted
+  - Task Creation: slide-out drawer fields, reminder sub-table
+  - Approval Workflow: Start → Drafting → Approval → End nodes
+  - Sub-tabs: Details, Product, P&L, Quotation, PO, Sales Order, Decision-Maker Map, Competitive Analysis
+  - 3 new bugs/issues: Project Character field missing, "Oppourtunities" typo, inconsistent stage order
+
+**entities/pl.md** — Complete rewrite with video knowledge:
+  - P&L Creation Process: 3-step (Header → Product Lines → Summary)
+  - Header fields: Version (auto), Customer, Opportunity (*), Currency (*), Date (*), Deal Category
+  - 5 Product Categories: Software, Hardware, Prof Service, Reimbursement, Others
+  - Software section: Selling Price with List Price, Markup %, Markup per unit
+  - Hardware section: Cost Price with Cost per unit, Unit, Total cost, Expected Profit, Margin %
+  - Professional Services: Two-level parent-child hierarchy (Activity Description → Resource Role), Service Master integration, Man Days × Rate formula
+  - Financial Summary: Total Selling Price, Total Cost, Expected Profit, Margin % (auto-calculated)
+  - Approval Workflow: sidebar Process Approvals, Process Handling tabs, Approval Records table
+  - Status Workflow: Save (draft) → Submit (approval) → Revoke (cancel)
+  - Product List context: filter tabs, search fields, grid columns
+
+**Widget patterns documented** — 6 new control types:
+  - Radio Card Group (Import modes selection)
+  - Toggle Switch (notification, discount)
+  - Slider (task completion progress 0-100%)
+  - Rich Text Editor / WYSIWYG (task feedback)
+  - Wizard/Stepper Modal (3-step lead conversion)
+  - User Chip/Tag Selector (owner, executor, admin, member)
+
+**index.md** — Updated entity descriptions, widget count (8 → 21), source count
+
+### New bugs documented:
+- "Delet" typo in P&L product row actions (missing 'e')
+- "Oppourtunities" typo in stage template
+- "Project Character" field missing in Add Group Member modal
+- Inconsistent stage order between detail view and template config
+
+---
+
+## [2026-04-28] ingest | OSS Videos: Quotation, PO & SO Creation
+
+- **Source 1**: `Quotation.mp4` (46.2 MB, 694s, 11.6 min) — 46 frames extracted, 6 key frames analyzed
+- **Source 2**: `PO & SO Creation.mp4` (47.6 MB, 1083s, 18.1 min) — 72 frames extracted, 6 key frames analyzed
+- **Method**: Frame extraction via ffmpeg → sequential vision_analyze → Wiki update
+
+### New knowledge added:
+
+**entities/quote.md** — Complete rewrite with video knowledge:
+  - Full field registry (Header, Customer Info, Line Items, Foot sections) [V]
+  - Line Items table: Total Excl/Incl Service Tax, Service Tax, Total Tax columns
+  - Global Tax: 8% SST (Malaysia) support
+  - Foot section: Terms & Conditions, Prepared/Approved signatures (drag-drop upload), Acceptance Instruction
+  - Template/Attachment section: Excel (.xlsm) + PDF export, "Only view mode" states
+  - Excel Editor modal: fd_quote_ship_name, fd_quote_attn_name/tel/mail, Detail Data grid
+  - Auto-population from Opportunity: Customer, Currency, Department
+  - Ship Via dropdown: 7 shipping options
+  - 3 new bugs documented: "prodcut" typo, HTTP download blocked, template row limit
+
+**entities/po.md** — New page:
+  - PO Create field registry: PO Number, Date, Quotation (lookup), Deal Category, PO File upload
+  - Auto-populated fields: Opportunity, Customer, Currency, Total Amount
+  - Product Details table: Service Period, Product, Product Code, Type, Description, Quantity
+  - Approval workflow sidebar (same pattern as other modules)
+  - Data inheritance from Quotation
+  - PO in Opportunity context: PO Number sub-table
+
+**entities/so.md** — Complete rewrite with video knowledge:
+  - Full field registry (Order Header, Bill To, Payment Schedule, Excel Export, Footer/Approval, VDP)
+  - Order Header: 18 fields including Sales Order ID (auto), Entity, Sales Rep, Quotation link
+  - Customer PO No. and P.O. Date as mandatory fields
+  - Payment Schedule table: Name, Contract Terms, Receivable %/Amount, Payment Type
+  - Inline row operations: Insert | Copy | Delete
+  - Progress Payment type confirmed
+  - Footer/Approval: Prepared by, Verified by (user lookup)
+  - VDP section: Customer, Address, Attn Name, Date VDP
+  - Full data lineage: Lead → Contact → Customer → Opportunity → P&L → Quotation → PO → SO
+
+**index.md** — Updated:
+  - Added PO entity page reference
+  - Updated Quote and SO descriptions with video-confirmed details
+  - Added "Processed Video Sources" table (8 videos tracked)
+  - Updated pitfall count (12 → 15)
+  - Updated total pages (20 → 21) and sources (6 → 8 videos)
+
+
+---
+
+## [2026-05-07] ingest | Video: Quotation Template Discussion.mp4 (107.7MB, 26min)
+
+**entities/quote.md** — Major update (113 new lines added):
+- Excel template structure: 4 sheets (Quotation, Sales Order, PI-MYR, PI-USD)
+- Company header details: Securemetric Technology Sdn Bhd, document control numbers
+- Online configuration table ("SM模板") on DingTalk Docs / Lanling platform
+- 7 business entity codes identified: SMMY, SCMY, MSMY, PTSM, PTSK, SMPH, SMVN
+- Full field visibility matrix: 17 fields × 7 entities (Auto-filled vs Hidden configuration)
+- Configuration rules: Yellow=Auto-filled, Blue=Hidden, Blank=unconfigured
+- Quotation Create page system-confirmed fields: PSL, Version, Global Tax, Total Excl/Tax/Sum
+- Export Excel section confirmed: Original Template + VDP template (both .xlsm)
+- "Only view mode" state for Export buttons in read-only mode
+- Approval sidebar fully documented: Track dropdown, Common Comments, Expand approval options
+- Signature upload fields confirmed: Prepared Signature + Approved Signature (drag-drop image upload)
+- Footer fields: Owner, Entity, Unit Company
+
+**index.md** — Updated:
+- Added video #10 to Processed Video Sources table
+- Updated total pages (23 → 24) and sources (9 → 10 videos)
+- Updated last updated date (2026-04-30 → 2026-05-07)
+
+
+**entities/contract.md** — NEW page (26 lines):
+  - 10 fields [V]: Contract Title, Contract ID (auto-generated), Sales Order (required link), Customer, Signed Date, Expiry Date, Remarks, Attachment, Notify Who, Notify XX Days
+  - Contract Reminder sub-table with per-row actions (Insert/Copy/Delete)
+  - Business rules: SO→Contract flow, file sync to Customer 360, attachment mandatory inconsistency
+
+**entities/payment-schedule.md** — NEW page (46 lines):
+  - List view: 11 columns, tab filters (A/R Amount, Repaid, Outstanding), search/export/delete
+  - Details drawer: 4 sub-tabs (Detail Information, Payment Detail, Billing Detail, System Record)
+  - 14 detail fields [V]: Payment Schedule ID (PP+YYYYMMDD+seq), Customer PO, Payment Type, financial metrics
+  - Billing Detail sub-table columns
+  - Business rules: auto-generation from SO, 50/50 payment splits, Completion % tracking
+
+**Widget patterns documented** — 4 new control types (#22-#25):
+  - #22: Reminder Sub-table (embedded grid with per-row actions)
+  - #23: Drawer/Slide-out Modal (right-side overlay)
+  - #24: Financial Summary Cards (horizontal metric layout)
+  - #25: Tab Record Counts (parentheses notation)
+
+**index.md** — Updated:
+  - Added contract and payment-schedule entity page references
+  - Updated Processed Video Sources table (9 videos tracked)
+  - Updated total pages (21 → 23) and sources (8 → 9 videos)
+
+## [2026-05-27] ingest | OSS Videos: New P&L management + Quotation_v2
+
+- **Source 1**: `New P&L management.mp4` (84.0 MB, 1332s, 22.2 min) — 89 frames extracted at 15s intervals, 8 key frames analyzed via vision_analyze
+- **Source 2**: `Quotation_v2.mp4` (37.0 MB, 532s, 8.9 min) — 35 frames extracted at 15s intervals, 4 key frames analyzed via vision_analyze
+- **Method**: Frame extraction via ffmpeg → main thread vision_analyze on strategically spaced key frames → Wiki update
+
+### New knowledge added:
+
+**entities/pl.md** — Major expansion (123 new lines):
+  - **7 category tabs with badges**: Overview, Software, Hardware, Hardware Renew, Services, Reimbursement, Others
+  - **Create page full field registry**: Version, Customer, Opportunity, Currency, Date (with required indicators)
+  - **Global Discount bar**: Yellow-highlighted bar with numeric input and toggle switch
+  - **Financial Summary Cards**: 4 KPI cards (Total Revenue, Total Cost, Total Profit, Margin) with color coding
+  - **Product table columns**: 14 columns confirmed (Code, Product, Unit Price, Markup, Disc, Price, Qty, Total Price, Cost, Profit, Margin, Target)
+  - **Section structure**: SM Products, 3rd Party Software, 3rd Party Hardware — each with "+ Add Products" button and footer summary
+  - **Select Product Modal**: Dual-panel layout with search filters (Product Code, Product Description), left panel results, right panel "Selected (N)"
+  - **Professional Services — SM Team / 3rd Party Team tables**: 11 columns (Activity, Note, Rate/Day, Days, Total Price, Cost Rate/Day, Days (Cost), Total Cost, Profit, Margin)
+  - **P&L Details page**: Multi-year breakdown table (Year 1, Year 2 RENEW, Year 3 RENEW, TOTAL), Entity/Deal Category fields, Permissions tab
+  - **P&L Approval Workflow**: Full flowchart confirmed (Margin Decision → Key Products Decision → Sales Team Supervisor)
+  - **Row actions**: Edit, Renew, Delete
+  - **Cloning**: URL parameter operationCode=instanceClone
+  - **Business logic notes**: Margin = (Profit/Selling Price)×100 (standard Gross Margin), multi-year contracts, Services 0% margin pass-through
+
+**entities/quote.md** — Major expansion (131 new lines):
+  - **Quotation Create as slide-over panel**: Launched on top of Opportunity Details (dimmed background)
+  - **Header Information fields**: Quotation Title (with autocomplete), P&L, Attn, Currency, Department, Ship Via, Term
+  - **Right column fields**: P&L ID, Address, Opportunity, Sales Rep, Quote Date
+  - **Customer Info (TO) section**: Customer, Address, Attn, Tel, E-Mail
+  - **Financial Summary**: Total Excl Tax, Service Tax (8% SST), Grand Total Incl Tax
+  - **Foot section with Rich Text Editors**: Terms & Conditions (8 items with placeholders), Prepared by, Approved by, Acceptance Instruction
+  - **Process Approvals sidebar**: Track dropdown, comments, signature preview, Submit button
+  - **Quotation Details page**: Tabs (Details, Quotation Details, Sales Order), +Create More action
+  - **PDF Preview modal**: Financial summary table, company header, T&C, signature blocks (Prepare by/Approved by), Export PDF button
+  - **Download behavior**: Browser notification with file name and size
+  - **Full sidebar navigation**: 12 menu items (LEAD → Mgt View)
+
+**Widget patterns documented** — 5 new control types (#26-#30):
+  - #26: Select Product Modal (Dual-Panel) — P&L product selection
+  - #27: Digital Signature Preview — approval sidebar signature
+  - #28: PDF Preview Modal — quotation document preview
+  - #29: Margin Validation Warning Icon — red exclamation when below target
+  - #30: Badged Category Tabs — P&L category navigation
+
+**index.md** — Updated:
+  - Added videos #11 and #12 to Processed Video Sources table
+  - Updated widget count (25 → 30)
+  - Updated total sources (10 → 12 videos)
+  - Updated last updated date (2026-05-07 → 2026-05-27)
+  - Fixed duplicate entries (opportunity, contract were accidentally overwritten)
+
+---
+
+## [2026-05-09] update | Terminology fix + Lead conversion flow update
+  - entities/customer.md: All "Public Ocean" replaced with "Public Pool"
+  - entities/lead.md: SLA section already used "Public Pool", confirmed consistency
+  - index.md: Directory references updated
+  - raw/articles/business-blueprint-v1.md: Business blueprint terminology updated
+  - raw/articles/crm-user-manual-v1.md: User manual terminology updated
+
+**Lead-to-Opportunity conversion flow fix**:
+  - entities/lead.md: Removed "Step 2: Contact" section entirely
+  - Conversion flow changed from 3-Step to 2-Step: Customer → Opportunity
+  - Added note: Contacts from Lead are auto-carried into Opportunity, no manual conversion needed
+  - Progress stepper updated to: **1. Customer ✓** → **2. Opportunity ●**
+
+---
+
+## [2026-05-28] ingest | PI.mp4 + Sales Order_v2.mp4 — Invoice Application module + SO v2 updates
+
+**Videos processed:**
+- **PI.mp4** (39MB, 13min, 52 frames) → Invoice Application module knowledge
+- **Sales Order_v2.mp4** (55MB, 17min, 70 frames) → SO List/Details/Payment Schedule updates
+
+**New knowledge added:**
+
+**entities/invoice-application.md** — NEW page created:
+  - Module overview: REVENUE section → Invoice Application
+  - ID format: IRYYYYMMDDNNNN (e.g., IR202605270004)
+  - List page: columns, toolbar, Total Billing Amount
+  - Create page field registry (4 sections):
+    - Basic Information: Invoice Type (Project/Milestone radio), Sales Order, Entity, P.I.C., Currency, Opportunity, etc.
+    - Header: PI No., Ref No., Date (all auto-generate)
+    - Customer (TO): Company Name, Address, Attn, Email, Tel
+    - Line Items: Service Period, Product, Product Code, Description, Qty, Unit Price, Totals
+    - Milestone section: Milestone Name, Receivable %, Invoice under Approval, Uninvoiced Amount, Payment Schedule ID
+    - Invoice Amount: Total Excl Tax, Service Tax (8%), Grand Total
+  - Details page: read-only view of all fields
+  - PDF Preview Modal: Proforma Invoice format, Export PDF
+  - Process Approvals sidebar: Track, Comments, Digital Signature
+  - Select Record Modal: Payment Schedule lookup with filter fields
+  - 8 business rules confirmed
+  - Workflow: SO → Invoice Application → Project/Milestone → Approval → Invoice Generation
+  - UI typo noted: "Univoiced Amount" → should be "Uninvoiced"
+
+**entities/so.md** — Major update (123 new lines):
+  - SO List View: 10 columns, Total SO Amount, toolbar
+  - Sidebar: SALES ORDER → Sales Order | SO Product | Contract | Delivery
+  - SO Details page: Header fields, Sales Order Statistic bar (6 metrics)
+  - Details Page Tabs: 9 tabs with record counts (Products, Delivery, Contract, Collection, Payment Schedule, Progress Invoice, Transaction, Approval)
+  - Payment Schedule (embedded in SO Create): Milestone Type, columns (Milestone Name, Payment Type, Job Content, Contract Terms, Product Info)
+  - Split Payment Logic: Software/Hardware percentage distribution across milestones
+  - SO Create additional fields: Attn, Terms, Ship Via, Project Manager, Order Amount, Deal Category
+  - Payment Schedule Details page: 16 fields, System Information audit trail, action buttons
+  - Quotation Circulate Workflow: Operation radio, circulator identity, circulation objects, review comments, toggle switch
+
+**entities/payment-schedule.md** — Update:
+  - Payment Schedule within SO Create: embedded section with Product Info revenue split
+  - Payment Schedule Details additional fields: Completion %, Start Date, Planned Collection, Remind before, Project Status/Manager
+  - Select Record Modal (from Invoice Application): filter fields and grid columns
+  - Sidebar navigation order confirmed: Payment Schedule → Invoice Application → Milestone Invoice → Customer Payment → Collection Details
+
+**Widget patterns documented** — 6 new control types (#31-#36):
+  - #31: PDF Preview Modal — Invoice/Quotation document preview
+  - #32: Revenue Split Display (Product Info) — Software/Hardware percentage split
+  - #33: Sales Order Statistic Bar — 6 financial metrics display
+  - #34: Detail Page Tab Bar (SO Details) — 9 tabs with record counts
+  - #35: Digital Signature Pad (Invoice Application) — Canvas-based signature
+  - #36: Circulate Workflow Panel — Pre-approval circulation workflow
+
+**index.md** — Updated:
+  - Added invoice-application.md to Entities section
+  - Updated payment-schedule summary with new findings
+  - Updated widget count: 30 → 36
+  - Added videos #13 and #14 to Processed Video Sources table
+  - Updated last updated date: 2026-05-27 → 2026-05-28
+  - Updated total pages: 24 → 25
+  - Updated total sources: 12 → 14 videos
+
+---
+
+## [2026-05-29] decision | Video processing limitation & Requirement meeting.mp4 skip
+
+- **Known limitation**: Current video-to-wiki pipeline only extracts visual frames via ffmpeg + vision_analyze. **No audio/voice recognition capability** — cannot transcribe speech from meeting recordings, requirement discussions, or voiceover tutorials.
+- **Decision**: Skip `Requirement meeting.mp4` (358.7 MB) on OSS. This file is a requirement meeting recording where core content is in speech, not visual UI. Current pipeline cannot extract useful knowledge from it.
+- **Future action**: User will provide an audio recognition solution (STT/whisper integration) before processing meeting-type videos.
+- **Rule**: Meeting recordings / voiceover tutorials → skip until STT pipeline is added. UI operation screencasts → process as normal.
+
+---
+
+## [2026-05-29] update | DashScope Paraformer STT integration — fully tested
+
+- **Provider**: DashScope Paraformer v2 (`paraformer-v2`)
+- **API Key**: `sk-6cec03959a3b4e89818af7852d42c1bd` (from `~/.hermes/.env`)
+- **Cost**: Free tier, no separate service activation needed
+- **Test result**: ✅ Successfully transcribed Chinese audio: `"Hello word, 这里是阿里巴巴语音实验室。"`
+- **Complete workflow verified**:
+  1. `ffmpeg` extract audio from video → 16kHz mono WAV
+  2. `Files.upload()` upload audio to DashScope → get managed file URL
+  3. `Transcription.call(model='paraformer-v2', file_urls=[url])` → async task
+  4. Poll task_id until `SUCCEEDED`
+  5. Fetch `transcription_url` from results → download JSON
+  6. Extract `transcripts[0].text` → final transcript
+- **Alibaba NLS fallback**: Token API returns `40020503 No permission!` — AccessKey lacks NLS service. Paraformer is the working solution.
+- **Updated skill**: `video-to-wiki-ingestion` updated with STT workflow and pitfalls
+- **Next step**: Process `Requirement meeting.mp4` with full video+audio pipeline when ready
+
+---
+
+## [2026-05-29] ingest | P&L module re-analysis with STT — 2 videos re-processed with audio
+
+- **Videos processed**: P&L Creation.mp4 (26.9 min, 12106 chars transcript) + New P&L management.mp4 (22.2 min, 10383 chars transcript)
+- **New knowledge from audio (7 bugs confirmed)**:
+  - Software products not selectable in P&L (Principal filter issue)
+  - Opportunity products don't auto-fill in P&L product line
+  - Product carryover misses software items (only 2 of 3 carried)
+  - Reimbursement incorrectly shows selling price field (should be cost-only)
+  - Third-party product filter not scoped to entity/opportunity
+  - Services section lacks markup field (0% margin always)
+  - Reimbursement total cost = 0 when quantity not specified
+- **New knowledge from audio (8 clarifications)**:
+  - Multi-user collaboration workflow (Sales rep ↔ Solution Architect)
+  - Margin formula clarified: Expected Profit / Total Selling Price × 100
+  - Global discount toggle behavior (ON = all items, OFF = per-item)
+  - Reimbursement logic (pass-through costs with optional markup)
+  - Approval workflow conditions (margin < target → supervisor)
+  - Version control rules (only latest version active)
+  - Sidebar edit mode (new UI vs inline table editing)
+  - Currency switching recalculates all figures
+  - Product Master data flow (list price, cost, target margin auto-carry)
+- **Wiki updated**: `entities/pl.md` — added "Audio-Confirmed Updates [A]" section with 7 bugs + 8 clarifications, expanded Known Issues from 4 to 12 items
+- **Provenance**: [A] = audio-confirmed (with transcript), [V] = video-confirmed (visual only)
+
+---
+
+## [2026-05-29] update | Test plans + Archive for P&L
+
+- **phase-1.md**: Added P&L module row (0% coverage)
+- **phase-2.md**: Added 15 new test cases:
+  - 7 bug regression tests (TC-P015 ~ TC-P021)
+  - 8 business logic tests (TC-P022 ~ TC-P029)
+  - Updated technical challenges section with audio-confirmed findings
+  - Updated date to 2026-05-29
+- **Archive created**: `wiki/raw/pl-video-archive.md` + transcripts + key frames
+  - Transcripts: 2 files (22 KB total) → `wiki/raw/transcripts/`
+  - Key frames: 24 images (4.4 MB total) → `wiki/raw/raw-frames/`
+  - Videos + audio remain in `/tmp/` (temporary)
+- **index.md**: Added link to pl-video-archive
+
+## [2026-06-04] ingest | OSS Video STT Batch Processing — 14 videos
+
+- **Source**: 14 videos from OSS `easycraft-securemetric` bucket (ap-southeast-3)
+- **Pipeline**: Download → ffmpeg extract audio → upload to OSS → signed URL → DashScope Paraformer-v2 STT
+- **Total**: 14 transcripts, ~93,000 characters, saved to `wiki/raw/transcripts-oss/`
+- **Videos processed**: contact_lead_creation, contract_payment_schedule, lead_conversion_queue_task, lead_import, lead_management, new_pl_management, opportunity_management, pi, pl_creation, po_so_creation, quotation, quotation_template_discussion, quotation_v2, sales_order_v2
+- **Audio files**: Uploaded to OSS `stt-audio/` prefix
+- **Key knowledge confirmed**: Multi-user P&L collaboration (Sales rep ↔ Solution Architect), global discount ON/OFF behavior, approval routing conditions (margin < target → supervisor), margin vs markup distinction, 7 P&L category tabs with badges, SO 9-tab navigation, embedded Payment Schedule with revenue split, Circulate workflow, Invoice Application Project/Milestone billing
+
+## [2026-06-04] update | Screenshots added to user manuals
+
+- **14 videos processed**: Extracted ~900+ frames, verified 11 key screenshots via vision_analyze
+- **New screenshots added to wiki/assets/**: contact-001/002, lead-001~008, opportunity-001 (11 new)
+- **Total assets**: 40 screenshots (lead: 8, contact: 2, opportunity: 1, pl: 9, quote: 5, so-v2: 7, ir: 7)
+- **HTML manuals updated**: lead-manual-zh.html (8 screenshots), contact-manual-zh.html (2), opportunity-manual-zh.html (1)
+- **Image pipeline**: ffmpeg fps=1/15 → raw-frames → vision_analyze → assets/ → markdown references → generate.py
+- **English manuals**: Screenshots not yet added (pending)
+
+## [2026-06-04] update | More screenshots added + HTML regenerated
+
+- **New screenshots**: quotation-001 (Quotation Create form), quotation-002 (Quotation foot section with T&C and signature)
+- **Updated manuals**: quotation-manual-zh.html (2 screenshots), lead-manual-en.html (3 screenshots)
+- **Total assets**: 42 screenshots in wiki/docs/output/assets/
+- **Total screenshots per manual**:
+  - lead-manual-zh: 8, lead-manual-en: 3
+  - contact-manual-zh: 2, contact-manual-en: 0
+  - opportunity-manual-zh: 1, opportunity-manual-en: 0
+  - pl-quotation (zh/en): 13 each
+  - quotation-manual-zh: 2, quotation-manual-en: 0
+  - sales-order-v2 (zh/en): 7 each
+  - invoice-application (zh/en): 7 each
+- **HTTP server**: Running on http://localhost:8080
+
+## [2026-06-04] archive | Deprecated 3 outdated Playwright test knowledge pages
+
+- **Archived (renamed to -DEPRECATED.md)**:
+  - `hermes-test-system-prompt.md` — Was based on pytest + Python framework. Current project uses Playwright + TS Schema-Driven architecture.
+  - `prompt-templates.md` — Referenced non-existent files (FormEngine.ts, lead.fields.ts). Described Registry 4-layer model, not Schema → FillerFactory → FormTestBuilder.
+  - `best-practices-create-form.md` — Described Layer 1-4 Registry model (812 lines), completely mismatched with current architecture.
+- **Path update**: `hermes-wiki-prompt.md` — Updated all Wiki paths from `CRM-Securemetric/wiki` → `crm-test-securemetric/wiki`
+- **index.md**: Removed references to archived pages, updated total count
+- **Wiki migration note**: Wiki primary path moved from `CRM-Securemetric/wiki` to `crm-test-securemetric/wiki`, fallback to original preserved
+
+## [2026-06-04] rule | P&L naming convention — customer-facing must use "P&L", not "PL"
+
+- **Rule**: 对外（客户/文档/测试描述/页面标题）统一叫 **P&L**（Profit & Loss），不叫 PL
+- **代码/文件保持不变**: `pl.md`、`pl.spec.ts`、`mk_km_ltc_pl.json` 等技术缩写不变
+- **Updated files**:
+  - `entities/pl.md` — Title changed to "P&L Entity (Profit & Loss)", added Naming Rule section
+  - `SCHEMA.md` — Module description corrected from "PL (Product License / Price List)" to "P&L (Profit & Loss)"
+  - `index.md` — Entity entry changed from "PL module" to "P&L module"
+  - `log.md` — Historical references corrected from PL → P&L
+
+## [2026-06-04] schema | Generated opportunity + product schemas + created collection + delivery entity pages
+
+- **Schema generated (via generate-schemas.spec.ts)**:
+  - `mk_km_ltc_business.json` → Opportunity (商机): 34 fields + 2 detail tables (products table + contacts table). formId confirmed as `mk_km_ltc_business` (CRM model name).
+  - `mk_km_ltc_new_product.json` → Product (产品): 27 fields, 0 detail tables. formId: `mk_km_ltc_new_product`.
+- **Wiki entity pages updated**:
+  - `entities/product.md` — Rewritten with 27-field schema-driven Field Registry. Old Page Object references removed.
+- **Wiki entity pages created**:
+  - `entities/collection.md` — NEW: 16 fields, finance confirmation workflow, bank receipt attachment.
+  - `entities/delivery.md` — NEW: 19 fields, SO-linked shipment tracking, courier info.
+- **index.md** — Updated entity entries for product/opportunity with schema info, added collection and delivery, page count ~42 → ~46.
+- **generate-schemas.spec.ts** — Added Opportunity and Product modules to MODULES array.
+- **Schema ↔ Wiki mapping**:
+  | Schema | Wiki Entity | Fields |
+  |--------|------------|--------|
+  | mk_ltc_lead.json | lead | 65 |
+  | mk_km_ltc_contacts.json | contact | ✅ exists |
+  | mk_km_ltc_customer.json | customer | 41 |
+  | mk_km_ltc_business.json | opportunity | 34 + 2 detail tables |
+  | mk_km_ltc_new_product.json | product | 27 |
+  | mk_km_ltc_pl.json | P&L | 19 |
+  | mk_km_ltc_quotation.json | quote | 47 |
+  | mk_km_ltc_sales_orders.json | so | 49 |
+  | mk_model_po.json | po | 13 |
+  | mk_ltc_contract.json | contract | 12 |
+  | mk_ltc_delievery.json | delivery | 19 |
+  | mk_km_ltc_invoicing.json | invoice-application | 52 |
+  | mk_km_ltc_collection.json | collection | 16 |
+  | mk_ltc_delievery.json | delivery | 19 |
+
+## [2026-06-04] create | User manuals generated for 6 new modules
+
+- **New user manual files (12 total, EN + ZH)**:
+  - `customer-manual-en.md` / `customer-manual-zh.md` — Customer account management, public pool, joint followers, address detail table
+  - `po-manual-en.md` / `po-manual-zh.md` — PO entry, Quotation auto-population, approval workflow, PO→SO prerequisite
+  - `contract-manual-en.md` / `contract-manual-zh.md` — Contract fields, reminder sub-table, file sync to Customer 360
+  - `payment-schedule-manual-en.md` / `payment-schedule-manual-zh.md` — Receivable tracking, PP-ID format, 50/50 split, completion % → Invoice trigger
+  - `collection-manual-en.md` / `collection-manual-zh.md` — Customer payment collection, finance confirmation, bank receipt upload
+  - `delivery-manual-en.md` / `delivery-manual-zh.md` — Shipment tracking, courier details, MYR freight management
+- **generate.py**: Added 6 new module entries to MODULES dict
+- **HTML regenerated**: 26 manuals + index.html + search-index.json (26 entries)
+- **Total user manuals**: 13 modules (was 7)
+
+## [2026-06-04] ingest | DOCX: Securemetric CRM_new features.docx
+
+- **Source**: `doc/用户手册-提示词/Securemetric CRM_new features.docx`
+- **Content**: 5 sections — Pipeline Kanban View, Duplicate Check, P&L Collaboration, Quotation
+- **Images extracted**: 9 PNG screenshots → `wiki/raw-frames/new-features-docx/`
+- **Images verified**: All 9 verified with vision_analyze → copied to `wiki/assets/`
+  - `pipeline-kanban-001.png` — Pipeline Kanban dashboard with 6-stage summary bar
+  - `duplicate-check-001.png` — Duplicate Check search results with yellow highlighting
+  - `pl-collaborate-001.png` — P&L Create sidebar with Collaborate option selected
+  - `pl-collaborate-002.png` — EasyCraft user picker modal (selecting Danny)
+  - `pl-collaborate-003.png` — Message Center To-do Items (collaborative task notification)
+  - `pl-details-001.png` — P&L Details page with edit button highlighted
+  - `pl-details-002.png` — P&L Details with submit operation highlighted
+  - `pl-collaborate-004.png` — P&L Create sidebar (alternate state)
+  - `opportunity-details-001.png` — Opportunity Details with Quotation tab and Create button
+
+## [2026-06-04] create | entities/pipeline-kanban.md
+
+- **New entity page** for CRM Pipeline Kanban Dashboard
+- 6-stage pipeline: LEAD → OPPORTUNITY → QUOTATION → PO → SALES ORDER → PAYMENT
+- Stage summary bar with count + value per stage
+- Filter bar (TIME / ENTITY / REP)
+- Pipeline Deals table with dot-track progress indicators
+- Navigation: click row → detail page
+
+## [2026-06-04] create | entities/duplicate-check.md
+
+- **New entity page** for Duplicate Check module
+- Fuzzy search across contacts & customers
+- Split tab results with count badges
+- Yellow highlight matching text
+
+## [2026-06-04] update | entities/pl.md
+
+- Added **Multi-User Collaboration Workflow** section with 5 new screenshots
+- Complete collaboration flow: Initiator → Collaborate → Recipient → Edit → Submit back
+- Updated approval workflow conditions (HOD + Finance routing)
+- Process Approvals sidebar operation modes table (submit / Collaborate / Reply)
+- Source added: `doc/Securemetric CRM_new features.docx`
+
+## [2026-06-04] update | entities/opportunity.md
+
+- Added **CRM Pipeline Stages (Dashboard View)** section — distinguishes internal 4-stage pipeline from dashboard 6-stage pipeline
+- Added **Opportunity Details Page** section with screenshot reference
+- Source and related links updated
+
+## [2026-06-04] update | entities/customer.md, entities/contact.md
+
+- Added **Duplicate Check** section referencing the new entity page
+- Source and related links updated
+
+## [2026-06-04] update | Widget documentation
+
+|- Added **#22 Pipeline Dot-Track** control section
+|- Visual states: filled dot / ring / empty dot + stage tag
+|- Quick reference table updated
+
+## [2026-06-05] ingest | 3 OSS Videos — Contract, Service Team, Task Management
+
+- **Source 1**: `Contract & Payment Schedule.mp4` (92.4 MB, 92 frames extracted, 8 key frames analyzed)
+- **Source 2**: `Service Team& Activity.mp4` (22.0 MB, 34 frames extracted, 6 key frames analyzed)
+- **Source 3**: `Task Management.mp4` (16.4 MB, 27 frames extracted, 5 key frames analyzed)
+
+### New entity page created:
+- **`entities/contract.md`** — Contract module field registry (Contract Create form with 8 fields, Reminder section with user notification, auto-generated Contract ID, SO-driven creation)
+
+### Pages updated:
+- **`entities/so.md`** — Payment Schedule Details page expanded with 20+ fields (Status, Contract link, A/R Amount, Receivable %, Payment Type, financial calculation logic), Tabs (Detail Information | Payment Detail | Billing Detail | System Record)
+- **`entities/opportunity.md`** — Add Team Members modal documented (Permission: Read-Only/Read-Write radio, Team Role: Ordinary Members checkbox, Project Role: Customer Manager checkbox)
+- **`entities/lead.md`** — Lead Conversion Step 2 enriched: Currency (MYR/IDR), Exchange Rate, Entity (SCMY/PTSM), Contacts tag input, Sales Record auto-fill; **NEW: Carry Over Information section** (Copy Team to Customer/Contact/Opportunity, Copy Activities to Customer/Contact/Opportunity)
+- **`entities/task.md`** — NEW full entity page: Job Task Create/Details/Feedback workflow, 10 create fields, Task Feedback with Completion Progress slider + Rich Text Editor, Task workflow states (In progress → To be confirm → Completed), Sub-tasks, dual-channel reminders (To-Do + Email)
+- **`index.md`** — Added 3 videos (#15-17) to Processed Video Sources table, added [[task]] entity entry, updated source count 14 → 17
+
+### New knowledge added:
+- **Payment Schedule Details financial logic**: Receivable = Order Total × Receivable%; Uninvoiced = Receivable - Invoiced; Uncollected = Uninvoiced (when no payment)
+- **Contract reminder system**: Notify Who (user lookup) + X days before Expiry Date, multi-reminder support
+- **Service Team Permission model**: Read-Only vs Read-Write controls edit access; Team Role (Ordinary Members) vs Project Role (Customer Manager) defines functional role
+- **Lead Conversion data inheritance**: Service Team and Activity history can be copied to Customer/Contact/Opportunity during conversion (checkboxes with tooltip)
+- **Task workflow states**: In progress → To be confirm → Completed; "Task completed" button disabled after completion
+- **Task Feedback**: Completion Progress slider (0-100%), Rich Text Editor (WYSIWYG with toolbar), Notify Owner/CC checkboxes
+- **Currency conversion in Lead Conversion**: IDR × Exchange Rate (0.000223) = MYR Value; MYR Value × Win Rate (25%) = Weighted amount
+- **Bug findings from spreadsheet**: (1) Payment Schedule 'Contract' field should show 'Sales Order' instead, (2) Permission bug — non-owner can edit payment schedule
+
+## [2026-06-05] create | Deep Documentation — 3 modules with audio+visual analysis
+
+- **New documentation pages created in `wiki/docs/`**:
+  - **`module-contract-payment-deep.md`** (12 KB) — Contract & Payment Schedule: 2 complete field reference tables, financial calculation logic, 6 known bugs, 9 test scenarios, permission model explained
+  - **`module-service-team-activity-deep.md`** (10 KB) — Service Team & Activity: permission model, activity logging across 4 entities, lead conversion carry-over, 3 known bugs, 8 test scenarios
+  - **`module-task-management-deep.md`** (11 KB) — Task Management: complete task lifecycle, create/feedback workflow, reminder system, sub-tasks, 10 test scenarios
+
+- **Audio analysis completed**: 3 videos with STT transcription (8,843 + 4,423 + 2,869 = 16,135 chars total)
+  - Combined with visual analysis (20 key frames) for comprehensive documentation
+  - Documents designed for new team members to quickly understand the system
+
+- **index.md updated**: Added "Deep Documentation" section with links to all 3 docs
+
+## [2026-06-05] create | Comprehensive Deep Test Cases — Full System (39 test cases)
+
+- **New document**: `wiki/test-cases/en/CRM_TestCases_FullSystem_2026-06-05.md` (58 KB, 1,614 lines, 39 test cases)
+- **Scope**: Deep business logic tests across all 15 CRM modules — NOT basic CRUD operations
+- **Methodology**: Based on 17 video analyses (visual + STT audio), Business Blueprint V1, DOCX new features, schema-driven field registries
+- **Video order analysis**: Most recent features (2026-06-05 videos) take precedence over earlier definitions; deprecated/superseded features excluded
+- **Coverage by module**: P&L (6), Lead (5), Opportunity (5), Quotation (4), Cross-Module (4), SO (3), Task (3), Invoice Application (2), PO (1), Contract (1), Payment Schedule (1), Collection (1), Delivery (1), Pipeline Kanban (1), Duplicate Check (1)
+- **Coverage by priority**: P0 (1), P1 (20), P2 (17), P3 (1)
+- **Coverage by role**: Sales Rep (26), Sales Manager (10), PM (1), Finance User (1), Operations (1)
+- **Key test categories**: Data Inheritance, Financial Calculation, Permission Enforcement, Approval Routing, Multi-User Collaboration, End-to-End Pipeline, Currency Consistency, Entity Isolation, Version Control
+- **Known bug regression tests included**: 5 known bugs tracked with regression test cases
+
+## [2026-06-05] create | User Manuals — Service Team & Activity + Task Management (bilingual)
+
+- **New user manual pages created in `wiki/user-manuals/`** (4 files, ~1,400 lines total):
+  - **`service-team-activity-manual-en.md`** — Service Team & Activity Log (English): 6 sections covering Service Team member management, Activity Log creation, Lead Conversion carry-over, business rules, FAQ (7 Q&A)
+  - **`service-team-activity-manual-zh.md`** — 服务团队与活动日志（中文）: complete bilingual mirror of EN manual
+  - **`task-management-manual-en.md`** — Task Management (English): 8 sections covering full Owner/Executor/CC workflow, Task Feedback modal, Sub-tasks, Reminder configuration, FAQ (8 Q&A)
+  - **`task-management-manual-zh.md`** — 任务管理（中文）: complete bilingual mirror of EN manual
+- **Source**: `wiki/docs/module-service-team-activity-deep.md` + `wiki/docs/module-task-management-deep.md` (created same day)
+- **index.md updated**: Added "User Manuals" section with full bilingual index table (17 modules)
+
+## [2026-06-09] update | Excel Test Cases Ingestion — Full System (34 test cases)
+
+- **Source file**: `doc/测试用例/CRM_TestCases_FullSystem_EN_2026-06-05(1).xlsx`
+- **Content**: 34 test cases (TC-001 to TC-034) across 15 CRM modules
+- **Coverage**: Lead(5), Opportunity(5), P&L(6), Quotation(4), PO(1), SO(3), Contract(1), Payment Schedule(2), Invoice Application(2), Collection(1), Delivery(1), Task(1), Pipeline Kanban(1), Duplicate Check(1), Cross-Module E2E(1)
+- **Priority breakdown**: P0(1), P1(19), P2(14)
+- **Known bugs tracked**: 5 regression tests (TC-007, TC-015, TC-024)
+
+### Wiki Pages Updated
+
+- **Entity pages** (15 files) — Added "Test Cases from Excel (2026-06-05)" table to each:
+  - `entities/lead.md`, `entities/opportunity.md`, `entities/pl.md`
+  - `entities/quote.md`, `entities/po.md`, `entities/so.md`
+  - `entities/contract.md`, `entities/payment-schedule.md`, `entities/invoice-application.md`
+  - `entities/collection.md`, `entities/delivery.md`, `entities/task.md`
+  - `entities/pipeline-kanban.md`, `entities/duplicate-check.md`
+- **Known bugs added to entity pages** (#20-#24):
+  - #20: Owner Without Service Team Access Can Create Child Records (Opportunity)
+  - #21: Non-Owner Can Edit Payment Schedule (SO)
+  - #22: P&L Product Selection — Software Products Not Selectable
+  - #23: P&L Product Selection — Opportunity Products Don't Auto-Fill
+  - #24: P&L Product Selection — Third-Party Filter Not Scoped
+- **Index** (`index.md`) — Updated pitfall count (15→19), updated metadata
+- **All updated pages**: frontmatter `updated` date set to 2026-06-09
+
+## [2026-06-09] update | User Manual Batch 1 — Opportunity + P&L/Quotation
+
+- **4 files updated** (EN + ZH pairs):
+  - **`opportunity-manual-en.md`** + **`opportunity-manual-zh.md`**:
+    - Added "Add Team Members" modal full workflow (Members, Permission, Team Role, Project Role)
+    - Added "Activity Log / Interaction Log" section (6 fields, submission behavior)
+    - Expanded "Ownership Transfer" logic (Original Owner Disposition, Team Continuity options)
+    - Added Known Bug: Owner Without Service Team Access (TC-007)
+  - **`pl-quotation-manual-en.md`** + **`pl-quotation-manual-zh.md`**:
+    - Added "Multi-User Collaboration" workflow (Collaborate → Submit back → submit)
+    - Expanded "Approval Workflow Logic" with 4 routing conditions (HOD, Key Products, Finance, Auto-approve)
+    - Added "Quotation Circulate Workflow" section (pre-approval review with comments and response enforcement)
+    - Updated margin formula clarification
+
+## [2026-06-09] update | User Manual Batch 2 — SO / Payment Schedule / Task / Lead Enum
+
+- **8 files updated** (EN + ZH pairs):
+  - **`sales-order-manual-v2-en.md`** + **`sales-order-manual-v2-zh.md`**:
+    - Added "By Percentage" milestone type with step-by-step setup instructions
+    - Added Statistic Bar calculations (5 metrics with formulas)
+    - Added Known Bug: Non-Owner Can Edit Payment Schedule (TC-024)
+  - **`payment-schedule-manual-en.md`** + **`payment-schedule-manual-zh.md`**:
+    - Added "Change Completion %" step-by-step operation (6 steps)
+    - Added Receivable Calculation formulas table
+    - Added Payment Schedule ID format and Status Transitions
+    - Added Known Bug note about permission issue
+  - **`task-management-manual-en.md`** + **`task-management-manual-zh.md`**:
+    - Expanded "Confirming Completion" with Pass vs Complete the task distinction
+    - Added two-action table (when to use each, what result)
+    - Clarified that Pass can be used multiple times, Complete the task is final
+  - **`lead-manual-en.md`** + **`lead-manual-zh.md`**:
+    - Added "Enum Validation & Error Handling" section with validation table
+    - Added Import Result Summary explanation
+
+## [2026-06-13] update | User Manual V1.1 Batch A — opportunity / contact / quotation / contract (8 files)
+
+- **Files upgraded** (EN + ZH pairs, V1.0 → V1.1):
+  - **`opportunity-manual-en.md`** + **`opportunity-manual-zh.md`**:
+    - Added full Status Matrix (进行中/暂停/赢单/输单/无效 × terminal / reversible)
+    - Added Stage Pipeline table with win-rate references
+    - Added Lifecycle ASCII diagram (线索转换 → 阶段推进 → 终态)
+    - Added Role Permission table (9 permissions × 3 roles)
+    - Expanded FAQ to 9 items (P&L versions, service team visibility, stage reset)
+  - **`contact-manual-en.md`** + **`contact-manual-zh.md`**:
+    - Added Relationship Scoring table (Coach/Champion/Supporter/Neutral/Blocker with scores 5-1)
+    - Added Contact Map section (hierarchy visualisation)
+    - Added Role Permission table
+    - Added bulk import / export / print / delete / Change Owner sections
+    - Expanded FAQ to 10 items
+  - **`quotation-manual-en.md`** + **`quotation-manual-zh.md`** (formerly pl-quotation-manual):
+    - Split P&L and Quotation into dedicated sections with clearer boundaries
+    - Added P&L Status Matrix (草稿/审批中/已批准/已拒绝/已取消)
+    - Added Quotation Status Matrix (草稿/待审批/已批准/已过期)
+    - Added Role Permission table covering P&L + Quotation permissions
+    - Expanded Approval Workflow with 4 routing conditions
+    - Expanded FAQ to 10 items
+  - **`contract-manual-en.md`** + **`contract-manual-zh.md`**:
+    - Added Status Matrix (草稿/生效中/已过期/已终止)
+    - Added Lifecycle ASCII diagram
+    - Added Role Permission table
+    - Added bulk operations section (export / print / delete)
+    - Expanded FAQ to 8 items
+
+---
+
+## [2026-06-13] update | User Manual V1.1 Batch B — service-team-activity / task-management / duplicate-check (6 files)
+
+- **Files upgraded** (EN + ZH pairs, V1.0 → V1.1):
+  - **`service-team-activity-manual-en.md`** + **`service-team-activity-manual-zh.md`** (470/467 lines):
+    - Added §3.2 Sales Record Entry Points — table of all 5 access paths including ACTIVITY main module
+    - Added §4 Visit Plan — create form fields, 4-status flow, convert-to-Activity-Log operation
+    - Added §5 Field Check-In — check-in from Visit Plan or standalone; team summary view
+    - Added §6 Daily Report — fields, submit/edit rules, manager vs staff view, next-day reminder
+    - Added §7 To-Do Messages & Follow-up Timeout — 6 trigger scenarios table + timeout ASCII lifecycle
+    - Added §9.1 Role Permission table (11 permissions × 3 roles)
+    - Expanded FAQ to 11 items (visit plan lead time, GPS check-in, daily report edit, timeout reset)
+  - **`task-management-manual-en.md`** + **`task-management-manual-zh.md`** (459/459 lines):
+    - Added §4 Task Views — from parent record, from To-Do panel, Task List page (filter + column tables)
+    - Added §8 Task Order (任务令) — formal directive requiring Executor acknowledgement; lifecycle ASCII (Issued→Acknowledged→In Progress→Pending→Completed); compare table vs regular task; lock-after-acknowledge rule
+    - Added §9.1 Role Permission table (8 permissions × 3 roles, including Task Order — Issue permission)
+    - Expanded FAQ to 10 items (task order vs regular task, lock rule)
+  - **`duplicate-check-manual-en.md`** + **`duplicate-check-manual-zh.md`** (329/329 lines):
+    - Fixed title: "重名检查" → "查重（Duplicate Check）"
+    - Added §5 Common Operations — Import (5-step: template → fill → upload → preview → confirm), Export (2 paths), Print, Delete (single + batch), Batch Operations summary table
+    - Added §6 Change Owner — single record (new owner + original owner disposition options), batch change
+    - Added §7 Work Handover (工作交接) — full-user bulk transfer; step-by-step ASCII flow; options table (keep in service team, email notify); post-handover audit log
+    - Updated §8 Business Rules (3 new rules: import permission, deletion permanent, handover audit)
+    - Expanded FAQ to 10 items (import format error, batch delete recovery, handover effect on activity logs)
